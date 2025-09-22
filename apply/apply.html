@@ -31,7 +31,7 @@
 
 <div class="container mt-5">
   <h2>Apply for Personal Loan</h2>
-  <form id="loanForm" class="p-4 border rounded shadow bg-light">
+  <form id="loanForm" class="p-4 border rounded shadow bg-light" enctype="multipart/form-data">
     <div class="mb-3">
       <label for="name">Full Name</label>
       <input type="text" id="name" class="form-control" required>
@@ -47,6 +47,18 @@
     <div class="mb-3">
       <label for="phone">Phone Number</label>
       <input type="tel" id="phone" class="form-control" pattern="[0-9]{10}" required>
+    </div>
+    <div class="mb-3">
+      <label for="city">City</label>
+      <input type="text" id="city" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="pincode">Pincode</label>
+      <input type="text" id="pincode" class="form-control" pattern="[0-9]{6}" required>
+    </div>
+    <div class="mb-3">
+      <label for="company">Company Name</label>
+      <input type="text" id="company" class="form-control" required>
     </div>
     <div class="mb-3">
       <label for="loanAmount">Loan Amount (INR)</label>
@@ -78,43 +90,76 @@
       <label for="monthlyIncome">Monthly Income (INR)</label>
       <input type="number" id="monthlyIncome" class="form-control" required>
     </div>
+    <div class="mb-3">
+      <label for="documents">Upload Documents (PDF/JPG/PNG)</label>
+      <input type="file" id="documents" class="form-control" multiple required>
+      <small class="text-muted">You can upload multiple files.</small>
+      <ul id="fileList" class="mt-2"></ul>
+    </div>
     <button type="submit" class="btn btn-primary w-100">Submit Application</button>
   </form>
 </div>
 
 <script>
-document.getElementById("loanForm").addEventListener("submit", async function(e){
+const loanForm = document.getElementById("loanForm");
+const documentsInput = document.getElementById("documents");
+const fileList = document.getElementById("fileList");
+
+// Preview uploaded files
+documentsInput.addEventListener("change", () => {
+  fileList.innerHTML = "";
+  const files = documentsInput.files;
+  if (files.length === 0) {
+    fileList.innerHTML = "<li>No files selected</li>";
+  } else {
+    for (let i = 0; i < files.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = `${files[i].name} (${Math.round(files[i].size / 1024)} KB)`;
+      fileList.appendChild(li);
+    }
+  }
+});
+
+// Handle form submission
+loanForm.addEventListener("submit", async function(e){
   e.preventDefault();
 
-  const data = {
-    name: document.getElementById("name").value,
-    dob: document.getElementById("dob").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
-    loanAmount: document.getElementById("loanAmount").value,
-    loanTerm: document.getElementById("loanTerm").value,
-    employmentStatus: document.getElementById("employmentStatus").value,
-    monthlyIncome: document.getElementById("monthlyIncome").value
-  };
+  const formData = new FormData();
+  formData.append("name", document.getElementById("name").value);
+  formData.append("dob", document.getElementById("dob").value);
+  formData.append("email", document.getElementById("email").value);
+  formData.append("phone", document.getElementById("phone").value);
+  formData.append("city", document.getElementById("city").value);
+  formData.append("pincode", document.getElementById("pincode").value);
+  formData.append("company", document.getElementById("company").value);
+  formData.append("loanAmount", document.getElementById("loanAmount").value);
+  formData.append("loanTerm", document.getElementById("loanTerm").value);
+  formData.append("employmentStatus", document.getElementById("employmentStatus").value);
+  formData.append("monthlyIncome", document.getElementById("monthlyIncome").value);
+
+  const docs = documentsInput.files;
+  for(let i=0; i<docs.length; i++){
+    formData.append("documents", docs[i]);
+  }
 
   try {
     const res = await fetch("/.netlify/functions/sendEmail", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+      body: formData
     });
 
     const result = await res.json();
 
     if (res.ok) {
       alert("✅ Application submitted successfully!");
-      this.reset();
+      loanForm.reset();
+      fileList.innerHTML = "";
     } else {
       alert("❌ Failed: " + (result.error || result.message));
     }
   } catch(err) {
     console.error(err);
-    alert("❌ Failed to send email. Please try again later.");
+    alert("❌ Failed to send application. Please try again later.");
   }
 });
 </script>
