@@ -7,109 +7,115 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand fw-bold" href="../index.html">
-            <img src="../assets/logo.png" alt="Atyant Loan Solutions Logo" width="30" height="30">
-            Atyant Loan Solutions
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="../apply/apply.html">Apply</a></li>
-                <li class="nav-item"><a class="nav-link" href="../about/about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="../contact/contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="../cal/cal.html">Calculator</a></li>
-            </ul>
-        </div>
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="../index.html">
+      <img src="../assets/logo.png" alt="Atyant Loan Solutions Logo" width="30" height="30">
+      Atyant Loan Solutions
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="./apply.html">Apply</a></li>
+        <li class="nav-item"><a class="nav-link" href="../about/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="../contact/contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="../cal/cal.html">Calculator</a></li>
+      </ul>
     </div>
+  </div>
 </nav>
 
 <div class="container mt-5">
-    <h2>Apply for Personal Loan</h2>
-    <form id="loanForm">
-        <div class="mb-3">
-            <label for="fullName">Full Name:</label>
-            <input type="text" id="fullName" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="email">Email:</label>
-            <input type="email" id="email" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" class="form-control" pattern="[0-9]{10}" required>
-        </div>
-        <div class="mb-3">
-            <label for="loanAmount">Loan Amount (INR):</label>
-            <input type="number" id="loanAmount" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label for="loanTerm">Loan Term (Years):</label>
-            <select id="loanTerm" class="form-control" required>
-                <option value="1">1 Year</option>
-                <option value="2">2 Years</option>
-                <option value="3">3 Years</option>
-                <option value="4">4 Years</option>
-                <option value="5">5 Years</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="employmentStatus">Employment Status:</label>
-            <select id="employmentStatus" class="form-control" required>
-                <option value="Employed">Employed</option>
-                <option value="Self-Employed">Self-Employed</option>
-                <option value="Unemployed">Unemployed</option>
-                <option value="Student">Student</option>
-            </select>
-        </div>
-        <div class="mb-3">
-            <label for="monthlyIncome">Monthly Income (INR):</label>
-            <input type="number" id="monthlyIncome" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Submit Application</button>
-    </form>
-
-    <div id="thankYouMessage" class="alert alert-success mt-3 d-none">
-        Thank you for applying! We will get back to you soon.
+  <h2>Apply for Personal Loan</h2>
+  <form id="loanForm" class="p-4 border rounded shadow bg-light">
+    <div class="mb-3">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" class="form-control" required>
     </div>
+    <div class="mb-3">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" class="form-control" pattern="[0-9]{10}" required>
+    </div>
+    <div class="mb-3">
+      <label for="loanAmount">Loan Amount (INR)</label>
+      <input type="number" id="loanAmount" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label for="loanTerm">Loan Term (Years)</label>
+      <select id="loanTerm" class="form-control" required>
+        <option value="1">1 Year</option>
+        <option value="2">2 Years</option>
+        <option value="3">3 Years</option>
+        <option value="4">4 Years</option>
+        <option value="5">5 Years</option>
+        <option value="6">6 Years</option>
+        <option value="7">7 Years</option>
+        <option value="8">8 Years</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="employmentStatus">Employment Status</label>
+      <select id="employmentStatus" class="form-control" required>
+        <option value="Employed">Employed</option>
+        <option value="Self-Employed">Self-Employed</option>
+        <option value="Unemployed">Unemployed</option>
+        <option value="Student">Student</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="monthlyIncome">Monthly Income (INR)</label>
+      <input type="number" id="monthlyIncome" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+  </form>
 </div>
 
 <script>
-document.getElementById("loanForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+document.getElementById("loanForm").addEventListener("submit", async function(e){
+  e.preventDefault();
 
-    const formData = {
-        name: document.getElementById("fullName").value,
-        dob: document.getElementById("dob").value,
-        email: document.getElementById("email").value,
-        phone: document.getElementById("phone").value,
-        loanAmount: document.getElementById("loanAmount").value,
-        loanTerm: document.getElementById("loanTerm").value,
-        employmentStatus: document.getElementById("employmentStatus").value,
-        monthlyIncome: document.getElementById("monthlyIncome").value
-    };
+  const data = {
+    name: document.getElementById("name").value,
+    dob: document.getElementById("dob").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    loanAmount: document.getElementById("loanAmount").value,
+    loanTerm: document.getElementById("loanTerm").value,
+    employmentStatus: document.getElementById("employmentStatus").value,
+    monthlyIncome: document.getElementById("monthlyIncome").value
+  };
 
-    try {
-        const res = await fetch("/.netlify/functions/sendEmail", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        });
-        const result = await res.json();
-        alert(result.message);
-        this.reset();
-    } catch(err) {
-        console.error(err);
-        alert("Failed to send email.");
+  try {
+    const res = await fetch("/.netlify/functions/sendEmail", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+
+    if (res.ok) {
+      alert("✅ Application submitted successfully!");
+      this.reset();
+    } else {
+      alert("❌ Failed: " + (result.error || result.message));
     }
+  } catch(err) {
+    console.error(err);
+    alert("❌ Failed to send email. Please try again later.");
+  }
 });
 </script>
 
