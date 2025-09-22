@@ -31,7 +31,7 @@
 
 <div class="container mt-5">
   <h2>Apply for Personal Loan</h2>
-  <form id="loanForm" class="p-4 border rounded shadow bg-light" enctype="multipart/form-data">
+  <form id="loanForm" class="p-4 border rounded shadow bg-light">
     <div class="mb-3">
       <label for="name">Full Name</label>
       <input type="text" id="name" class="form-control" required>
@@ -80,7 +80,7 @@
     <div class="mb-3">
       <label for="employmentStatus">Employment Status</label>
       <select id="employmentStatus" class="form-control" required>
-        <option value="Employed">Employed</option>
+        <option value="Employed">Salaried</option>
         <option value="Self-Employed">Self-Employed</option>
         <option value="Unemployed">Unemployed</option>
         <option value="Student">Student</option>
@@ -90,35 +90,12 @@
       <label for="monthlyIncome">Monthly Income (INR)</label>
       <input type="number" id="monthlyIncome" class="form-control" required>
     </div>
-    <div class="mb-3">
-      <label for="documents">Upload Documents (PDF/JPG/PNG)</label>
-      <input type="file" id="documents" class="form-control" multiple required>
-      <small class="text-muted">You can upload multiple files.</small>
-      <ul id="fileList" class="mt-2"></ul>
-    </div>
     <button type="submit" class="btn btn-primary w-100">Submit Application</button>
   </form>
 </div>
 
 <script>
 const loanForm = document.getElementById("loanForm");
-const documentsInput = document.getElementById("documents");
-const fileList = document.getElementById("fileList");
-
-// Preview uploaded files
-documentsInput.addEventListener("change", () => {
-  fileList.innerHTML = "";
-  const files = documentsInput.files;
-  if (files.length === 0) {
-    fileList.innerHTML = "<li>No files selected</li>";
-  } else {
-    for (let i = 0; i < files.length; i++) {
-      const li = document.createElement("li");
-      li.textContent = `${files[i].name} (${Math.round(files[i].size / 1024)} KB)`;
-      fileList.appendChild(li);
-    }
-  }
-});
 
 // Handle form submission
 loanForm.addEventListener("submit", async function(e){
@@ -137,15 +114,10 @@ loanForm.addEventListener("submit", async function(e){
   formData.append("employmentStatus", document.getElementById("employmentStatus").value);
   formData.append("monthlyIncome", document.getElementById("monthlyIncome").value);
 
-  const docs = documentsInput.files;
-  for(let i=0; i<docs.length; i++){
-    formData.append("documents", docs[i]);
-  }
-
   try {
     const res = await fetch("/.netlify/functions/sendEmail", {
       method: "POST",
-      body: formData
+      body: JSON.stringify(Object.fromEntries(formData))
     });
 
     const result = await res.json();
@@ -153,7 +125,6 @@ loanForm.addEventListener("submit", async function(e){
     if (res.ok) {
       alert("✅ Application submitted successfully!");
       loanForm.reset();
-      fileList.innerHTML = "";
     } else {
       alert("❌ Failed: " + (result.error || result.message));
     }
