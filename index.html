@@ -17,25 +17,35 @@
   </head>
 
   <body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="loader-container">
+        <div class="clock-loader">
+          <div class="hand hour"></div>
+          <div class="hand minute"></div>
+          <div class="hand second"></div>
+          <div class="center-dot"></div>
+        </div>
+        <p>Atyant Loan Solutions</p>
+      </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="./index.html">
-          <img src="./assets/logo.png" alt="Atyant Loan Solutions Logo" width="50" height="50" class="me-2"/>
+          <img src="./assets/logo.png" alt="Atyant Loan Solutions Logo" />
           <span>Atyant Loan Solutions</span>
         </a>
-        <!-- <button
-          class="navbar-toggler"
+        <button
+          class="navbar-toggler collapsed"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+          <span class="navbar-toggler-icon"><div></div></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link active" href="./index.html">Home</a></li>
@@ -59,7 +69,7 @@
 
     <!-- Banking Logos Section -->
     <section class="banks">
-<h2 style="text-align: center; margin: 40px 0 30px 0;">Trusted by Top Banks</h2>
+      <h2 style="text-align: center; margin: 40px 0 30px 0;">Trusted by Top Banks</h2>
       <div class="bank-slider">
         <div class="bank-track">
           <img src="./assets/logo/hdfc bank logo.jpg" alt="HDFC Bank" />
@@ -73,10 +83,8 @@
           <img src="./assets/logo/IDFC bank logo.png" alt="IDFC First Bank" />
           <img src="./assets/logo/Chola.jpg" alt="Cholamandalam" />
           <img src="./assets/logo/Yes bank logo.webp" alt="Yes Bank" />
-          <!-- Repeat logos to make scrolling seamless -->
           <img src="./assets/logo/hdfc bank logo.jpg" alt="HDFC Bank" />
           <img src="./assets/logo/Icici Bank Logo.jpg" alt="ICICI Bank" />
-
         </div>
       </div>
     </section>
@@ -164,17 +172,23 @@
         <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
         <p><strong>Phone:</strong> +91 7304228389 | <strong>Email:</strong> akram.shaikh@atyantloan.com</p>
         <div class="social-icons mb-3">
-                   <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
           <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="#" target="_blank" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-<a href="https://www.instagram.com/atyantloansolutions/" target="_blank" rel="noopener noreferrer">
-  <i class="fab fa-instagram"></i></a>
-
+          <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/atyantloansolutions/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
         </div>
         <p>&copy; 2025 Atyant Loan Solutions. All Rights Reserved.</p>
       </div>
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const preloader = document.getElementById("preloader");
+      window.addEventListener("load", function() {
+        preloader.style.opacity = "0";
+        preloader.style.transition = "opacity 0.5s ease";
+        setTimeout(() => preloader.style.display = "none", 500);
+      });
+    </script>
   </body>
 </html>
