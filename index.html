@@ -4,85 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Atyant Loan Solutions</title>
-    <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="index.css" />
-    <style>
-      .hero {
-        background: url("../assets/loan-bg.jpg") center/cover no-repeat;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        padding: 20px;
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-        font-weight: bold;
-      }
-
-      .benefit-icon {
-        font-size: 3rem;
-        color: #007bff;
-      }
-
-      .emi-calculator {
-        background-color: #f8f9fa;
-        padding: 40px 20px;
-        border-radius: 8px;
-      }
-    </style>
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a
-          class="navbar-brand"
-          style="font-weight: bold"
-          href="./index.html"
-        >
-          <img
-            src="../assets/logo.png"
-            alt="Atyant Loan Solutions Logo"
-            width="40"
-            height="40"
-          />
-          Atyant Loan Solutions
+        <a class="navbar-brand d-flex align-items-center" href="./index.html">
+          <img src="./assets/logo.png" alt="Atyant Loan Solutions Logo" width="50" height="50" class="me-2"/>
+          <span>Atyant Loan Solutions</span>
         </a>
-        <button
+        <!-- <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown"
         >
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> -->
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link active" href="./index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="../apply/apply.html">Apply</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../about/about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../contact/contact.html">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../cal/cal.html">Calculator</a>
-            </li>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="./index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="./apply/apply.html">Apply</a></li>
+            <li class="nav-item"><a class="nav-link" href="./about/about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="./contact/contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="./cal/cal.html">Calculator</a></li>
           </ul>
         </div>
       </div>
@@ -90,10 +50,34 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div style="color: black">
+      <div class="hero-content">
         <h1>Get Instant Personal Loans</h1>
         <p>Quick & hassle-free approval at low interest rates.</p>
-        <a href="../apply/apply.html" class="btn btn-primary btn-lg">Apply Now</a>
+        <a href="./apply/apply.html" class="btn btn-primary btn-lg">Apply Now</a>
+      </div>
+    </section>
+
+    <!-- Banking Logos Section -->
+    <section class="banks">
+<h2 style="text-align: center; margin: 40px 0 30px 0;">Trusted by Top Banks</h2>
+      <div class="bank-slider">
+        <div class="bank-track">
+          <img src="./assets/logo/hdfc bank logo.jpg" alt="HDFC Bank" />
+          <img src="./assets/logo/Icici Bank Logo.jpg" alt="ICICI Bank" />
+          <img src="./assets/logo/aditya-birla-capital.jpg" alt="ABCL" />
+          <img src="./assets/logo/Kotak_Mahindra_Bank_logo.png" alt="Kotak Bank" />
+          <img src="./assets/logo/Bajaj_Finserv_Logo.svg" alt="Bajaj Finserv" />
+          <img src="./assets/logo/Axis_Bank_logo.svg.png" alt="Axis Bank" />
+          <img src="./assets/logo/indusind bank logo.jpg" alt="Indusind Bank" />
+          <img src="./assets/logo/Tata_Capital_Logo.jpg" alt="Tata Capital" />
+          <img src="./assets/logo/IDFC bank logo.png" alt="IDFC First Bank" />
+          <img src="./assets/logo/Chola.jpg" alt="Cholamandalam" />
+          <img src="./assets/logo/Yes bank logo.webp" alt="Yes Bank" />
+          <!-- Repeat logos to make scrolling seamless -->
+          <img src="./assets/logo/hdfc bank logo.jpg" alt="HDFC Bank" />
+          <img src="./assets/logo/Icici Bank Logo.jpg" alt="ICICI Bank" />
+
+        </div>
       </div>
     </section>
 
@@ -101,17 +85,17 @@
     <section class="container text-center my-5">
       <h2>Why Choose Us?</h2>
       <div class="row mt-4">
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
           <div class="benefit-icon">💰</div>
           <h5>Low Interest Rates</h5>
           <p>Get the best interest rates for your loan.</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
           <div class="benefit-icon">⚡</div>
           <h5>Quick Approvals</h5>
           <p>Receive loan approvals in just a few hours.</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 mb-4">
           <div class="benefit-icon">📄</div>
           <h5>Minimal Documentation</h5>
           <p>Simple and easy application process.</p>
@@ -124,19 +108,23 @@
       <div class="container text-center">
         <h2>How It Works</h2>
         <div class="row mt-4">
-          <div class="col-md-3">
+          <div class="col-md-3 mb-3">
+            <div class="step-icon">📝</div>
             <h5>Step 1</h5>
             <p>Fill the online application form.</p>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 mb-3">
+            <div class="step-icon">📂</div>
             <h5>Step 2</h5>
             <p>Upload required documents.</p>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 mb-3">
+            <div class="step-icon">✔️</div>
             <h5>Step 3</h5>
             <p>Get loan approval in 24 hours.</p>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 mb-3">
+            <div class="step-icon">🏦</div>
             <h5>Step 4</h5>
             <p>Receive the amount in your bank.</p>
           </div>
@@ -148,183 +136,45 @@
     <section class="container my-5 text-center">
       <h2>What Our Customers Say</h2>
       <div class="row mt-4">
-        <div class="col-md-4">
-          <p>
-            "Atyant Loan Solutions helped me get my loan in just 2 days. Super
-            fast and easy!"
-          </p>
-          <strong>- Rahul Sharma</strong>
+        <div class="col-md-4 mb-4">
+          <div class="card p-3 shadow-sm h-100">
+            <p>"Atyant Loan Solutions helped me get my loan in just 2 days. Super fast and easy!"</p>
+            <strong>- Rahul Sharma</strong>
+          </div>
         </div>
-        <div class="col-md-4">
-          <p>
-            "Their interest rates are really competitive, and the service is
-            great!"
-          </p>
-          <strong>- Priya Verma</strong>
+        <div class="col-md-4 mb-4">
+          <div class="card p-3 shadow-sm h-100">
+            <p>"Their interest rates are really competitive, and the service is great!"</p>
+            <strong>- Priya Verma</strong>
+          </div>
         </div>
-        <div class="col-md-4">
-          <p>
-            "I got my loan approved with minimal paperwork. Highly recommended!"
-          </p>
-          <strong>- Aman Singh</strong>
+        <div class="col-md-4 mb-4">
+          <div class="card p-3 shadow-sm h-100">
+            <p>"I got my loan approved with minimal paperwork. Highly recommended!"</p>
+            <strong>- Aman Singh</strong>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Apply Now Section -->
-    <!-- <section id="apply-now" class="bg-primary text-white py-5">
-      <div class="container text-center">
-        <h2>Apply for a Personal Loan</h2>
-        <p>Fill in your details and get a loan instantly.</p>
-        <form
-          class="row g-3 mt-4"
-          id="loan-form"
-          action="/submit-application"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          <div class="col-md-4">
-            <input
-              type="text"
-              name="fullName"
-              class="form-control"
-              placeholder="Full Name"
-              required
-            />
-          </div>
-          <div class="col-md-4">
-            <input
-              type="email"
-              name="email"
-              class="form-control"
-              placeholder="Email"
-              required
-            />
-          </div>
-          <div class="col-md-4">
-            <input
-              type="tel"
-              name="phoneNumber"
-              class="form-control"
-              placeholder="Phone Number"
-              required
-            />
-          </div>
-          <div class="col-md-12">
-            <input
-              type="number"
-              name="loanAmount"
-              class="form-control"
-              placeholder="Loan Amount"
-              required
-            />
-          </div>
-          <div class="col-md-12">
-            <input
-              type="file"
-              name="documents"
-              class="form-control"
-              required
-              multiple
-            />
-          </div>
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-light btn-lg">
-              Submit Application
-            </button>
-          </div>
-        </form>
-      </div>
-    </section> -->
-
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
-      <div class="col-lg-3 col-md-6 footer-contact">
-        <h3>Atyant Loan Solutions</h3>
-        <p>
-            Office no 406 4th Floor,<br>
-            Kaveri Building near Sakinaka metro,<br>
-            Sakinaka,<br>
-            Andheri East,<br>
-            Mumbai-400072<br>
-            <strong>Phone:</strong>+91 7304228389<br>
-            <strong>Email:</strong> akram.shaikh@atyantloan.com
-            <br>
-          </p>
-      </div>
+    <footer>
+      <div class="container py-4 text-center">
+        <h5>Atyant Loan Solutions</h5>
+        <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
+        <p><strong>Phone:</strong> +91 7304228389 | <strong>Email:</strong> akram.shaikh@atyantloan.com</p>
+        <div class="social-icons mb-3">
+                   <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="#" target="_blank" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/atyantloansolutions/" target="_blank" rel="noopener noreferrer">
+  <i class="fab fa-instagram"></i></a>
 
-      <!-- <div class="col-lg-3 col-md-6 footer-contact"> -->
-        <div>
-        <h3>About us</h3>
-        <p>
-          At Atyant Loan Solutions, our mission is to build financial services that are simple, affordable and accessible in digital way.
-        </p>
-      </div>
-
-      <!-- <p>&copy; 2025 Atyant Loan Solutions. All rights reserved.</p> -->
-
-      <div class="container footer-bottom clearfix">
-        <div class="copyright">
-          &copy; Copyright <strong><span>Atyant Loan Solutions</span></strong>. All Rights Reserved
         </div>
-
+        <p>&copy; 2025 Atyant Loan Solutions. All Rights Reserved.</p>
+      </div>
     </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-      // Smooth scroll to the #apply-now section
-      document
-        .querySelector('a[href="#apply-now"]')
-        .addEventListener("click", function (e) {
-          e.preventDefault(); // Prevent the default anchor link behavior
-          document.querySelector("#apply-now").scrollIntoView({
-            behavior: "smooth", // This will ensure smooth scrolling
-          });
-        });
-
-      // EMI Calculation on form submit
-      document
-        .getElementById("emi-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault(); // Prevent form submission and page refresh
-
-          // Get values from input fields
-          var loanAmount = document.getElementById("loan-amount").value;
-          var interestRate = document.getElementById("interest-rate").value;
-          var loanTerm = document.getElementById("loan-term").value;
-
-          // Validate and parse loan amount
-          loanAmount = parseFloat(loanAmount);
-          if (isNaN(loanAmount) || loanAmount <= 0) {
-            alert("Please enter a valid loan amount.");
-            return;
-          }
-
-          // Validate and parse interest rate (allow decimal)
-          interestRate = parseFloat(interestRate);
-          if (isNaN(interestRate) || interestRate <= 0) {
-            alert("Please enter a valid interest rate.");
-            return;
-          }
-
-          // Validate and parse loan term
-          loanTerm = parseInt(loanTerm);
-          if (isNaN(loanTerm) || loanTerm <= 0) {
-            alert("Please enter a valid loan term.");
-            return;
-          }
-
-          // Convert annual interest rate to monthly rate (keep decimal precision)
-          var monthlyRate = interestRate / 100 / 12;
-
-          // Calculate EMI using the formula
-          var emi =
-            (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, loanTerm)) /
-            (Math.pow(1 + monthlyRate, loanTerm) - 1);
-
-          // Display the EMI amount
-          document.getElementById("emi-amount").innerText = emi.toFixed(2);
-          document.getElementById("emi-result").style.display = "block";
-        });
-    </script>
   </body>
 </html>
