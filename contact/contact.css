@@ -87,8 +87,8 @@ footer a { color: #0d6efd; margin: 0 10px; font-size: 1.2rem; transition: color 
 footer a:hover { color: #0b5ed7; transform: scale(1.2); }
 
 /* ===== Responsive ===== */
-@media (max-width: 576px) {
-  .navbar-brand span { font-size: 1.2rem; }
-  footer h5 { font-size: 1.2rem; }
-  footer p { font-size: 0.9rem; }
+@media(max-width:992px){.navbar-nav{flex-direction:column;align-items:center;gap:1rem;padding-top:10px;}.navbar-nav .nav-link{font-size:1.2rem;margin-left:0 !important;}.navbar-brand span{font-size:1.4rem;}}
+@media(max-width:768px){.hero h1{font-size:2rem;}.hero p{font-size:1rem;}.hero a.btn{font-size:1rem;padding:0.5rem 1rem;}.bank-track img{width:120px;height:60px;}}
+@media(max-width:480px){.bank-track img{width:100px;height:50px;}.step-icon{font-size:2rem;}.benefit-icon{font-size:2.5rem;}}
+@media (max-width: 576px) {.navbar-brand span { font-size: 1.2rem; }footer h5 { font-size: 1.2rem; }footer p { font-size: 0.9rem; }
 }
