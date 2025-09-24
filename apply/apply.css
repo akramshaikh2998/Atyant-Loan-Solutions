@@ -55,9 +55,161 @@ footer a:hover { text-decoration: underline; }
 @keyframes rotateMinute { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
 @keyframes rotateSecond { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
 
-/* ===== Responsive ===== */
-@media(max-width:992px){.navbar-nav{flex-direction:column;align-items:center;gap:1rem;padding-top:10px;}.navbar-nav .nav-link{font-size:1.2rem;margin-left:0 !important;}.navbar-brand span{font-size:1.4rem;}}
-@media(max-width:768px){.hero h1{font-size:2rem;}.hero p{font-size:1rem;}.hero a.btn{font-size:1rem;padding:0.5rem 1rem;}.bank-track img{width:120px;height:60px;}}
-@media(max-width:480px){.bank-track img{width:100px;height:50px;}.step-icon{font-size:2rem;}.benefit-icon{font-size:2.5rem;}}
-@media (max-width: 576px) {.navbar-brand span { font-size: 1.2rem; }footer h5 { font-size: 1.2rem; }footer p { font-size: 0.9rem; }
+
+/* ===== Responsive Breakpoints ===== */
+@media (max-width: 992px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 10px;
+  }
+  .navbar-nav .nav-link {
+    font-size: 1.2rem;
+    margin-left: 0 !important;
+  }
+  .navbar-brand span {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .hero a.btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  .bank-track img {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand span {
+    font-size: 1.2rem;
+  }
+  footer h5 {
+    font-size: 1.2rem;
+  }
+  footer p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bank-track img {
+    max-width: 100px;
+  }
+  .step-icon {
+    font-size: 2rem;
+  }
+  .benefit-icon {
+    font-size: 2.5rem;
+  }
+}
+
+/* ===== Extra Small (<=400px) ===== */
+@media (max-width: 400px) {
+  .navbar-brand span {
+    font-size: 1rem;
+  }
+  .navbar-toggler-icon {
+    width: 25px;
+    height: 18px;
+  }
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 0.4rem 0;
+  }
+
+  .hero {
+    height: 25vh;
+    padding: 10px;
+  }
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .bank-track img {
+    max-width: 30vw;
+  }
+
+  footer {
+    padding: 20px 10px;
+  }
+  footer p,
+  footer a {
+    font-size: 0.8rem;
+  }
+
+  .clock-loader {
+    width: 45px;
+    height: 45px;
+  }
+  .loader-container p {
+    font-size: 1rem;
+  }
+}
+
+/* ===== Ultra Small Devices (Galaxy Z Fold portrait, old iPhones, etc.) ===== */
+@media (max-width: 320px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+  .navbar-brand span {
+    font-size: 0.9rem;
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+    padding: 0.3rem 0;
+  }
+  .navbar-toggler-icon {
+    width: 22px;
+    height: 16px;
+  }
+
+  .hero {
+    height: 22vh;
+    padding: 8px;
+  }
+  .hero h1 {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+  .hero p {
+    font-size: 0.8rem;
+  }
+
+  .bank-track img {
+    max-width: 70px;
+  }
+
+  .benefit-icon,
+  .step-icon {
+    font-size: 1.8rem;
+  }
+
+  footer {
+    padding: 15px 8px;
+  }
+  footer p,
+  footer a {
+    font-size: 0.75rem;
+  }
+
+  .clock-loader {
+    width: 35px;
+    height: 35px;
+  }
+  .loader-container p {
+    font-size: 0.9rem;
+  }
 }
