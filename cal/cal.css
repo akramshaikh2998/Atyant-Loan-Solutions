@@ -1,13 +1,13 @@
 body { font-family: "Poppins", sans-serif; margin:0; padding:0; }
 
 /* Navbar Styles */
-.navbar { background-color: #212529 !important; padding: 0.8rem 1rem; }
+/* .navbar { background-color: #212529 !important; padding: 0.8rem 1rem; }
 .navbar-brand { display: flex; align-items: center; }
 .navbar-brand img { width: 40px; height: 40px; }
 .navbar-brand span { font-size: 1.7rem; font-weight: bold; color: white; margin-left: 0.5rem; }
 .navbar-nav .nav-link { color: #ffffff; font-weight: 500; margin-left: 0.8rem; transition: color 0.3s; }
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: #0d6efd; }
-.navbar-toggler { border-color: rgba(255, 255, 255, 0.3); }
+.navbar-toggler { border-color: rgba(255, 255, 255, 0.3); } */
 
 /* Hero */
 .hero {
@@ -55,6 +55,20 @@ footer .social-icons a:hover { transform: scale(1.2); color: #0d6efd; }
 @keyframes rotateMinute {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
 @keyframes rotateSecond {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
 
+
+/* ===== Navbar ===== */
+.navbar { background-color: #212529 !important; padding: 0.8rem 1rem; }
+.navbar-brand span { font-size: 1.5rem; font-weight: bold; color: white; }
+.navbar-nav .nav-link { color: white; margin-left: 0.8rem; transition: color 0.3s; }
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: #0d6efd; }
+.navbar-toggler { border-color: white; }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
 /* ===== Responsive ===== */
-@media(max-width:992px){ .hero h1{ font-size:2rem; } .hero p{ font-size:0.9rem; } }
-@media(max-width:576px){ .hero{ height:35vh; } .hero h1{ font-size:1.7rem; } .hero p{ font-size:0.8rem; } }
+/* ===== Responsive ===== */
+@media(max-width:992px){.navbar-nav{flex-direction:column;align-items:center;gap:1rem;padding-top:10px;}.navbar-nav .nav-link{font-size:1.2rem;margin-left:0 !important;}.navbar-brand span{font-size:1.4rem;}}
+@media(max-width:768px){.hero h1{font-size:2rem;}.hero p{font-size:1rem;}.hero a.btn{font-size:1rem;padding:0.5rem 1rem;}.bank-track img{width:120px;height:60px;}}
+@media(max-width:480px){.bank-track img{width:100px;height:50px;}.step-icon{font-size:2rem;}.benefit-icon{font-size:2.5rem;}}
+@media (max-width: 576px) {.navbar-brand span { font-size: 1.2rem; }footer h5 { font-size: 1.2rem; }footer p { font-size: 0.9rem; }
+}

@@ -1,5 +1,5 @@
 /* ===== Navbar & Mobile Responsive ===== */
-.navbar { padding: 0.8rem 1rem; }
+/* .navbar { padding: 0.8rem 1rem; }
 .navbar-brand { display: flex; align-items: center; }
 .navbar-brand img { width: 40px; height: 40px; }
 .navbar-brand span { font-size: 1.7rem; font-weight: bold; color: white; margin-left: 0.5rem; }
@@ -7,7 +7,18 @@
 .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: #0d6efd; }
 .navbar-toggler { border: none; }
 .navbar-toggler-icon { background-image: none; width: 30px; height: 20px; position: relative; display: flex; flex-direction: column; justify-content: space-between; }
-.navbar-toggler-icon div { height: 3px; width: 100%; background: #fff; border-radius: 2px; }
+.navbar-toggler-icon div { height: 3px; width: 100%; background: #fff; border-radius: 2px; } */
+
+/* ===== Navbar ===== */
+.navbar { background-color: #212529 !important; padding: 0.8rem 1rem; }
+.navbar-brand span { font-size: 1.5rem; font-weight: bold; color: white; }
+/* .navbar-brand img { width: 40px; height: 40px; } */
+.navbar-nav .nav-link { color: white; margin-left: 0.8rem; transition: color 0.3s; }
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: #0d6efd; }
+.navbar-toggler { border-color: white; }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
 
 /* ===== Hero Section ===== */
 .hero { background: url("../assets/loan-bg.jpg") center/cover no-repeat; height: 33vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px; position: relative; }
@@ -47,19 +58,8 @@ footer a:hover { text-decoration: underline; }
 @keyframes rotateSecond { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
 /* ===== Responsive ===== */
-@media(max-width: 992px) {
-  .navbar-nav { flex-direction: column; align-items: center; gap: 1rem; padding-top: 10px; }
-  .navbar-nav .nav-link { font-size: 1.2rem; margin-left: 0 !important; }
-  .navbar-brand span { font-size: 1.4rem; }
-}
-@media(max-width: 768px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
-  .hero a.btn { font-size: 1rem; padding: 0.5rem 1rem; }
-  .bank-track img { width: 120px; height: 60px; }
-}
-@media(max-width: 480px) {
-  .bank-track img { width: 100px; height: 50px; }
-  .step-icon { font-size: 2rem; }
-  .benefit-icon { font-size: 2.5rem; }
+@media(max-width:992px){.navbar-nav{flex-direction:column;align-items:center;gap:1rem;padding-top:10px;}.navbar-nav .nav-link{font-size:1.2rem;margin-left:0 !important;}.navbar-brand span{font-size:1.4rem;}}
+@media(max-width:768px){.hero h1{font-size:2rem;}.hero p{font-size:1rem;}.hero a.btn{font-size:1rem;padding:0.5rem 1rem;}.bank-track img{width:120px;height:60px;}}
+@media(max-width:480px){.bank-track img{width:100px;height:50px;}.step-icon{font-size:2rem;}.benefit-icon{font-size:2.5rem;}}
+@media (max-width: 576px) {.navbar-brand span { font-size: 1.2rem; }footer h5 { font-size: 1.2rem; }footer p { font-size: 0.9rem; }
 }
