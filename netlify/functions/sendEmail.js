@@ -11,6 +11,12 @@ exports.handler = async function (event) {
   try {
     const data = JSON.parse(event.body);
 
+    console.log("🔍 Environment check:", {
+      EMAIL: !!process.env.EMAIL,
+      PASSWORD: process.env.PASSWORD ? "✅ Loaded" : "❌ Missing",
+      RECEIVER: process.env.EMAIL_RECEIVER || "Not Set",
+    });
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -18,6 +24,8 @@ exports.handler = async function (event) {
         pass: process.env.PASSWORD,
       },
     });
+
+    console.log("📤 Sending mail from:", process.env.EMAIL);
 
     const mailOptions = {
       from: `"MoneyMarket Loan App" <${process.env.EMAIL}>`,
@@ -40,19 +48,17 @@ exports.handler = async function (event) {
     };
 
     await transporter.sendMail(mailOptions);
+    console.log("✅ Mail sent successfully!");
 
     return {
       statusCode: 200,
       body: JSON.stringify({ success: true, message: "Application sent!" }),
     };
   } catch (err) {
-    console.error("Email error:", err);
+    console.error("💥 Email error:", err);
     return {
       statusCode: 500,
-      body: JSON.stringify({
-        success: false,
-        error: "Failed to send application",
-      }),
+      body: JSON.stringify({ success: false, error: err.message }),
     };
   }
 };
