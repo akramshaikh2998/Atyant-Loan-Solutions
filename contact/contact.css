@@ -1,3 +1,4 @@
+/* ===== HTML & Body ===== */
 html, body {
   height: 100%;
   margin: 0;
@@ -7,9 +8,8 @@ html, body {
 
 body {
   flex: 1;
-  display: flex;
-  flex-direction: column;
   font-family: "Poppins", sans-serif;
+  background: #f8f9fa;
 }
 
 /* ===== Loader ===== */
@@ -17,59 +17,55 @@ body {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  z-index: 9999;
+  pointer-events: auto; /* blocks clicks only when visible */
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
-.loader-container p {
-  margin-top: 20px;
-  font-size: 1.5rem;
-  font-weight: bold;
+
+#preloader .spinner-border {
+  width: 2rem;
+  height: 2rem;
+  border-width: 0.25rem;
+}
+
+#preloader p {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: 500;
   color: #0d6efd;
-}
-.clock-loader {
-  position: relative;
-  width: 60px; height: 60px;
-  border: 4px solid #0d6efd;
-  border-radius: 50%;
-}
-.hand {
-  position: absolute;
-  background: #0d6efd;
-  top: 50%; left: 50%;
-  transform-origin: bottom center;
-  border-radius: 2px;
-}
-.hour { width: 4px; height: 15px; margin-left: -2px; margin-top: -15px; animation: rotateHour 12s linear infinite; }
-.minute { width: 2px; height: 20px; margin-left: -1px; margin-top: -20px; animation: rotateMinute 6s linear infinite; }
-.second { width: 1px; height: 25px; background: red; margin-left: -0.5px; margin-top: -25px; animation: rotateSecond 1s linear infinite; }
-.center-dot { position: absolute; width: 6px; height: 6px; background: #0d6efd; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-
-@keyframes rotateHour { from {transform: rotate(0);} to {transform: rotate(360deg);} }
-@keyframes rotateMinute { from {transform: rotate(0);} to {transform: rotate(360deg);} }
-@keyframes rotateSecond { from {transform: rotate(0);} to {transform: rotate(360deg);} }
-
-/* ===== Navbar ===== */
-.navbar { background-color: #212529 !important; padding: 0.8rem 1rem; }
-.navbar-brand span { font-size: 1.5rem; font-weight: bold; color: white; }
-.navbar-nav .nav-link { color: white; margin-left: 0.8rem; transition: color 0.3s; }
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: #0d6efd; }
-.navbar-toggler { border-color: white; }
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* ===== Contact Form ===== */
 form {
   max-width: 600px;
   margin: auto;
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  position: relative;
 }
-form .form-label {
+
+form .logo-title {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 0 15px;
+  font-size: 1.5rem;
   font-weight: bold;
+  color: #0d6efd;
+  text-align: center;
 }
+
+form .form-label { font-weight: bold; }
 form input, form textarea {
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -78,169 +74,61 @@ form input, form textarea {
 form input:focus, form textarea:focus {
   outline: none;
   border-color: #0d6efd;
-  box-shadow: 0 0 5px rgba(13, 110, 253, 0.3);
+  box-shadow: 0 0 5px rgba(13,110,253,0.3);
+}
+
+/* Terms & Conditions */
+.terms-box {
+  font-size: 0.9rem;
+  background: #f1f1f1;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 /* ===== Footer ===== */
-footer { background: #212529; color: #fff; padding: 40px 20px; margin-top: auto; }
-footer a { color: #0d6efd; margin: 0 10px; font-size: 1.2rem; transition: color 0.3s, transform 0.3s; }
-footer a:hover { color: #0b5ed7; transform: scale(1.2); }
-
-
-/* ===== Responsive Breakpoints ===== */
-@media (max-width: 992px) {
-  .navbar-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding-top: 10px;
-  }
-  .navbar-nav .nav-link {
-    font-size: 1.2rem;
-    margin-left: 0 !important;
-  }
-  .navbar-brand span {
-    font-size: 1.4rem;
-  }
+footer {
+  background: #212529;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: auto;
+}
+footer a {
+  color: #0d6efd;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s, transform 0.3s;
+}
+footer a:hover {
+  color: #0b5ed7;
+  transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  .hero a.btn {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-  .bank-track img {
-    max-width: 120px;
-  }
-}
-
+/* ===== Responsive ===== */
 @media (max-width: 576px) {
-  .navbar-brand span {
-    font-size: 1.2rem;
+  form {
+    padding: 30px 20px;
   }
-  footer h5 {
-    font-size: 1.2rem;
-  }
-  footer p {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .bank-track img {
-    max-width: 100px;
-  }
-  .step-icon {
-    font-size: 2rem;
-  }
-  .benefit-icon {
-    font-size: 2.5rem;
-  }
-}
-
-/* ===== Extra Small (<=400px) ===== */
-@media (max-width: 400px) {
-  .navbar-brand span {
-    font-size: 1rem;
-  }
-  .navbar-toggler-icon {
-    width: 25px;
-    height: 18px;
-  }
-  .navbar-nav .nav-link {
-    font-size: 1rem;
-    padding: 0.4rem 0;
-  }
-
-  .hero {
-    height: 25vh;
-    padding: 10px;
-  }
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .bank-track img {
-    max-width: 30vw;
-  }
-
-  footer {
-    padding: 20px 10px;
-  }
-  footer p,
-  footer a {
-    font-size: 0.8rem;
-  }
-
-  .clock-loader {
-    width: 45px;
-    height: 45px;
-  }
-  .loader-container p {
-    font-size: 1rem;
-  }
-}
-
-/* ===== Ultra Small Devices (Galaxy Z Fold portrait, old iPhones, etc.) ===== */
-@media (max-width: 320px) {
-  .navbar {
-    padding: 0.5rem;
-  }
-  .navbar-brand span {
-    font-size: 0.9rem;
-  }
-  .navbar-nav .nav-link {
-    font-size: 0.9rem;
-    padding: 0.3rem 0;
-  }
-  .navbar-toggler-icon {
-    width: 22px;
-    height: 16px;
-  }
-
-  .hero {
-    height: 22vh;
-    padding: 8px;
-  }
-  .hero h1 {
+  form .logo-title {
     font-size: 1.3rem;
-    line-height: 1.4;
-  }
-  .hero p {
-    font-size: 0.8rem;
-  }
-
-  .bank-track img {
-    max-width: 70px;
-  }
-
-  .benefit-icon,
-  .step-icon {
-    font-size: 1.8rem;
-  }
-
-  footer {
-    padding: 15px 8px;
+    top: -20px;
   }
   footer p,
   footer a {
-    font-size: 0.75rem;
-  }
-
-  .clock-loader {
-    width: 35px;
-    height: 35px;
-  }
-  .loader-container p {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  form {
+    padding: 20px 15px;
+  }
+  form .logo-title {
+    font-size: 1.1rem;
+    top: -18px;
+  }
+  footer p,
+  footer a {
+    font-size: 0.8rem;
   }
 }

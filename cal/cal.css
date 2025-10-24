@@ -1,15 +1,10 @@
-body { font-family: "Poppins", sans-serif; margin:0; padding:0; }
+body {
+  font-family: "Poppins", sans-serif;
+  margin:0; padding:0;
+  background: #f8f9fa;
+}
 
-/* Navbar Styles */
-/* .navbar { background-color: #212529 !important; padding: 0.8rem 1rem; }
-.navbar-brand { display: flex; align-items: center; }
-.navbar-brand img { width: 40px; height: 40px; }
-.navbar-brand span { font-size: 1.7rem; font-weight: bold; color: white; margin-left: 0.5rem; }
-.navbar-nav .nav-link { color: #ffffff; font-weight: 500; margin-left: 0.8rem; transition: color 0.3s; }
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: #0d6efd; }
-.navbar-toggler { border-color: rgba(255, 255, 255, 0.3); } */
-
-/* Hero */
+/* Hero Section */
 .hero {
   background: url("../assets/loan-bg.jpg") center/cover no-repeat;
   height: 25vh;
@@ -20,207 +15,76 @@ body { font-family: "Poppins", sans-serif; margin:0; padding:0; }
   color: white;
   position: relative;
 }
-.hero::after { content:""; position:absolute; width:100%; height:100%; background-color: rgba(0,0,0,0.5); top:0; left:0; }
+.hero::after {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.5);
+  top:0; left:0;
+}
 .hero-content { position: relative; z-index:2; }
-.hero h1 { font-size: 2.5rem; font-weight: bold; }
+.hero h1 { font-size: 2rem; font-weight: bold; }
 .hero p { font-size: 1rem; }
 
 /* Calculator */
 .calculator { max-width: 600px; margin:auto; }
+.input-group { margin-bottom: 1rem; display:flex; flex-direction:column; }
 .input-group label { font-weight: bold; display:block; margin-bottom: 5px; }
-.input-group input[type="range"] { width: 100%; }
-.input-group input[type="number"] { width: 100%; padding: 8px; margin-top:5px; border-radius:5px; border:1px solid #ccc; }
+.input-group input[type="number"] { width:100%; padding: 8px; border-radius:5px; border:1px solid #ccc; margin-top:5px; }
+
+/* Range sliders */
+.input-group input[type="range"] {
+  width:100%;
+  -webkit-appearance:none;
+  height:8px;
+  border-radius:5px;
+  background:#e0e0e0;
+  outline:none;
+  margin-top:5px;
+}
+.input-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance:none;
+  width:20px; height:20px;
+  background:#0d6efd;
+  border-radius:50%;
+  cursor:pointer;
+  border:none;
+  transition: background 0.2s;
+}
+.input-group input[type="range"]::-moz-range-thumb {
+  width:20px; height:20px;
+  background:#0d6efd;
+  border-radius:50%;
+  cursor:pointer;
+  border:none;
+}
+
+/* Outputs */
 .output-group { margin-top: 15px; }
 .output-group label { font-weight:bold; }
 .output-group input { width:100%; padding:8px; border-radius:5px; border:1px solid #ccc; background:#f0f0f0; font-weight:bold; }
 
-/* Footer */
-footer { background-color: #212529; color:white; padding:40px 20px; text-align:center; }
-footer a { color:#0d6efd; text-decoration:none; margin: 0 5px; }
-footer a:hover { text-decoration: underline; }
-footer .social-icons a { font-size:1.4rem; margin: 0 10px; color:white; transition: transform 0.3s ease, color 0.3s ease; }
-footer .social-icons a:hover { transform: scale(1.2); color: #0d6efd; }
-
-/* ===== Preloader ===== */
-#preloader { position: fixed; top:0; left:0; width:100%; height:100%; background:#fff; display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:9999; }
-.loader-container { display:flex; flex-direction:column; align-items:center; }
-.loader-container p { margin-top:20px; font-size:1.5rem; font-weight:bold; color:#0d6efd; }
-.clock-loader { position:relative; width:60px; height:60px; border:4px solid #0d6efd; border-radius:50%; margin-bottom:10px; }
-.hand { position:absolute; top:50%; left:50%; transform-origin:bottom center; transform:rotate(0deg); border-radius:2px; }
-.hour { width:4px; height:15px; margin-left:-2px; margin-top:-15px; animation: rotateHour 12s linear infinite; }
-.minute { width:2px; height:20px; margin-left:-1px; margin-top:-20px; animation: rotateMinute 6s linear infinite; }
-.second { width:1px; height:25px; background:#ff0000; margin-left:-0.5px; margin-top:-25px; animation: rotateSecond 1s linear infinite; }
-.center-dot { position:absolute; width:6px; height:6px; background:#0d6efd; border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); }
-@keyframes rotateHour {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
-@keyframes rotateMinute {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
-@keyframes rotateSecond {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
-
-
-/* ===== Navbar ===== */
-.navbar { background-color: #212529 !important; padding: 0.8rem 1rem; }
-.navbar-brand span { font-size: 1.5rem; font-weight: bold; color: white; }
-.navbar-nav .nav-link { color: white; margin-left: 0.8rem; transition: color 0.3s; }
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active { color: #0d6efd; }
-.navbar-toggler { border-color: white; }
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+/* Loader */
+#preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity 0.5s ease;
 }
-/* ===== Responsive ===== */
+#preloader p { margin-top: 8px; font-weight:500; color:#0d6efd; }
 
-/* ===== Responsive Breakpoints ===== */
-@media (max-width: 992px) {
-  .navbar-nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding-top: 10px;
-  }
-  .navbar-nav .nav-link {
-    font-size: 1.2rem;
-    margin-left: 0 !important;
-  }
-  .navbar-brand span {
-    font-size: 1.4rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  .hero a.btn {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-  .bank-track img {
-    max-width: 120px;
-  }
-}
-
-@media (max-width: 576px) {
-  .navbar-brand span {
-    font-size: 1.2rem;
-  }
-  footer h5 {
-    font-size: 1.2rem;
-  }
-  footer p {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .bank-track img {
-    max-width: 100px;
-  }
-  .step-icon {
-    font-size: 2rem;
-  }
-  .benefit-icon {
-    font-size: 2.5rem;
-  }
-}
-
-/* ===== Extra Small (<=400px) ===== */
-@media (max-width: 400px) {
-  .navbar-brand span {
-    font-size: 1rem;
-  }
-  .navbar-toggler-icon {
-    width: 25px;
-    height: 18px;
-  }
-  .navbar-nav .nav-link {
-    font-size: 1rem;
-    padding: 0.4rem 0;
-  }
-
-  .hero {
-    height: 25vh;
-    padding: 10px;
-  }
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-  .hero p {
-    font-size: 0.9rem;
-  }
-
-  .bank-track img {
-    max-width: 30vw;
-  }
-
-  footer {
-    padding: 20px 10px;
-  }
-  footer p,
-  footer a {
-    font-size: 0.8rem;
-  }
-
-  .clock-loader {
-    width: 45px;
-    height: 45px;
-  }
-  .loader-container p {
-    font-size: 1rem;
-  }
-}
-
-/* ===== Ultra Small Devices (Galaxy Z Fold portrait, old iPhones, etc.) ===== */
-@media (max-width: 320px) {
-  .navbar {
-    padding: 0.5rem;
-  }
-  .navbar-brand span {
-    font-size: 0.9rem;
-  }
-  .navbar-nav .nav-link {
-    font-size: 0.9rem;
-    padding: 0.3rem 0;
-  }
-  .navbar-toggler-icon {
-    width: 22px;
-    height: 16px;
-  }
-
-  .hero {
-    height: 22vh;
-    padding: 8px;
-  }
-  .hero h1 {
-    font-size: 1.3rem;
-    line-height: 1.4;
-  }
-  .hero p {
-    font-size: 0.8rem;
-  }
-
-  .bank-track img {
-    max-width: 70px;
-  }
-
-  .benefit-icon,
-  .step-icon {
-    font-size: 1.8rem;
-  }
-
-  footer {
-    padding: 15px 8px;
-  }
-  footer p,
-  footer a {
-    font-size: 0.75rem;
-  }
-
-  .clock-loader {
-    width: 35px;
-    height: 35px;
-  }
-  .loader-container p {
-    font-size: 0.9rem;
-  }
+/* Responsive */
+@media(max-width:768px){
+  .calculator { padding: 1rem; }
+  .hero h1 { font-size:1.8rem; }
+  .hero p { font-size:0.9rem; }
 }

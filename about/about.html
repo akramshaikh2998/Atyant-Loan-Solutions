@@ -4,120 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>About Us - Atyant Loan Solutions</title>
-  <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="../assets/logo.png" type="image/png">
+
+  <!-- Bootstrap & FontAwesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../navbar.css">
   <link rel="stylesheet" href="about.css">
 </head>
 <body>
-
-  <!-- Loader -->
-  <div id="preloader">
-    <div class="loader-container">
-      <div class="clock-loader">
-        <div class="hand hour"></div>
-        <div class="hand minute"></div>
-        <div class="hand second"></div>
-        <div class="center-dot"></div>
+   <div id="preloader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
-      <p>Atyant Loan Solutions</p>
+      <p>Loading...</p>
     </div>
-  </div>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="../index.html">
-        <img src="../assets/logo.png" alt="Logo" width="50" height="50" class="me-2">
-        <span>Atyant Loan Solutions</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="../apply/apply.html">Apply</a></li>
-          <li class="nav-item"><a class="nav-link active" href="../about/about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="../contact/contact.html">Contact</a></li>
-          <li class="nav-item"><a class="nav-link" href="../cal/cal.html">Calculator</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Dynamic Navbar -->
+  <div id="navbar-container"></div>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
+  <section class="about-hero text-center text-white">
+    <div class="container py-5">
       <h1>About Atyant Loan Solutions</h1>
-      <p>Your trusted financial partner</p>
+      <p class="lead">Your trusted partner for all personal and business loan needs.</p>
     </div>
   </section>
 
   <!-- About Content -->
-  <div class="container my-5">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Who We Are</h2>
-        <p>Atyant Loan Solutions is committed to providing accessible, affordable, and transparent financial services. We specialize in personal loans, business loans, and financial advisory services, ensuring our customers get the best solutions tailored to their needs.</p>
-        <h2>Our Mission</h2>
-        <p>Our mission is to empower individuals and businesses by offering seamless loan solutions with competitive interest rates and a hassle-free process. We believe in financial inclusivity and strive to make borrowing easy and efficient.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Why Choose Us -->
-  <section class="bg-light py-5">
-    <div class="container text-center">
-      <h2>Why Choose Us?</h2>
-      <div class="row mt-4">
-        <div class="col-md-4 mb-3">
-          <div class="benefit-icon">⚡</div>
-          <h4>Fast Processing</h4>
-          <p>We ensure quick loan approvals with minimal documentation.</p>
+  <section class="about-content py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <img src="../assets/images/team-photo.jpg" alt="Our Team" class="img-fluid rounded shadow">
         </div>
-        <div class="col-md-4 mb-3">
-          <div class="benefit-icon">🏦</div>
-          <h4>Trusted Partners</h4>
-          <p>We collaborate with leading financial institutions for secure transactions.</p>
-        </div>
-        <div class="col-md-4 mb-3">
-          <div class="benefit-icon">📞</div>
-          <h4>Customer Support</h4>
-          <p>Our team is always ready to assist you with your financial queries.</p>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <h2>Who We Are</h2>
+          <p>Atyant Loan Solutions is a trusted name in providing hassle-free financial assistance. Our mission is to connect borrowers with the best loan options in the market, ensuring a smooth and transparent process.</p>
+          <p>Whether you're seeking personal loans, business funding, or mortgage solutions — we guide you every step of the way with professionalism and reliability.</p>
+          <ul>
+            <li>✔️ Fast and paperless process</li>
+            <li>✔️ Trusted by thousands of satisfied clients</li>
+            <li>✔️ Transparent charges and no hidden fees</li>
+            <li>✔️ Expert advice from experienced professionals</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container py-4 text-center">
-      <h5>Atyant Loan Solutions</h5>
-      <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
-      <p><strong>Phone:</strong> +91 7304228389 | <strong>Email:</strong> akram.shaikh@atyantloan.com</p>
-      <div class="social-icons mb-3">
-        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/atyantloansolutions/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-      </div>
-      <p>&copy; 2025 Atyant Loan Solutions. All Rights Reserved.</p>
-    </div>
-  </footer>
+  <!-- Dynamic Footer -->
+  <div id="footer-container"></div>
 
-  <!-- JS -->
+  
+    <!-- Preloader Script -->
+    <script>
+      const preloader = document.getElementById("preloader");
+      const MIN_LOAD_TIME = 600;
+      const startTime = Date.now();
+
+      window.addEventListener("load", function () {
+        const elapsed = Date.now() - startTime;
+        const delay = Math.max(0, MIN_LOAD_TIME - elapsed);
+        setTimeout(() => {
+          preloader.classList.add("fade-out");
+          setTimeout(() => (preloader.style.display = "none"), 600);
+        }, delay);
+      });
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Preloader Script -->
-  <script>
-    const preloader = document.getElementById("preloader");
-    window.addEventListener("load", function() {
-      preloader.style.opacity = "0";
-      preloader.style.transition = "opacity 0.5s ease";
-      setTimeout(() => preloader.style.display = "none", 500);
-    });
-  </script>
-
+  <script src="../navbar.js"></script>
 </body>
 </html>
