@@ -45,7 +45,7 @@ function loadFooter() {
       <div class="container">
         <h5>Atyant Loan Solutions</h5>
         <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
-        <p><strong>Phone:</strong> +91 7304228389 | <strong>Email:</strong> akram.shaikh@atyantloan.com</p>
+        <p><strong>Phone:</strong> +91 8692877974 | <strong>Email:</strong> anup.gupta@atyantloan.com</p>
         <div class="social-icons mb-3">
           <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
