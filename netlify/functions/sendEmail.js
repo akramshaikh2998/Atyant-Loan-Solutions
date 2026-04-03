@@ -151,7 +151,7 @@ exports.handler = async (event) => {
 
     // ===== SEND EMAIL =====
     await transporter.sendMail({
-      from: `"Shiv Finance" <${process.env.EMAIL}>`,
+      from: `"Atyant Loan Solutions" <${process.env.EMAIL}>`,
       to: process.env.EMAIL,
       subject: `📩 New Loan Application - ${data.name}`,
       html: htmlContent,
