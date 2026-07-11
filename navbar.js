@@ -1,5 +1,13 @@
+function getBasePath() {
+  const path = window.location.pathname;
+  const depth = path.split("/").length - 2; // folder depth
+  return "../".repeat(depth);
+}
+
 function loadNavbar() {
   const navbarContainer = document.getElementById("navbar-container");
+  const basePath = getBasePath();
+
   navbarContainer.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
       <div class="container">
@@ -8,7 +16,6 @@ function loadNavbar() {
           <span class="fw-bold">Atyant Loan Solutions</span>
         </a>
 
-        <!-- Correct Bootstrap toggler -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
           aria-expanded="false" aria-label="Toggle navigation">
@@ -17,11 +24,14 @@ function loadNavbar() {
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
           <ul class="navbar-nav text-center">
-            <li class="nav-item"><a class="nav-link" href="../index.html">🏠 Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="../apply/apply.html">📝 Apply</a></li>
-            <li class="nav-item"><a class="nav-link" href="../about/about.html">ℹ️ About</a></li>
-            <li class="nav-item"><a class="nav-link" href="../contact/contact.html">📞 Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="../cal/cal.html">🧮 Calculator</a></li>
+            <li class="nav-item"><a class="nav-link" href="${basePath}index.html">🏠 Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="${basePath}apply/apply.html">📝 Apply</a></li>
+            <li class="nav-item"><a class="nav-link" href="${basePath}about/about.html">ℹ️ About</a></li>
+            <li class="nav-item"><a class="nav-link" href="${basePath}contact/contact.html">📞 Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="${basePath}cal/cal.html">🧮 Calculator</a></li>
+            <li class="nav-item">
+              <a class="nav-link btn btn-login ms-2" href="${basePath}login/login.html">🔐 Login</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -32,7 +42,7 @@ function loadNavbar() {
   const currentPage = window.location.pathname.split("/").pop();
   const links = document.querySelectorAll("#navbar-container .nav-link");
   links.forEach(link => {
-    if (link.getAttribute("href").includes(currentPage)) {
+    if (link.getAttribute("href") && link.getAttribute("href").includes(currentPage)) {
       link.classList.add("active");
     }
   });
@@ -40,6 +50,8 @@ function loadNavbar() {
 
 function loadFooter() {
   const footerContainer = document.getElementById("footer-container");
+  const basePath = getBasePath();
+
   footerContainer.innerHTML = `
     <footer class="bg-dark text-white text-center py-4 mt-5">
       <div class="container">
