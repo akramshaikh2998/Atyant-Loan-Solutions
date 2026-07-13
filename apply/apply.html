@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Apply Loan - Atyant Loan Solutions</title>
 
 <link rel="icon" href="../assets/logo.png">
@@ -11,284 +13,623 @@
 <link rel="stylesheet" href="../navbar.css">
 
 <style>
-body{background:#eef7ff}
+
+body{
+background:#eef7ff;
+}
 
 .form-container{
-  max-width:1000px;
-  margin:40px auto;
-  background:#fff;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 5px 25px rgba(0,0,0,0.1);
+max-width:1000px;
+margin:40px auto;
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 25px rgba(0,0,0,.1);
 }
 
 .section-title{
-  font-weight:600;
-  color:#0284c7;
-  margin-bottom:15px;
+font-weight:600;
+color:#0284c7;
+margin-bottom:15px;
 }
 
 .form-control{
-  border-radius:8px;
-  padding:10px;
+border-radius:8px;
+padding:10px;
 }
 
 .obligation-box{
-  border:1px dashed #0284c7;
-  padding:15px;
-  border-radius:10px;
-  margin-top:15px;
-  background:#f8fbff;
+border:1px dashed #0284c7;
+padding:15px;
+border-radius:10px;
+margin-top:15px;
+background:#f8fbff;
 }
 
 #preloader{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:#fff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  z-index:9999;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
 }
+
 </style>
+
 </head>
 
 <body>
 
-<!-- LOADER -->
+<!-- Loader -->
+
 <div id="preloader">
-  <div class="spinner-border text-primary"></div>
-  <p>Loading...</p>
+<div class="spinner-border text-primary"></div>
+<p>Loading...</p>
 </div>
 
-<!-- NAVBAR -->
+<!-- Navbar -->
+
 <div id="navbar-container"></div>
 
 <div class="form-container">
-<h3 class="text-center mb-4">Apply for Loan</h3>
 
-<form id="loanForm">
+<h3 class="text-center mb-4">
+Apply for Loan
+</h3>
 
-<!-- PERSONAL -->
-<div class="section-title">Personal Details</div>
+<form id="loanForm" enctype="multipart/form-data">
+
+<!-- PERSONAL DETAILS -->
+
+<div class="section-title">
+Personal Details
+</div>
+
 <div class="row">
 
-<div class="col-md-6 mb-3"><input id="name" class="form-control" placeholder="Full Name" required></div>
-<div class="col-md-6 mb-3"><input id="pan" class="form-control" placeholder="PAN Number" required></div>
-<div class="col-md-6 mb-3"><input id="dob" type="date" class="form-control" required></div>
-<div class="col-md-6 mb-3"><input id="email" type="email" class="form-control" placeholder="Email" required></div>
-<div class="col-md-6 mb-3"><input id="phone" class="form-control" placeholder="Phone Number" required></div>
-<div class="col-md-6 mb-3"><input id="address" class="form-control" placeholder="Address" required></div>
-<div class="col-md-6 mb-3"><input id="city" class="form-control" placeholder="City" required></div>
-<div class="col-md-6 mb-3"><input id="pincode" class="form-control" placeholder="Pincode" required></div>
+<div class="col-md-6 mb-3">
+<input id="name" class="form-control" placeholder="Full Name" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<input id="pan" class="form-control" placeholder="PAN Number" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<input id="dob" type="date" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<input id="email" type="email" class="form-control" placeholder="Email" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<input id="phone" class="form-control" placeholder="Phone Number" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<input id="address" class="form-control" placeholder="Address" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<input id="city" class="form-control" placeholder="City" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<input id="pincode" class="form-control" placeholder="Pincode" required>
+</div>
 
 </div>
 
-<!-- LOAN -->
-<div class="section-title">Loan Details</div>
+<!-- LOAN DETAILS -->
+
+<div class="section-title">
+Loan Details
+</div>
+
 <div class="row">
 
-<div class="col-md-6 mb-3"><input id="company" class="form-control" placeholder="Company Name"></div>
-<div class="col-md-6 mb-3"><input id="loanAmount" class="form-control" placeholder="Loan Amount" required></div>
+<div class="col-md-6 mb-3">
+<input id="company" class="form-control" placeholder="Company Name">
+</div>
 
 <div class="col-md-6 mb-3">
+<input id="loanAmount" class="form-control" placeholder="Loan Amount" required>
+</div>
+
+<div class="col-md-6 mb-3">
+
 <select id="loanTerm" class="form-control" required>
+
 <option value="">Loan Tenure</option>
-<option>1 Year</option><option>2 Year</option><option>3 Year</option>
-<option>4 Year</option><option>5 Year</option><option>6 Year</option><option>7 Year</option>
+<option>1 Year</option>
+<option>2 Year</option>
+<option>3 Year</option>
+<option>4 Year</option>
+<option>5 Year</option>
+<option>6 Year</option>
+<option>7 Year</option>
+
 </select>
+
 </div>
 
 <div class="col-md-6 mb-3">
+
 <select id="employmentStatus" class="form-control" required>
+
 <option value="">Employment Status</option>
 <option>Salaried</option>
 <option>Self Employed</option>
 <option>Business</option>
+
 </select>
+
 </div>
 
-<div class="col-md-6 mb-3"><input id="monthlyIncome" class="form-control" placeholder="Monthly Income" required></div>
+<div class="col-md-6 mb-3">
+<input id="monthlyIncome" class="form-control" placeholder="Monthly Income" required>
+</div>
 
 <div class="col-md-6 mb-3">
+
 <select id="loanType" class="form-control" required>
+
 <option value="">Loan Type</option>
 <option>Personal Loan</option>
 <option>Business Loan</option>
 <option>Home Loan</option>
 <option>Loan Against Property</option>
+
 </select>
+
+</div>
+
+</div>
+
+<textarea
+id="message"
+class="form-control mt-3"
+placeholder="Additional Notes (Optional)">
+</textarea>
+
+<!-- FILE UPLOAD -->
+
+<div class="section-title mt-4">
+Upload Documents
+</div>
+
+<div class="mb-3">
+
+<input
+type="file"
+id="document"
+class="form-control"
+accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx">
+
+<div class="form-text">
+
+Supported Files
+
+<ul class="mb-0">
+
+<li>PDF</li>
+<li>JPG / JPEG / PNG</li>
+<li>Word (.doc .docx)</li>
+<li>Excel (.xls .xlsx)</li>
+
+</ul>
+
+Maximum Size :
+<strong>4 MB</strong>
+
 </div>
 
 </div>
 
-<textarea id="message" class="form-control mt-3" placeholder="Additional Notes (Optional)"></textarea>
+<!-- OBLIGATIONS -->
 
-<!-- OBLIGATION -->
-<div class="section-title mt-4">Obligations</div>
+<div class="section-title mt-4">
+Obligations
+</div>
+
 <div id="obligation-container"></div>
 
-<button type="button" class="btn btn-info btn-sm mt-2" onclick="addObligation()">+ Add Obligation</button>
+<button
+type="button"
+class="btn btn-info btn-sm mt-2"
+onclick="addObligation()">
+
++ Add Obligation
+
+</button>
 
 <!-- TERMS -->
+
 <div class="form-check mt-3">
-<input type="checkbox" id="terms" class="form-check-input">
-<label>I agree to Terms & Conditions</label>
+
+<input
+type="checkbox"
+id="terms"
+class="form-check-input">
+
+<label>
+I agree to Terms & Conditions
+</label>
+
 </div>
 
-<button class="btn btn-primary w-100 mt-3">Submit</button>
+<button class="btn btn-primary w-100 mt-3">
+
+Submit
+
+</button>
 
 </form>
+
 </div>
 
-<!-- FOOTER -->
 <div id="footer-container"></div>
 
 <script src="../navbar.js"></script>
 
 <script>
 
-// LOADER FIX
-function hideLoader(){
-  const loader=document.getElementById("preloader");
-  if(loader) loader.style.display="none";
-}
-window.addEventListener("load",hideLoader);
-setTimeout(hideLoader,3000);
+  // ===============================
+// LOADER
+// ===============================
 
-// NAVBAR/FOOTER
-document.addEventListener("DOMContentLoaded",()=>{
-  try{
-    if(typeof loadNavbar==="function") loadNavbar();
-    if(typeof loadFooter==="function") loadFooter();
-  }catch(err){console.error(err);}
+function hideLoader() {
+    const loader = document.getElementById("preloader");
+    if (loader) {
+        loader.style.display = "none";
+    }
+}
+
+window.addEventListener("load", hideLoader);
+
+// Fallback
+setTimeout(hideLoader, 3000);
+
+// ===============================
+// LOAD NAVBAR & FOOTER
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    try {
+
+        if (typeof loadNavbar === "function") {
+            loadNavbar();
+        }
+
+        if (typeof loadFooter === "function") {
+            loadFooter();
+        }
+
+    } catch (err) {
+        console.error(err);
+    }
+
 });
 
+// ===============================
 // PAN VALIDATION
-function validatePAN(pan){
-  return /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(pan);
+// ===============================
+
+function validatePAN(pan) {
+
+    const regex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+
+    return regex.test(pan);
+
 }
 
+// ===============================
 // ADD OBLIGATION
-function addObligation(){
-let html=`
-<div class="obligation-box">
-<div class="row">
+// ===============================
 
-<div class="col-md-6 mb-2"><input class="form-control" placeholder="Bank Name"></div>
+function addObligation() {
 
-<div class="col-md-6 mb-2">
-<select class="form-control">
-<option value="">Loan Type</option>
-<option>Personal Loan</option>
-<option>Business Loan</option>
-<option>Credit Card</option>
-<option>Home Loan</option>
-<option>Loan Against Property</option>
-<option>Two Wheeler Loan</option>
-<option>Car Loan</option>
-<option>Consumer Loan</option>
-<option>Others</option>
-</select>
-</div>
+    const html = `
 
-<div class="col-md-6 mb-2"><input class="form-control" placeholder="EMI Amount"></div>
-<div class="col-md-6 mb-2"><input class="form-control" placeholder="Total Loan Amount"></div>
-<div class="col-md-6 mb-2"><input class="form-control" placeholder="Total Paid EMI"></div>
-<div class="col-md-6 mb-2"><input class="form-control" placeholder="Pending EMI"></div>
-<div class="col-md-6 mb-2"><input class="form-control" placeholder="Outstanding Amount"></div>
+    <div class="obligation-box">
 
-</div>
+        <div class="row">
 
-<button type="button" class="btn btn-danger btn-sm mt-2" onclick="this.parentElement.remove()">Delete</button>
-</div>
-`;
+            <div class="col-md-6 mb-2">
+                <input class="form-control"
+                       placeholder="Bank Name">
+            </div>
 
-document.getElementById("obligation-container").insertAdjacentHTML("beforeend",html);
+            <div class="col-md-6 mb-2">
+
+                <select class="form-control">
+
+                    <option value="">
+                        Loan Type
+                    </option>
+
+                    <option>
+                        Personal Loan
+                    </option>
+
+                    <option>
+                        Business Loan
+                    </option>
+
+                    <option>
+                        Credit Card
+                    </option>
+
+                    <option>
+                        Home Loan
+                    </option>
+
+                    <option>
+                        Loan Against Property
+                    </option>
+
+                    <option>
+                        Two Wheeler Loan
+                    </option>
+
+                    <option>
+                        Car Loan
+                    </option>
+
+                    <option>
+                        Consumer Loan
+                    </option>
+
+                    <option>
+                        Others
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input class="form-control"
+                       placeholder="EMI Amount">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input class="form-control"
+                       placeholder="Total Loan Amount">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input class="form-control"
+                       placeholder="Total Paid EMI">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input class="form-control"
+                       placeholder="Pending EMI">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <input class="form-control"
+                       placeholder="Outstanding Amount">
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            class="btn btn-danger btn-sm mt-2"
+            onclick="this.parentElement.remove()">
+
+            Delete
+
+        </button>
+
+    </div>
+
+    `;
+
+    document
+        .getElementById("obligation-container")
+        .insertAdjacentHTML("beforeend", html);
+
 }
 
-// SUBMIT
-document.getElementById("loanForm").addEventListener("submit",async function(e){
-e.preventDefault();
+// ===============================
+// SUBMIT LOAN APPLICATION
+// ===============================
 
-const loader=document.getElementById("preloader");
-loader.style.display="flex";
+document.getElementById("loanForm").addEventListener("submit", async function (e) {
 
-try{
+    e.preventDefault();
 
-let pan=document.getElementById("pan").value.toUpperCase();
-document.getElementById("pan").value=pan;
+    const loader = document.getElementById("preloader");
+    loader.style.display = "flex";
 
-if(!validatePAN(pan)){
-alert("Invalid PAN Number");
-hideLoader(); return;
-}
+    try {
 
-if(!document.getElementById("terms").checked){
-alert("Accept Terms");
-hideLoader(); return;
-}
+        let pan = document.getElementById("pan").value.trim().toUpperCase();
+        document.getElementById("pan").value = pan;
 
-// COLLECT OBLIGATIONS
-let obligations=[];
-document.querySelectorAll(".obligation-box").forEach(box=>{
-let inputs=box.querySelectorAll("input,select");
+        if (!validatePAN(pan)) {
+            alert("Invalid PAN Number.");
+            hideLoader();
+            return;
+        }
 
-obligations.push({
-bank:inputs[0].value,
-loanType:inputs[1].value,
-emi:inputs[2].value,
-totalLoan:inputs[3].value,
-paid:inputs[4].value,
-pending:inputs[5].value,
-outstanding:inputs[6].value
-});
-});
+        if (!document.getElementById("terms").checked) {
+            alert("Please accept the Terms & Conditions.");
+            hideLoader();
+            return;
+        }
 
-const data={
-name:document.getElementById("name").value,
-pan:pan,
-dob:document.getElementById("dob").value,
-email:document.getElementById("email").value,
-phone:document.getElementById("phone").value,
-address:document.getElementById("address").value,
-city:document.getElementById("city").value,
-pincode:document.getElementById("pincode").value,
-company:document.getElementById("company").value,
-loanAmount:document.getElementById("loanAmount").value,
-loanTerm:document.getElementById("loanTerm").value,
-employmentStatus:document.getElementById("employmentStatus").value,
-monthlyIncome:document.getElementById("monthlyIncome").value,
-loanType:document.getElementById("loanType").value,
-message:document.getElementById("message").value,
-termsAccepted:document.getElementById("terms").checked,
-obligations:obligations
-};
+        // ===============================
+        // FILE VALIDATION
+        // ===============================
 
-const res=await fetch("/.netlify/functions/sendEmail",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(data)
-});
+        const fileInput = document.getElementById("document");
 
-const result=await res.json();
+        let uploadedFile = null;
 
-if(res.ok && result.success){
-alert("✅ Submitted Successfully");
-document.getElementById("loanForm").reset();
-}else{
-alert("❌ Error");
-}
+        if (fileInput.files.length > 0) {
 
-}catch(err){
-alert("❌ Server Error");
-}
+            const file = fileInput.files[0];
 
-hideLoader();
+            const maxSize = 4 * 1024 * 1024;
+
+            if (file.size > maxSize) {
+                alert("Maximum file size allowed is 4 MB.");
+                hideLoader();
+                return;
+            }
+
+            const allowedExtensions = [
+                "pdf",
+                "jpg",
+                "jpeg",
+                "png",
+                "doc",
+                "docx",
+                "xls",
+                "xlsx"
+            ];
+
+            const extension = file.name.split(".").pop().toLowerCase();
+
+            if (!allowedExtensions.includes(extension)) {
+                alert("Only PDF, JPG, JPEG, PNG, DOC, DOCX, XLS and XLSX files are allowed.");
+                hideLoader();
+                return;
+            }
+
+            // Convert to Base64
+
+            uploadedFile = await new Promise((resolve, reject) => {
+
+                const reader = new FileReader();
+
+                reader.onload = () => {
+
+                    resolve({
+                        fileName: file.name,
+                        fileType: file.type,
+                        content: reader.result.split(",")[1]
+                    });
+
+                };
+
+                reader.onerror = reject;
+
+                reader.readAsDataURL(file);
+
+            });
+
+        }
+
+        // ===============================
+        // OBLIGATIONS
+        // ===============================
+
+        let obligations = [];
+
+        document.querySelectorAll(".obligation-box").forEach(box => {
+
+            const inputs = box.querySelectorAll("input,select");
+
+            obligations.push({
+
+                bank: inputs[0].value,
+                loanType: inputs[1].value,
+                emi: inputs[2].value,
+                totalLoan: inputs[3].value,
+                paid: inputs[4].value,
+                pending: inputs[5].value,
+                outstanding: inputs[6].value
+
+            });
+
+        });
+
+        // ===============================
+        // JSON DATA
+        // ===============================
+
+        const data = {
+
+            name: document.getElementById("name").value,
+            pan: pan,
+            dob: document.getElementById("dob").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            address: document.getElementById("address").value,
+            city: document.getElementById("city").value,
+            pincode: document.getElementById("pincode").value,
+
+            company: document.getElementById("company").value,
+            loanAmount: document.getElementById("loanAmount").value,
+            loanTerm: document.getElementById("loanTerm").value,
+            employmentStatus: document.getElementById("employmentStatus").value,
+            monthlyIncome: document.getElementById("monthlyIncome").value,
+            loanType: document.getElementById("loanType").value,
+
+            message: document.getElementById("message").value,
+
+            termsAccepted: document.getElementById("terms").checked,
+
+            obligations: obligations,
+
+            attachment: uploadedFile
+
+        };
+
+        // ===============================
+        // SEND JSON
+        // ===============================
+
+        const res = await fetch("/.netlify/functions/sendEmail", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(data)
+
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result.success) {
+
+            alert("✅ Loan Application Submitted Successfully.");
+
+            document.getElementById("loanForm").reset();
+
+            document.getElementById("obligation-container").innerHTML = "";
+
+        } else {
+
+            alert(result.error || "Submission Failed");
+
+        }
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert("Server Error");
+
+    }
+
+    hideLoader();
 
 });
 
