@@ -138,6 +138,27 @@ try {
 
 } catch {
 
+    // ===== WHATSAPP SUMMARY =====
+    const whatsappMessage = `
+📩 New Loan Application
+
+👤 ${data.name}
+📞 ${data.phone}
+💰 ₹${data.loanAmount}
+🏦 ${data.loanType}
+📍 ${data.city}
+
+📊 Obligations: ${data.obligations?.length || 0}
+
+📧 Full details sent on Email
+`;
+
+    try {
+      await fetch(`https://api.callmebot.com/whatsapp.php?phone=91XXXXXXXXXX&text=${encodeURIComponent(whatsappMessage)}&apikey=YOUR_API_KEY`);
+    } catch (err) {
+      console.log("WhatsApp failed (ignored)");
+    }
+
     return {
 
         statusCode:400,
