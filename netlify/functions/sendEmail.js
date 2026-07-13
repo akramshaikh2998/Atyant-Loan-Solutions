@@ -265,7 +265,7 @@ secure:true,
 
 auth:{
     user:process.env.EMAIL,
-    PASS:process.env.EMAIL_PASS
+    pass:process.env.EMAIL_PASS
 
   
 }
