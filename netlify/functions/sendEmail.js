@@ -209,10 +209,10 @@ try {
 
 console.log("========== SMTP DEBUG ==========");
 console.log("EMAIL:", process.env.EMAIL);
-console.log("PASSWORD EXISTS:", !!process.env.PASSWORD);
+console.log("PASS EXISTS:", !!process.env.PASS);
 console.log(
-  "PASSWORD LENGTH:",
-  process.env.PASSWORD ? process.env.PASSWORD.length : 0
+  "PASS LENGTH:",
+  process.env.PASS ? process.env.PASS.length : 0
 );
 console.log("================================");
 
@@ -220,7 +220,7 @@ console.log("================================");
     // ENVIRONMENT VARIABLES
     // ===============================
 
-    if (!process.env.EMAIL || !process.env.PASSWORD) {
+    if (!process.env.EMAIL || !process.env.PASS) {
 
       return {
         statusCode: 500,
@@ -244,7 +244,7 @@ console.log("================================");
 
       //   user: process.env.EMAIL,
 
-      //   pass: process.env.PASSWORD
+      //   pass: process.env.PASS
 
       // }
 
@@ -258,7 +258,7 @@ secure:true,
 
 auth:{
     user:process.env.EMAIL,
-    pass:process.env.PASSWORD
+    pass:process.env.PASS
 }
 
     });
