@@ -223,19 +223,6 @@ try {
     // NODEMAILER TRANSPORTER
     // ===============================
 
-// ===============================
-// DEBUG ENV VARIABLES
-// ===============================
-
-console.log("========== SMTP DEBUG ==========");
-console.log("EMAIL:", process.env.EMAIL);
-console.log("PASSWORD EXISTS:", !!process.env.PASSWORD);
-console.log(
-  "PASSWORD LENGTH:",
-  process.env.PASSWORD ? process.env.PASSWORD.length : 0
-);
-console.log("================================");
-    
     const transporter = nodemailer.createTransport({
 
       // service: "gmail",
