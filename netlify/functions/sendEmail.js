@@ -258,7 +258,7 @@ secure:true,
 
 auth:{
     user:process.env.EMAIL,
-    EMAIL_PASS:process.env.EMAIL_PASS
+    PASS:process.env.EMAIL_PASS
 }
 
     });
