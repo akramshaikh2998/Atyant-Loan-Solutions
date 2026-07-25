@@ -183,7 +183,7 @@ try {
           statusCode: 400,
           body: JSON.stringify({
             success: false,
-            error: "Maximum file size allowed is 4 MB."
+            error: "Maximum file size allowed is 20 MB."
           })
         };
 
