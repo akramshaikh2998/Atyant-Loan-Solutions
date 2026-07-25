@@ -177,7 +177,7 @@ try {
 
       const fileSize = fileBuffer.length;
 
-      if (fileSize > (4 * 1024 * 1024)) {
+      if (fileSize > (20 * 1024 * 1024)) {
 
         return {
           statusCode: 400,
