@@ -177,13 +177,13 @@ try {
 
       const fileSize = fileBuffer.length;
 
-      if (fileSize > (4 * 1024 * 1024)) {
+      if (fileSize > (20 * 1024 * 1024)) {
 
         return {
           statusCode: 400,
           body: JSON.stringify({
             success: false,
-            error: "Maximum file size allowed is 4 MB."
+            error: "Maximum file size allowed is 20 MB."
           })
         };
 
@@ -209,10 +209,10 @@ try {
 
 console.log("========== SMTP DEBUG ==========");
 console.log("EMAIL:", process.env.EMAIL);
-console.log("PASS EXISTS:", !!process.env.PASS);
+console.log("EMAIL_PASS EXISTS:", !!process.env.EMAIL_PASS);
 console.log(
-  "PASS LENGTH:",
-  process.env.PASS ? process.env.PASS.length : 0
+  "EMAIL_PASS LENGTH:",
+  process.env.EMAIL_PASS ? process.env.EMAIL_PASS.length : 0
 );
 console.log("================================");
 
@@ -220,7 +220,7 @@ console.log("================================");
     // ENVIRONMENT VARIABLES
     // ===============================
 
-    if (!process.env.EMAIL || !process.env.PASS) {
+    if (!process.env.EMAIL || !process.env.EMAIL_PASS) {
 
       return {
         statusCode: 500,
@@ -236,6 +236,13 @@ console.log("================================");
     // NODEMAILER TRANSPORTER
     // ===============================
 
+const smtpUser = process.env.EMAIL;
+const smtpPass = process.env.EMAIL_PASS;
+
+console.log("SMTP User:", smtpUser);
+console.log("SMTP Pass exists:", !!smtpPass);
+console.log("SMTP Pass length:", smtpPass?.length);
+
     const transporter = nodemailer.createTransport({
 
       // service: "gmail",
@@ -244,7 +251,7 @@ console.log("================================");
 
       //   user: process.env.EMAIL,
 
-      //   pass: process.env.PASS
+      //   EMAIL_PASS: process.env.EMAIL_PASS
 
       // }
 
@@ -258,7 +265,7 @@ secure:true,
 
 auth:{
     user:process.env.EMAIL,
-    pass:process.env.PASS
+    pass:process.env.EMAIL_PASS
 }
 
     });
