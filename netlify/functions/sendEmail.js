@@ -242,7 +242,7 @@ const smtpPass = process.env.EMAIL_PASS;
 console.log("SMTP User:", smtpUser);
 console.log("SMTP Pass exists:", !!smtpPass);
 console.log("SMTP Pass length:", smtpPass?.length);
-
+    
     const transporter = nodemailer.createTransport({
 
       // service: "gmail",
@@ -266,9 +266,12 @@ secure:true,
 auth:{
     user:process.env.EMAIL,
     pass:process.env.EMAIL_PASS
+
+  
 }
 
     });
+console.log("Transport auth:", transporter.options.auth);
 
     await transporter.verify();
 
