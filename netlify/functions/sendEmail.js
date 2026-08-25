@@ -177,13 +177,13 @@ try {
 
       const fileSize = fileBuffer.length;
 
-      if (fileSize > (20 * 1024 * 1024)) {
+      if (fileSize > (6 * 1024 * 1024)) {
 
         return {
           statusCode: 400,
           body: JSON.stringify({
             success: false,
-            error: "Maximum file size allowed is 20 MB."
+            error: "Maximum file size allowed is 6 MB."
           })
         };
 
