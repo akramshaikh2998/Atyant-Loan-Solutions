@@ -482,10 +482,10 @@ document.getElementById("loanForm").addEventListener("submit", async function (e
 
             const file = fileInput.files[0];
 
-            const maxSize = 20 * 1024 * 1024;
+            const maxSize = 6 * 1024 * 1024;
 
             if (file.size > maxSize) {
-                alert("Maximum file size allowed is 20 MB.");
+                alert("Maximum file size allowed is 6 MB.");
                 hideLoader();
                 return;
             }
@@ -498,7 +498,8 @@ document.getElementById("loanForm").addEventListener("submit", async function (e
                 "doc",
                 "docx",
                 "xls",
-                "xlsx"
+                "xlsx",
+                "xlsb"
             ];
 
             const extension = file.name.split(".").pop().toLowerCase();
