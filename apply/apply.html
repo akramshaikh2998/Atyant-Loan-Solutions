@@ -211,7 +211,7 @@ Upload Documents
 type="file"
 id="document"
 class="form-control"
-accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx">
+accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.xlsb,.csv">
 
 <div class="form-text">
 
@@ -222,12 +222,13 @@ Supported Files
 <li>PDF</li>
 <li>JPG / JPEG / PNG</li>
 <li>Word (.doc .docx)</li>
-<li>Excel (.xls .xlsx)</li>
+<li>Excel (.xls .xlsx .xlsb)</li>
+<li>CSV (.csv)</li>
 
 </ul>
 
 Maximum Size :
-<strong>20 MB</strong>
+<strong>6 MB</strong>
 
 </div>
 
@@ -499,13 +500,14 @@ document.getElementById("loanForm").addEventListener("submit", async function (e
                 "docx",
                 "xls",
                 "xlsx",
-                "xlsb"
+                "xlsb",
+                 "csv"
             ];
 
             const extension = file.name.split(".").pop().toLowerCase();
 
             if (!allowedExtensions.includes(extension)) {
-                alert("Only PDF, JPG, JPEG, PNG, DOC, DOCX, XLS and XLSX files are allowed.");
+alert("Only PDF, JPG, JPEG, PNG, DOC, DOCX, XLS, XLSB, XLSX and CSV files are allowed.");
                 hideLoader();
                 return;
             }

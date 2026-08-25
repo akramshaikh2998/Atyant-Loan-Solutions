@@ -87,25 +87,32 @@ const applicationNo =
 
     if (data.attachment) {
 
-      const allowedTypes = [
+    const allowedTypes = [
 
-        "application/pdf",
+    // PDF
+    "application/pdf",
 
-        "image/jpeg",
+    // Images
+    "image/jpeg",
+    "image/jpg",
+    "image/png",
 
-        "image/jpg",
+    // Word
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 
-        "image/png",
+    // Excel
+    "application/vnd.ms-excel",
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 
-        "application/msword",
+    // Excel Binary Workbook (.xlsb)
+    "application/vnd.ms-excel.sheet.binary.macroEnabled.12",
 
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    // CSV
+    "text/csv",
+    "application/csv"
 
-        "application/vnd.ms-excel",
-
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-
-      ];
+];
 
       if (
         !data.attachment.fileName ||
