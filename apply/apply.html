@@ -227,7 +227,7 @@ Supported Files
 </ul>
 
 Maximum Size :
-<strong>6 MB</strong>
+<strong>4 MB</strong>
 
 </div>
 
@@ -482,10 +482,10 @@ document.getElementById("loanForm").addEventListener("submit", async function (e
 
             const file = fileInput.files[0];
 
-            const maxSize = 6 * 1024 * 1024;
+            const maxSize = 4 * 1024 * 1024;
 
             if (file.size > maxSize) {
-                alert("Maximum file size allowed is 6 MB.");
+                alert("Maximum file size allowed is 4 MB.");
                 hideLoader();
                 return;
             }
