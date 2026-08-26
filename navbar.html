@@ -1,33 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atyant Loan Solutions</title>
-  <link rel="icon" href="/assets/logo.png" type="image/png" />
+<!-- =====================================================
+     ATYANT LOAN SOLUTIONS
+     SHARED NAVBAR
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css" />
-</head>
-<body>
-  <!-- Navbar -->
-  <div id="navbar-container"></div>
+     IMPORTANT:
+     This file contains ONLY the navbar.
+     No html/head/body tags.
+====================================================== -->
 
-  <!-- Page Content -->
-  <main class="py-5 text-center">
-    <div class="container">
-      <h1 class="fw-bold fs-1 fs-sm-2 text-wrap">Welcome to Atyant Loan Solutions</h1>
-      <p class="lead fs-5 fs-sm-6">Your trusted financial partner.</p>
+<nav
+  class="navbar navbar-expand-lg atyant-navbar fixed-top"
+  id="atyantNavbar"
+>
+
+  <div class="container-fluid navbar-main-container">
+
+
+    <!-- BRAND -->
+
+    <a
+      class="navbar-brand atyant-brand"
+      href="/index.html"
+    >
+
+      <span class="brand-logo-wrapper">
+
+        <img
+          src="/assets/logo.png"
+          alt="Atyant Loan Solutions"
+          class="brand-logo"
+        >
+
+      </span>
+
+
+      <span class="brand-text">
+
+        <span class="brand-name">
+          Atyant
+        </span>
+
+        <span class="brand-tagline">
+          LOAN SOLUTIONS
+        </span>
+
+      </span>
+
+    </a>
+
+
+    <!-- MOBILE MENU -->
+
+    <button
+      class="navbar-toggler atyant-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#atyantNavbarMenu"
+      aria-controls="atyantNavbarMenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+
+      <span class="navbar-toggler-line"></span>
+      <span class="navbar-toggler-line"></span>
+      <span class="navbar-toggler-line"></span>
+
+    </button>
+
+
+    <!-- NAVIGATION -->
+
+    <div
+      class="collapse navbar-collapse"
+      id="atyantNavbarMenu"
+    >
+
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+
+        <!-- HOME -->
+
+        <li class="nav-item">
+
+          <a
+            class="nav-link atyant-nav-link"
+            href="/index.html"
+          >
+
+            <span class="nav-icon">
+              <i class="fa-solid fa-house"></i>
+            </span>
+
+            <span>
+              Home
+            </span>
+
+          </a>
+
+        </li>
+
+
+        <!-- APPLY -->
+
+        <li class="nav-item">
+
+          <a
+            class="nav-link atyant-nav-link"
+            href="/apply/apply.html"
+          >
+
+            <span class="nav-icon">
+              <i class="fa-solid fa-file-signature"></i>
+            </span>
+
+            <span>
+              Apply
+            </span>
+
+          </a>
+
+        </li>
+
+
+        <!-- ABOUT -->
+
+        <li class="nav-item">
+
+          <a
+            class="nav-link atyant-nav-link"
+            href="/about/about.html"
+          >
+
+            <span class="nav-icon">
+              <i class="fa-solid fa-circle-info"></i>
+            </span>
+
+            <span>
+              About
+            </span>
+
+          </a>
+
+        </li>
+
+
+        <!-- CONTACT -->
+
+        <li class="nav-item">
+
+          <a
+            class="nav-link atyant-nav-link"
+            href="/contact/contact.html"
+          >
+
+            <span class="nav-icon">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+
+            <span>
+              Contact
+            </span>
+
+          </a>
+
+        </li>
+
+
+        <!-- CALCULATOR -->
+
+        <li class="nav-item">
+
+          <a
+            class="nav-link atyant-nav-link"
+            href="/cal/cal.html"
+          >
+
+            <span class="nav-icon">
+              <i class="fa-solid fa-calculator"></i>
+            </span>
+
+            <span>
+              Calculator
+            </span>
+
+          </a>
+
+        </li>
+
+
+        <!-- LOGIN -->
+
+        <!-- <li class="nav-item login-nav-item">
+
+          <a
+            class="nav-link atyant-login-btn"
+            href="/login/login.html"
+          >
+
+            <i class="fa-solid fa-right-to-bracket"></i>
+
+            <span>
+              Login
+            </span>
+
+          </a>
+
+        </li> -->
+
+
+        <!-- APPLY NOW -->
+
+        <li class="nav-item apply-nav-item">
+
+          <a
+            class="atyant-apply-btn"
+            href="/apply/apply.html"
+          >
+
+            <span>
+              Apply Now
+            </span>
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+          </a>
+
+        </li>
+
+
+      </ul>
+
     </div>
-  </main>
 
-  <!-- Footer -->
-  <div id="footer-container"></div>
+  </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/assets/js/navbar.js"></script>
-</body>
-</html>
+</nav>

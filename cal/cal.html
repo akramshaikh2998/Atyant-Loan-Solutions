@@ -3,57 +3,54 @@
 
 <head>
 
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <title>
-        EMI Calculator - Atyant Loan Solutions
-    </title>
+  <meta
+    name="description"
+    content="Calculate your monthly EMI, total interest and total repayment with the Atyant Loan Solutions EMI Calculator."
+  >
 
+  <meta
+    name="theme-color"
+    content="#061a3b"
+  >
 
-    <!-- Favicon -->
+  <title>EMI Calculator | Atyant Loan Solutions</title>
 
-    <link
-        rel="icon"
-        href="../assets/images/favicon.png"
-        type="image/x-icon"
-    >
+  <link
+    rel="icon"
+    href="../assets/logo.png"
+    type="image/png"
+  >
 
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
 
-    <!-- Bootstrap -->
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
 
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+  <!-- Shared Navbar -->
+  <link
+    rel="stylesheet"
+    href="../navbar.css"
+  >
 
-
-    <!-- Font Awesome -->
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    >
-
-
-    <!-- Navbar CSS -->
-
-    <link
-        rel="stylesheet"
-        href="../navbar.css"
-    >
-
-
-    <!-- EMI Calculator CSS -->
-
-    <link
-        rel="stylesheet"
-        href="cal.css"
-    >
+  <!-- Calculator CSS -->
+  <link
+    rel="stylesheet"
+    href="cal.css"
+  >
 
 </head>
 
@@ -62,749 +59,1580 @@
 
 
 <!-- =====================================================
-     LOADER
-===================================================== -->
+     PRELOADER
+====================================================== -->
 
 <div id="preloader">
 
-    <div class="loader-box">
+  <div class="loader-box">
 
-        <div
-            class="spinner-border text-primary"
-            role="status"
-        ></div>
+    <div class="loader-logo">
 
-        <p>
-            Loading...
-        </p>
+      <img
+        src="../assets/logo.png"
+        alt="Atyant Loan Solutions"
+      >
 
     </div>
+
+    <div
+      class="spinner-border text-primary"
+      role="status"
+    ></div>
+
+    <p>
+      Loading EMI Calculator...
+    </p>
+
+  </div>
 
 </div>
 
 
-
 <!-- =====================================================
      NAVBAR
-===================================================== -->
+====================================================== -->
 
 <div id="navbar-container"></div>
 
 
-
 <!-- =====================================================
      HERO
-===================================================== -->
+====================================================== -->
 
-<section class="hero">
+<section class="calculator-hero">
+
+  <div class="hero-grid"></div>
+
+  <div class="hero-circle hero-circle-one"></div>
+
+  <div class="hero-circle hero-circle-two"></div>
+
+
+  <div class="container">
 
     <div class="hero-content">
 
-        <h1>
-            EMI Calculator
-        </h1>
 
-        <p>
-            Calculate your monthly EMI,
-            total interest and repayment schedule
-        </p>
+      <div class="breadcrumb">
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <i class="fa-solid fa-angle-right"></i>
+
+        <span>
+          EMI Calculator
+        </span>
+
+      </div>
+
+
+      <span class="hero-label">
+        SMART LOAN PLANNING
+      </span>
+
+
+      <h1>
+
+        Plan your loan with
+
+        <span>
+          confidence
+        </span>
+
+      </h1>
+
+
+      <p>
+
+        Use our EMI Calculator to estimate your
+        monthly instalment, total interest and
+        overall repayment amount before applying
+        for a loan.
+
+      </p>
+
+
+      <div class="hero-actions">
+
+        <a
+          href="../apply/apply.html"
+          class="hero-primary"
+        >
+
+          Apply for Loan
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a
+          href="#calculator"
+          class="hero-secondary"
+        >
+
+          Calculate EMI
+
+          <i class="fa-solid fa-calculator"></i>
+
+        </a>
+
+      </div>
+
 
     </div>
+
+  </div>
 
 </section>
 
 
-
 <!-- =====================================================
-     EMI CALCULATOR SECTION
-===================================================== -->
+     CALCULATOR
+====================================================== -->
 
-<section class="emi-section">
+<section
+  class="calculator-section"
+  id="calculator"
+>
 
-    <div class="container">
+  <div class="container">
 
-        <div class="emi-card">
 
-            <div class="row g-0">
+    <div class="calculator-heading text-center">
 
+      <span>
+        EMI CALCULATOR
+      </span>
 
-                <!-- =================================================
-                     LEFT SIDE - CALCULATOR
-                ================================================== -->
+      <h2>
+        Estimate your monthly loan EMI
+      </h2>
 
-                <div class="col-lg-6">
+      <p>
+        Adjust the loan amount, interest rate and
+        tenure to see your estimated repayment.
+      </p>
 
-                    <div class="calculator-left">
+    </div>
 
 
-                        <h2>
+    <div class="calculator-wrapper">
 
-                            <i class="fas fa-calculator"></i>
 
-                            EMI Calculator
+      <!-- =================================================
+           LEFT - INPUTS
+      ================================================== -->
 
-                        </h2>
+      <div class="calculator-input-panel">
 
 
+        <div class="panel-heading">
 
-                        <!-- =========================================
-                             LOAN AMOUNT
-                        ========================================== -->
+          <div class="heading-icon">
 
-                        <div class="field-box">
+            <i class="fa-solid fa-sliders"></i>
 
+          </div>
 
-                            <label>
-                                Loan Amount
-                            </label>
+          <div>
 
+            <h3>
+              Loan Details
+            </h3>
 
-                            <div class="value-label">
+            <p>
+              Enter your preferred loan parameters
+            </p>
 
-                                <span id="loanAmountValue">
-                                    ₹10,00,000
-                                </span>
+          </div>
 
-                            </div>
+        </div>
 
 
-                            <input
-                                type="range"
-                                id="loanAmountSlider"
-                                min="0"
-                                max="10000000"
-                                step="10000"
-                                value="1000000"
-                            >
+        <!-- LOAN AMOUNT -->
 
+        <div class="input-card">
 
-                            <div class="number-control">
+          <div class="field-header">
 
+            <label for="loanAmountInput">
+              Loan Amount
+            </label>
 
-                                <button
-                                    type="button"
-                                    id="loanMinus"
-                                    class="step-button"
-                                    aria-label="Decrease loan amount"
-                                >
-                                    −
-                                </button>
+            <strong id="loanAmountValue">
+              ₹10,00,000
+            </strong>
 
+          </div>
 
-                                <input
-                                    type="text"
-                                    id="loanAmountInput"
-                                    value="1000000"
-                                    inputmode="numeric"
-                                    autocomplete="off"
-                                >
 
+          <input
+            type="range"
+            id="loanAmountSlider"
+            min="10000"
+            max="5000000"
+            step="10000"
+            value="1000000"
+            class="range-slider"
+          >
 
-                                <button
-                                    type="button"
-                                    id="loanPlus"
-                                    class="step-button"
-                                    aria-label="Increase loan amount"
-                                >
-                                    +
-                                </button>
 
+          <div class="manual-input">
 
-                            </div>
+            <button
+              type="button"
+              id="loanMinus"
+              class="step-button"
+              aria-label="Decrease loan amount"
+            >
+              −
+            </button>
 
-                        </div>
 
+            <div class="manual-field">
 
+              <span>
+                ₹
+              </span>
 
-                        <!-- =========================================
-                             INTEREST RATE
-                        ========================================== -->
+              <input
+                type="text"
+                id="loanAmountInput"
+                value="1000000"
+                inputmode="numeric"
+                autocomplete="off"
+                aria-label="Loan amount"
+              >
 
-                        <div class="field-box">
+            </div>
 
 
-                            <label>
-                                Interest Rate (%)
-                            </label>
+            <button
+              type="button"
+              id="loanPlus"
+              class="step-button"
+              aria-label="Increase loan amount"
+            >
+              +
+            </button>
 
+          </div>
 
-                            <div class="value-label">
 
-                                <span id="interestRateValue">
-                                    9.99%
-                                </span>
+          <div class="range-labels">
 
-                            </div>
+            <span>
+              ₹10,000
+            </span>
 
+            <span>
+              ₹50,00,000
+            </span>
 
-                            <input
-                                type="range"
-                                id="interestRateSlider"
-                                min="0"
-                                max="50"
-                                step="0.01"
-                                value="9.99"
-                            >
+          </div>
 
+        </div>
 
-                            <div class="number-control">
 
+        <!-- INTEREST -->
 
-                                <button
-                                    type="button"
-                                    id="interestMinus"
-                                    class="step-button"
-                                    aria-label="Decrease interest rate"
-                                >
-                                    −
-                                </button>
+        <div class="input-card">
 
+          <div class="field-header">
 
-                                <input
-                                    type="text"
-                                    id="interestRateInput"
-                                    value="9.99"
-                                    inputmode="decimal"
-                                    autocomplete="off"
-                                >
+            <label for="interestRateInput">
+              Interest Rate
+            </label>
 
+            <strong id="interestRateValue">
+              9.99%
+            </strong>
 
-                                <button
-                                    type="button"
-                                    id="interestPlus"
-                                    class="step-button"
-                                    aria-label="Increase interest rate"
-                                >
-                                    +
-                                </button>
+          </div>
 
 
-                            </div>
+          <input
+            type="range"
+            id="interestRateSlider"
+            min="0"
+            max="50"
+            step="0.01"
+            value="9.99"
+            class="range-slider"
+          >
 
 
-                            <div class="input-hint">
-                                Example: 0.11, 0.12, 9.99, 10.5
-                            </div>
+          <div class="manual-input">
 
+            <button
+              type="button"
+              id="interestMinus"
+              class="step-button"
+              aria-label="Decrease interest rate"
+            >
+              −
+            </button>
 
-                        </div>
 
+            <div class="manual-field">
 
+              <input
+                type="text"
+                id="interestRateInput"
+                value="9.99"
+                inputmode="decimal"
+                autocomplete="off"
+                aria-label="Interest rate"
+              >
 
-                        <!-- =========================================
-                             LOAN TENURE
-                        ========================================== -->
+              <span>
+                %
+              </span>
 
-                        <div class="field-box">
+            </div>
 
 
-                            <label>
-                                Loan Tenure (Months)
-                            </label>
+            <button
+              type="button"
+              id="interestPlus"
+              class="step-button"
+              aria-label="Increase interest rate"
+            >
+              +
+            </button>
 
+          </div>
 
-                            <div class="value-label">
 
-                                <span id="loanTermValue">
-                                    60 Months
-                                </span>
+          <div class="input-hint">
 
-                            </div>
+            <i class="fa-solid fa-circle-info"></i>
 
+            Example: 0.11, 0.12, 9.99 or 10.5
 
-                            <input
-                                type="range"
-                                id="loanTermSlider"
-                                min="1"
-                                max="360"
-                                step="1"
-                                value="60"
-                            >
+          </div>
 
 
-                            <div class="number-control">
+          <div class="range-labels">
 
+            <span>
+              0%
+            </span>
 
-                                <button
-                                    type="button"
-                                    id="termMinus"
-                                    class="step-button"
-                                    aria-label="Decrease loan tenure"
-                                >
-                                    −
-                                </button>
+            <span>
+              50%
+            </span>
 
+          </div>
 
-                                <input
-                                    type="text"
-                                    id="loanTermInput"
-                                    value="60"
-                                    inputmode="numeric"
-                                    autocomplete="off"
-                                >
+        </div>
 
 
-                                <button
-                                    type="button"
-                                    id="termPlus"
-                                    class="step-button"
-                                    aria-label="Increase loan tenure"
-                                >
-                                    +
-                                </button>
+        <!-- TENURE -->
 
+        <div class="input-card">
 
-                            </div>
+          <div class="field-header">
 
-                        </div>
+            <label for="loanTermInput">
+              Loan Tenure
+            </label>
 
+            <strong id="loanTermValue">
+              60 Months
+            </strong>
 
+          </div>
 
-                        <!-- =========================================
-                             CALCULATE BUTTON
-                        ========================================== -->
 
-                        <button
-                            type="button"
-                            id="calculateBtn"
-                            class="calculate-button"
-                        >
+          <input
+            type="range"
+            id="loanTermSlider"
+            min="1"
+            max="360"
+            step="1"
+            value="60"
+            class="range-slider"
+          >
 
-                            <i class="fas fa-calculator"></i>
 
-                            Calculate EMI
+          <div class="manual-input">
 
-                        </button>
+            <button
+              type="button"
+              id="termMinus"
+              class="step-button"
+              aria-label="Decrease loan tenure"
+            >
+              −
+            </button>
 
 
+            <div class="manual-field">
 
-                        <!-- =========================================
-                             RESULT
-                        ========================================== -->
+              <input
+                type="text"
+                id="loanTermInput"
+                value="60"
+                inputmode="numeric"
+                autocomplete="off"
+                aria-label="Loan tenure"
+              >
 
-                        <div class="results">
+              <span>
+                Months
+              </span>
 
+            </div>
 
-                            <!-- Monthly EMI -->
 
-                            <div class="result-row">
+            <button
+              type="button"
+              id="termPlus"
+              class="step-button"
+              aria-label="Increase loan tenure"
+            >
+              +
+            </button>
 
-                                <div>
+          </div>
 
-                                    <i class="fas fa-money-bill-wave"></i>
 
-                                    Monthly EMI
+          <div class="range-labels">
 
-                                </div>
+            <span>
+              1 Month
+            </span>
 
+            <span>
+              360 Months
+            </span>
 
-                                <strong id="monthlyPayment">
-                                    ₹0
-                                </strong>
+          </div>
 
-                            </div>
+        </div>
 
 
+        <!-- CALCULATE -->
 
-                            <!-- Total Payment -->
+        <button
+          type="button"
+          id="calculateBtn"
+          class="calculate-button"
+        >
 
-                            <div class="result-row">
+          <span>
+            Calculate EMI
+          </span>
 
-                                <div>
+          <i class="fa-solid fa-arrow-right"></i>
 
-                                    <i class="fas fa-wallet"></i>
+        </button>
 
-                                    Total Payment
 
-                                </div>
+      </div>
 
 
-                                <strong id="totalPayment">
-                                    ₹0
-                                </strong>
+      <!-- =================================================
+           RIGHT - RESULTS
+      ================================================== -->
 
-                            </div>
+      <div class="calculator-result-panel">
 
 
+        <div class="result-header">
 
-                            <!-- Total Interest -->
+          <div>
 
-                            <div class="result-row">
+            <span>
+              ESTIMATED REPAYMENT
+            </span>
 
-                                <div>
+            <h3>
+              Your EMI Summary
+            </h3>
 
-                                    <i class="fas fa-percent"></i>
+          </div>
 
-                                    Total Interest
 
-                                </div>
+          <div class="result-status">
 
+            <i class="fa-solid fa-check"></i>
 
-                                <strong id="totalInterest">
-                                    ₹0
-                                </strong>
+            Estimate
 
-                            </div>
+          </div>
 
+        </div>
 
-                        </div>
 
+        <!-- MAIN EMI -->
 
-                    </div>
+        <div class="emi-highlight">
+
+          <span>
+            Monthly EMI
+          </span>
+
+          <strong id="monthlyPayment">
+            ₹0
+          </strong>
+
+          <small>
+            Estimated monthly instalment
+          </small>
+
+        </div>
+
+
+        <!-- SUMMARY CARDS -->
+
+        <div class="summary-grid">
+
+
+          <div class="summary-card">
+
+            <div class="summary-icon principal">
+
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+
+            </div>
+
+            <span>
+              Principal Amount
+            </span>
+
+            <strong id="principalAmount">
+              ₹0
+            </strong>
+
+          </div>
+
+
+          <div class="summary-card">
+
+            <div class="summary-icon interest">
+
+              <i class="fa-solid fa-percent"></i>
+
+            </div>
+
+            <span>
+              Total Interest
+            </span>
+
+            <strong id="totalInterest">
+              ₹0
+            </strong>
+
+          </div>
+
+
+          <div class="summary-card full-card">
+
+            <div class="summary-icon total">
+
+              <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <span>
+              Total Payment
+            </span>
+
+            <strong id="totalPayment">
+              ₹0
+            </strong>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- CHART -->
+
+        <div class="chart-section">
+
+          <div class="chart-heading">
+
+            <div>
+
+              <span>
+                PAYMENT BREAKDOWN
+              </span>
+
+              <h4>
+                Principal vs Interest
+              </h4>
+
+            </div>
+
+          </div>
+
+
+          <div class="chart-area">
+
+            <div class="chart-container">
+
+              <canvas
+                id="emiPieChart"
+              ></canvas>
+
+            </div>
+
+
+            <div class="chart-legend">
+
+
+              <div class="legend-item">
+
+                <span class="legend-dot principal-dot"></span>
+
+                <div>
+
+                  <small>
+                    Principal Amount
+                  </small>
+
+                  <strong id="chartPrincipal">
+                    ₹0
+                  </strong>
 
                 </div>
 
+              </div>
 
 
-                <!-- =================================================
-                     RIGHT SIDE - CHART
-                ================================================== -->
+              <div class="legend-item">
 
-                <div class="col-lg-6">
+                <span class="legend-dot interest-dot"></span>
 
-                    <div class="chart-right">
+                <div>
 
+                  <small>
+                    Total Interest
+                  </small>
 
-                        <h2>
-                            EMI Breakdown
-                        </h2>
-
-
-                        <!-- =========================================
-                             PIE CHART
-                        ========================================== -->
-
-                        <div class="chart-box">
-
-                            <canvas
-                                id="emiPieChart"
-                            ></canvas>
-
-                        </div>
-
-
-
-                        <!-- =========================================
-                             CHART VALUES
-                        ========================================== -->
-
-                        <div class="breakdown">
-
-
-                            <!-- Principal -->
-
-                            <div class="breakdown-box">
-
-                                <span
-                                    class="blue-dot"
-                                ></span>
-
-
-                                <div>
-
-                                    <small>
-                                        Principal Amount
-                                    </small>
-
-
-                                    <strong
-                                        id="principalAmount"
-                                    >
-                                        ₹0
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <!-- Interest -->
-
-                            <div class="breakdown-box">
-
-                                <span
-                                    class="red-dot"
-                                ></span>
-
-
-                                <div>
-
-                                    <small>
-                                        Total Interest
-                                    </small>
-
-
-                                    <strong
-                                        id="chartInterest"
-                                    >
-                                        ₹0
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
-
-
-
-                        <!-- =========================================
-                             DOWNLOAD PDF
-                        ========================================== -->
-
-                        <button
-                            type="button"
-                            id="downloadPdfBtn"
-                            class="pdf-button"
-                        >
-
-                            <i class="fas fa-file-pdf"></i>
-
-                            Download EMI PDF
-
-                        </button>
-
-
-                    </div>
+                  <strong id="chartInterest">
+                    ₹0
+                  </strong>
 
                 </div>
+
+              </div>
 
 
             </div>
 
+          </div>
+
         </div>
 
+
+        <!-- PDF -->
+
+        <button
+          type="button"
+          id="downloadPdfBtn"
+          class="pdf-button"
+        >
+
+          <i class="fa-solid fa-file-pdf"></i>
+
+          Download EMI Summary
+
+          <i class="fa-solid fa-download"></i>
+
+        </button>
+
+
+        <p class="result-note">
+
+          This calculator provides an indicative EMI.
+          Actual loan terms, interest rates and approval
+          are subject to the applicable lender's criteria.
+
+        </p>
+
+
+      </div>
+
+
     </div>
+
+  </div>
 
 </section>
 
 
-
 <!-- =====================================================
-     FOOTER
-===================================================== -->
+     FEATURES
+====================================================== -->
 
-<footer class="footer-gradient">
+<section class="features-section">
 
-    <div class="container">
-
-
-        <h5>
-            Atyant Loan Solutions
-        </h5>
+  <div class="container">
 
 
-        <p>
-            Office No. 406, 4th Floor,
-            Kaveri Building,
-            Near Sakinaka Metro,
-            Andheri East,
-            Mumbai-400072
-        </p>
+    <div class="section-heading text-center">
+
+      <span>
+        PLAN BEFORE YOU BORROW
+      </span>
+
+      <h2>
+        Make informed loan decisions
+      </h2>
+
+      <p>
+        Understanding your EMI can help you plan your
+        monthly finances more effectively.
+      </p>
+
+    </div>
 
 
-        <p>
-
-            <strong>
-                Phone:
-            </strong>
-
-            +91 8692877974
-
-            |
-
-            <strong>
-                Email:
-            </strong>
-
-            anup.gupta@atyantloan.com
-
-        </p>
+    <div class="row g-4">
 
 
+      <div class="col-md-4">
 
-        <!-- Google Map -->
+        <div class="feature-card">
 
-        <div class="footer-map-container">
+          <div class="feature-icon blue">
 
-            <iframe
-                src="https://www.google.com/maps?q=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India&output=embed"
-                allowfullscreen
-                loading="lazy">
-            </iframe>
+            <i class="fa-solid fa-chart-line"></i>
 
+          </div>
 
-            <a
-                href="https://www.google.com/maps/dir/?api=1&destination=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India"
-                target="_blank"
-                class="get-directions-btn"
-            >
+          <h3>
+            Understand Your EMI
+          </h3>
 
-                Get Directions
+          <p>
 
-            </a>
+            Estimate how much you may need to
+            pay every month based on your loan
+            amount, interest rate and tenure.
+
+          </p>
 
         </div>
 
+      </div>
 
 
-        <!-- Social Icons -->
+      <div class="col-md-4">
 
-        <div class="social-icons">
+        <div class="feature-card">
 
+          <div class="feature-icon green">
 
-            <a href="#">
-                <i class="fab fa-facebook-f"></i>
-            </a>
+            <i class="fa-solid fa-coins"></i>
 
+          </div>
 
-            <a href="#">
-                <i class="fab fa-twitter"></i>
-            </a>
+          <h3>
+            Compare Repayment Cost
+          </h3>
 
+          <p>
 
-            <a href="#">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
+            See the difference between your
+            principal amount, interest cost and
+            total repayment.
 
-
-            <a
-                href="https://www.instagram.com/atyantloansolutions/"
-                target="_blank"
-            >
-                <i class="fab fa-instagram"></i>
-            </a>
-
+          </p>
 
         </div>
 
+      </div>
 
-        <p>
 
-            &copy; 2025
-            Atyant Loan Solutions.
-            All Rights Reserved.
+      <div class="col-md-4">
 
-        </p>
+        <div class="feature-card">
+
+          <div class="feature-icon purple">
+
+            <i class="fa-solid fa-calendar-check"></i>
+
+          </div>
+
+          <h3>
+            Plan Your Tenure
+          </h3>
+
+          <p>
+
+            Try different loan tenures and
+            interest rates to understand their
+            impact on your estimated EMI.
+
+          </p>
+
+        </div>
+
+      </div>
 
 
     </div>
 
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOW IT WORKS
+====================================================== -->
+
+<section class="how-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        SIMPLE CALCULATION
+      </span>
+
+      <h2>
+        How the EMI calculator works
+      </h2>
+
+    </div>
+
+
+    <div class="steps-wrapper">
+
+
+      <div class="step-item">
+
+        <div class="step-number">
+          01
+        </div>
+
+        <div>
+
+          <h3>
+            Enter Loan Amount
+          </h3>
+
+          <p>
+            Select or manually enter the amount
+            you are planning to borrow.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step-line"></div>
+
+
+      <div class="step-item">
+
+        <div class="step-number">
+          02
+        </div>
+
+        <div>
+
+          <h3>
+            Enter Interest Rate
+          </h3>
+
+          <p>
+            Enter the applicable annual interest
+            rate for your calculation.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step-line"></div>
+
+
+      <div class="step-item">
+
+        <div class="step-number">
+          03
+        </div>
+
+        <div>
+
+          <h3>
+            Select Tenure
+          </h3>
+
+          <p>
+            Choose the number of months for
+            your estimated repayment period.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="step-line"></div>
+
+
+      <div class="step-item">
+
+        <div class="step-number">
+          04
+        </div>
+
+        <div>
+
+          <h3>
+            View Your EMI
+          </h3>
+
+          <p>
+            Instantly view the estimated EMI,
+            interest and total repayment.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+====================================================== -->
+
+<section class="faq-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        FREQUENTLY ASKED QUESTIONS
+      </span>
+
+      <h2>
+        EMI Calculator FAQs
+      </h2>
+
+    </div>
+
+
+    <div
+      class="accordion faq-accordion"
+      id="calculatorFaq"
+    >
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqOne"
+          >
+
+            What is EMI?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="faqOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#calculatorFaq"
+        >
+
+          <div class="accordion-body">
+
+            EMI stands for Equated Monthly Instalment.
+            It is the estimated amount paid periodically
+            towards repayment of a loan, including
+            applicable principal and interest.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqTwo"
+          >
+
+            Does a longer tenure reduce the EMI?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="faqTwo"
+          class="accordion-collapse collapse"
+          data-bs-parent="#calculatorFaq"
+        >
+
+          <div class="accordion-body">
+
+            A longer tenure generally reduces the
+            monthly instalment, but it may increase
+            the total interest paid over the complete
+            repayment period.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqThree"
+          >
+
+            Can I enter the interest rate manually?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="faqThree"
+          class="accordion-collapse collapse"
+          data-bs-parent="#calculatorFaq"
+        >
+
+          <div class="accordion-body">
+
+            Yes. You can manually enter the interest
+            rate in the interest-rate field. Decimal
+            values such as 9.99 or 10.5 can also be used.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqFour"
+          >
+
+            Is the calculated EMI the final loan EMI?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="faqFour"
+          class="accordion-collapse collapse"
+          data-bs-parent="#calculatorFaq"
+        >
+
+          <div class="accordion-body">
+
+            No. The result is an estimate. Actual EMI,
+            interest rate, fees, tenure and loan approval
+            are subject to the applicable lender's terms
+            and eligibility criteria.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+====================================================== -->
+
+<section class="cta-section">
+
+  <div class="container">
+
+    <div class="cta-box">
+
+
+      <div>
+
+        <span>
+          READY TO GET STARTED?
+        </span>
+
+        <h2>
+          Explore your loan options.
+        </h2>
+
+        <p>
+          Calculate your EMI and start your application journey.
+        </p>
+
+      </div>
+
+
+      <div class="cta-actions">
+
+        <a
+          href="../apply/apply.html"
+          class="cta-primary"
+        >
+
+          Apply Now
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a
+          href="tel:+918692877974"
+          class="cta-secondary"
+        >
+
+          <i class="fa-solid fa-phone"></i>
+
+          Call Us
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROFESSIONAL FOOTER
+====================================================== -->
+
+<footer class="professional-footer">
+
+  <div class="container">
+
+
+    <div class="footer-main">
+
+
+      <div class="footer-company">
+
+        <h3>
+          Atyant Loan Solutions
+        </h3>
+
+        <p>
+
+          Your trusted financial assistance partner.
+          Explore suitable loan options with a
+          simple and professional application journey.
+
+        </p>
+
+
+        <div class="footer-social">
+
+          <a
+            href="#"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <a
+            href="#"
+            aria-label="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+
+          <a
+            href="#"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/atyantloansolutions/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Quick Links
+        </h4>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="../about/about.html">
+          About Us
+        </a>
+
+        <a href="../apply/apply.html">
+          Apply Now
+        </a>
+
+        <a href="../cal/cal.html">
+          EMI Calculator
+        </a>
+
+        <a href="../contact/contact.html">
+          Contact Us
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Loan Services
+        </h4>
+
+        <a href="../apply/apply.html">
+          Personal Loan
+        </a>
+
+        <a href="../apply/apply.html">
+          Business Loan
+        </a>
+
+        <a href="../cal/cal.html">
+          Loan Calculator
+        </a>
+
+        <a href="../apply/apply.html">
+          Loan Application
+        </a>
+
+      </div>
+
+
+      <div class="footer-column footer-contact">
+
+        <h4>
+          Contact Us
+        </h4>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+          </div>
+
+          <span>
+
+            Office No. 406, 4th Floor,
+            Kaveri Building, Near Sakinaka Metro,
+            Andheri East, Mumbai - 400072
+
+          </span>
+
+        </div>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-phone"></i>
+
+          </div>
+
+          <a href="tel:+918692877974">
+
+            +91 8692877974
+
+          </a>
+
+        </div>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-envelope"></i>
+
+          </div>
+
+          <a href="mailto:anup.gupta@atyantloan.com">
+
+            anup.gupta@atyantloan.com
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <p>
+
+        © 2026
+        <strong>
+          Atyant Loan Solutions
+        </strong>.
+        All Rights Reserved.
+
+      </p>
+
+
+      <div class="footer-links">
+
+        <a href="#">
+          Privacy Policy
+        </a>
+
+        <span>|</span>
+
+        <a href="../terms/terms.html">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
 </footer>
 
 
-
 <!-- =====================================================
-     FLOATING WHATSAPP
-===================================================== -->
+     FLOATING BUTTONS
+====================================================== -->
 
 <a
-    href="https://wa.me/918692877974?text=Hello%20Atyant%20Loan%20Solutions"
-    class="whatsapp-float"
-    target="_blank"
+  href="https://wa.me/918692877974?text=Hello%20Atyant%20Loan%20Solutions"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="WhatsApp"
 >
 
-    <i class="fab fa-whatsapp"></i>
+  <i class="fab fa-whatsapp"></i>
 
 </a>
 
 
-
-<!-- =====================================================
-     FLOATING CALL
-===================================================== -->
-
 <a
-    href="tel:+918692877974"
-    class="callnow-float"
+  href="tel:+918692877974"
+  class="call-float"
+  aria-label="Call"
 >
 
-    <i class="fas fa-phone-alt"></i>
+  <i class="fas fa-phone"></i>
 
 </a>
 
 
-
 <!-- =====================================================
-     JAVASCRIPT LIBRARIES
-===================================================== -->
+     JS LIBRARIES
+====================================================== -->
 
 <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-</script>
-
-
-<script
-    src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js">
-</script>
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
 
 
 <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js">
-</script>
+  src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
+></script>
 
 
 <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js">
-</script>
+  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+></script>
 
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"
+></script>
+
+
+<!-- Shared Navbar -->
 
 <script src="../navbar.js"></script>
 
 
+<!-- Calculator JS -->
+
 <script src="cal.js"></script>
 
 
-
 <!-- =====================================================
-     LOADER + NAVBAR
-===================================================== -->
+     PAGE JS
+====================================================== -->
 
 <script>
 
-window.addEventListener(
-    "load",
-    function () {
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+
+    /* Loader */
+
+    window.addEventListener(
+      "load",
+      function () {
 
         const loader =
-            document.getElementById(
-                "preloader"
-            );
+          document.getElementById(
+            "preloader"
+          );
 
-        loader.style.opacity =
-            "0";
-
-
-        setTimeout(
-            function () {
-
-                loader.style.display =
-                    "none";
-
-            },
-            500
-        );
-
-    }
-);
-
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        if (
-            typeof loadNavbar ===
-            "function"
-        ) {
-
-            loadNavbar();
-
+        if (!loader) {
+          return;
         }
 
-    }
+        setTimeout(
+          function () {
+
+            loader.classList.add(
+              "hide"
+            );
+
+            setTimeout(
+              function () {
+
+                loader.style.display =
+                  "none";
+
+              },
+              500
+            );
+
+          },
+          500
+        );
+
+      }
+    );
+
+
+    /* Smooth scroll */
+
+    document
+      .querySelectorAll(
+        'a[href^="#"]'
+      )
+      .forEach(
+        function (link) {
+
+          link.addEventListener(
+            "click",
+            function (e) {
+
+              const target =
+                document.querySelector(
+                  this.getAttribute("href")
+                );
+
+              if (!target) {
+                return;
+              }
+
+              e.preventDefault();
+
+              target.scrollIntoView({
+                behavior: "smooth"
+              });
+
+            }
+          );
+
+        }
+      );
+
+
+  }
 );
 
 </script>

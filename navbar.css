@@ -1,77 +1,761 @@
-/* =================== Navbar =================== */
-.navbar {
-  background-color: #212529 !important;
-  transition: background-color 0.3s ease;
-  z-index: 1050;
+/* =========================================================
+   ATYANT LOAN SOLUTIONS
+   PROFESSIONAL NAVBAR
+========================================================= */
+
+:root {
+
+  --atyant-primary: #0757d5;
+
+  --atyant-primary-dark: #043d98;
+
+  --atyant-navy: #071a3d;
+
+  --atyant-text: #405066;
+
+  --atyant-border: #e5ebf3;
+
+  --atyant-white: #ffffff;
+
 }
 
-.navbar-brand span {
-  color: white;
-  font-size: 1.4rem;
-  font-weight: 600;
-}
 
-.navbar-nav .nav-link {
-  color: white !important;
-  font-weight: 500;
-  margin: 0 0.5rem;
-  transition: color 0.3s;
-}
+/* =========================================================
+   BODY
+========================================================= */
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-  color: #0d6efd !important;
-}
-
-/* Fix toggler icon visibility */
-.navbar-toggler {
-  border: none;
-}
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.95)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-/* Add spacing for fixed navbar */
 body {
-  padding-top: 80px; /* adjusts for fixed navbar height */
+
+  padding-top: 78px;
+
 }
 
-/* Responsive Nav */
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.atyant-navbar {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  right: 0;
+
+  width: 100%;
+
+  min-height: 78px;
+
+  z-index: 9999;
+
+  padding: 0 !important;
+
+  background:
+    rgba(255,255,255,.98) !important;
+
+  border-bottom:
+    1px solid
+    rgba(7,26,61,.08);
+
+  transition:
+    box-shadow .25s ease,
+    background .25s ease;
+
+}
+
+
+.atyant-navbar.navbar-scrolled {
+
+  background:
+    #ffffff !important;
+
+  box-shadow:
+    0 8px 30px
+    rgba(7,26,61,.12);
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.navbar-main-container {
+
+  width: 100%;
+
+  max-width: 1440px;
+
+  min-height: 78px;
+
+  margin: auto;
+
+  padding:
+    0 30px;
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.atyant-brand {
+
+  display: flex !important;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 !important;
+
+  margin-right: 25px;
+
+  text-decoration: none;
+
+}
+
+
+.brand-logo-wrapper {
+
+  width: 48px;
+
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background:
+    #f1f6ff;
+
+  border:
+    1px solid
+    #dce7f7;
+
+  border-radius: 11px;
+
+}
+
+
+.brand-logo {
+
+  width: 39px;
+
+  height: 39px;
+
+  object-fit: contain;
+
+}
+
+
+.brand-text {
+
+  display: flex;
+
+  flex-direction: column;
+
+  line-height: 1;
+
+}
+
+
+.brand-name {
+
+  color:
+    var(--atyant-navy);
+
+  font-size: 20px;
+
+  font-weight: 850;
+
+  letter-spacing:
+    -.5px;
+
+}
+
+
+.brand-tagline {
+
+  margin-top: 5px;
+
+  color:
+    var(--atyant-primary);
+
+  font-size: 8px;
+
+  font-weight: 850;
+
+  letter-spacing:
+    1.7px;
+
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.atyant-nav-link {
+
+  position: relative;
+
+  min-height: 78px;
+
+  display: flex !important;
+
+  align-items: center;
+
+  gap: 7px;
+
+  padding:
+    0 13px !important;
+
+  color:
+    var(--atyant-text) !important;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  white-space: nowrap;
+
+  transition:
+    color .2s ease,
+    background .2s ease;
+
+}
+
+
+.atyant-nav-link::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 13px;
+
+  right: 13px;
+
+  bottom: 0;
+
+  height: 3px;
+
+  background:
+    var(--atyant-primary);
+
+  border-radius:
+    3px 3px 0 0;
+
+  transform:
+    scaleX(0);
+
+  transition:
+    transform .2s ease;
+
+}
+
+
+.atyant-nav-link:hover {
+
+  color:
+    var(--atyant-primary) !important;
+
+}
+
+
+.atyant-nav-link:hover::after,
+.atyant-nav-link.active::after {
+
+  transform:
+    scaleX(1);
+
+}
+
+
+.atyant-nav-link.active {
+
+  color:
+    var(--atyant-primary) !important;
+
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.nav-icon {
+
+  width: 20px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color:
+    #7d8a9d;
+
+  font-size: 11px;
+
+}
+
+
+.atyant-nav-link:hover
+.nav-icon,
+
+.atyant-nav-link.active
+.nav-icon {
+
+  color:
+    var(--atyant-primary);
+
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-nav-item {
+
+  margin-left: 8px;
+
+}
+
+
+.atyant-login-btn {
+
+  min-height: 40px;
+
+  display: flex !important;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  padding:
+    0 14px !important;
+
+  color:
+    var(--atyant-primary) !important;
+
+  background:
+    #edf5ff !important;
+
+  border:
+    1px solid
+    #d8e7fa !important;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 750;
+
+  text-decoration: none;
+
+}
+
+
+.atyant-login-btn:hover {
+
+  background:
+    #e3efff !important;
+
+}
+
+
+/* =========================================================
+   APPLY NOW
+========================================================= */
+
+.apply-nav-item {
+
+  margin-left: 8px;
+
+}
+
+
+.atyant-apply-btn {
+
+  min-height: 42px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  padding:
+    0 18px;
+
+  color:
+    #ffffff !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0757d5,
+      #287cff
+    );
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 7px 18px
+    rgba(7,87,213,.22);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+
+}
+
+
+.atyant-apply-btn:hover {
+
+  color:
+    #ffffff !important;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 11px 25px
+    rgba(7,87,213,.30);
+
+}
+
+
+/* =========================================================
+   MOBILE TOGGLER
+========================================================= */
+
+.atyant-toggler {
+
+  width: 44px;
+
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+  padding: 0;
+
+  background:
+    #f1f5fa;
+
+  border:
+    1px solid
+    #dce4ee !important;
+
+  border-radius: 9px;
+
+}
+
+
+.atyant-toggler:focus {
+
+  box-shadow:
+    0 0 0 3px
+    rgba(7,87,213,.12) !important;
+
+}
+
+
+.navbar-toggler-line {
+
+  width: 19px;
+
+  height: 2px;
+
+  background:
+    var(--atyant-navy);
+
+  border-radius: 5px;
+
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.navbar-error {
+
+  width: 100%;
+
+  padding: 14px;
+
+  color: #664d03;
+
+  background: #fff3cd;
+
+  border-bottom:
+    1px solid
+    #ffecb5;
+
+  text-align: center;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
 @media (max-width: 991px) {
+
+  body {
+
+    padding-top: 70px;
+
+  }
+
+
+  .atyant-navbar {
+
+    min-height: 70px;
+
+  }
+
+
+  .navbar-main-container {
+
+    min-height: 70px;
+
+    padding:
+      0 18px;
+
+  }
+
+
+  .atyant-brand {
+
+    margin-right: 0;
+
+  }
+
+
+  .brand-logo-wrapper {
+
+    width: 44px;
+
+    height: 44px;
+
+  }
+
+
+  .brand-logo {
+
+    width: 35px;
+
+    height: 35px;
+
+  }
+
+
+  .brand-name {
+
+    font-size: 18px;
+
+  }
+
+
+  .brand-tagline {
+
+    font-size: 7px;
+
+  }
+
+
+  #atyantNavbarMenu {
+
+    padding:
+      12px 0 18px;
+
+    background:
+      #ffffff;
+
+    border-top:
+      1px solid
+      var(--atyant-border);
+
+  }
+
+
   .navbar-nav {
-    flex-direction: column;
-    gap: 1rem;
-    padding-top: 1rem;
+
+    width: 100%;
+
+    align-items:
+      stretch !important;
+
   }
 
-  .navbar-nav .nav-link {
-    font-size: 1.1rem;
+
+  .atyant-nav-link {
+
+    min-height: 50px;
+
+    justify-content:
+      flex-start;
+
+    padding:
+      0 8px !important;
+
+    border-bottom:
+      1px solid
+      #edf0f4;
+
+    font-size: 14px;
+
   }
 
-  .navbar-brand span {
-    font-size: 1.1rem;
+
+  .atyant-nav-link::after {
+
+    display: none;
+
   }
 
-  main h1 {
-    font-size: 1.5rem !important;
-    word-break: break-word;
+
+  .atyant-nav-link:hover {
+
+    background:
+      #f5f8fc !important;
+
+    border-radius: 7px;
+
   }
 
-  main p {
-    font-size: 1rem !important;
+
+  .login-nav-item {
+
+    margin:
+      10px 0 0;
+
   }
+
+
+  .atyant-login-btn {
+
+    width: 100%;
+
+    min-height: 46px;
+
+    justify-content:
+      flex-start;
+
+  }
+
+
+  .apply-nav-item {
+
+    margin:
+      8px 0 0;
+
+  }
+
+
+  .atyant-apply-btn {
+
+    width: 100%;
+
+    min-height: 46px;
+
+  }
+
 }
 
-/* =================== Footer =================== */
-footer {
-  background-color: #212529;
-  color: white;
-  font-size: 0.95rem;
-}
 
-footer .social-icons a:hover {
-  color: #0d6efd;
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .navbar-main-container {
+
+    padding:
+      0 13px;
+
+  }
+
+
+  .brand-logo-wrapper {
+
+    width: 41px;
+
+    height: 41px;
+
+  }
+
+
+  .brand-logo {
+
+    width: 33px;
+
+    height: 33px;
+
+  }
+
+
+  .brand-name {
+
+    font-size: 17px;
+
+  }
+
+
+  .brand-tagline {
+
+    font-size: 6.5px;
+
+    letter-spacing:
+      1.3px;
+
+  }
+
+
+  .atyant-toggler {
+
+    width: 40px;
+
+    height: 40px;
+
+  }
+
 }

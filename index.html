@@ -1,263 +1,2680 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Atyant Loan Solutions</title>
-    <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="index.css" />
-    <link rel="stylesheet" href="../navbar.css" />
-  </head>
 
-  <body>
-    <!-- Simple Preloader -->
-    <div id="preloader">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Atyant Loan Solutions - Personal loan options up to ₹50 Lakhs with a simple and convenient application process."
+  >
+
+  <meta
+    name="theme-color"
+    content="#0757d5"
+  >
+
+  <title>
+    Atyant Loan Solutions | Personal Loans up to ₹50 Lakhs
+  </title>
+
+
+  <!-- Favicon -->
+
+  <link
+    rel="icon"
+    href="./assets/logo.png"
+    type="image/png"
+  >
+
+
+  <!-- Bootstrap -->
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+
+  <!-- Font Awesome -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+
+  <!-- Navbar CSS -->
+
+  <link
+    rel="stylesheet"
+    href="./navbar.css"
+  >
+
+
+  <!-- Homepage CSS -->
+
+  <link
+    rel="stylesheet"
+    href="./index.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       PRELOADER
+  ====================================================== -->
+
+  <div id="preloader">
+
+    <div class="preloader-content">
+
+      <div class="preloader-logo">
+
+        <img
+          src="./assets/logo.png"
+          alt="Atyant Loan Solutions"
+        >
+
       </div>
-      <p>Loading...</p>
+
+      <div
+        class="spinner-border text-primary"
+        role="status"
+      >
+
+        <span class="visually-hidden">
+          Loading...
+        </span>
+
+      </div>
+
+      <p>
+        Preparing your loan experience...
+      </p>
+
     </div>
 
-    <!-- Navbar -->
-    <div id="navbar-container"></div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Get Instant Personal Loans</h1>
-        <p>Quick & hassle-free approval at low interest rates.</p>
-        <a href="./apply/apply.html" class="btn btn-primary btn-lg">Apply Now</a>
-      </div>
-    </section>
-
-    <!-- Banking Logos Section -->
-    <section class="banks">
-      <h2 class="text-center my-4">Trusted by Top Banks</h2>
-      <div class="bank-slider">
-        <div class="bank-track">
-          <img src="./assets/logo/hdfc bank logo.jpg" alt="HDFC Bank" />
-          <img src="./assets/logo/Icici Bank Logo.jpg" alt="ICICI Bank" />
-          <img src="./assets/logo/aditya-birla-capital.jpg" alt="ABCL" />
-          <img src="./assets/logo/Kotak_Mahindra_Bank_logo.png" alt="Kotak Bank" />
-          <img src="./assets/logo/Bajaj_Finserv_Logo.svg" alt="Bajaj Finserv" />
-          <img src="./assets/logo/Axis_Bank_logo.svg.png" alt="Axis Bank" />
-          <img src="./assets/logo/indusind bank logo.jpg" alt="Indusind Bank" />
-          <img src="./assets/logo/Tata_Capital_Logo.jpg" alt="Tata Capital" />
-          <img src="./assets/logo/IDFC bank logo.png" alt="IDFC First Bank" />
-          <img src="./assets/logo/Chola.jpg" alt="Cholamandalam" />
-          <img src="./assets/logo/Yes bank logo.webp" alt="Yes Bank" />
-        </div>
-      </div>
-    </section>
-
-    <!-- Loan Benefits -->
-    <section class="container text-center my-5">
-      <h2>Why Choose Us?</h2>
-      <div class="row mt-4">
-        <div class="col-md-4 mb-4">
-          <div class="benefit-icon">💰</div>
-          <h5>Low Interest Rates</h5>
-          <p>Get the best interest rates for your loan.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="benefit-icon">⚡</div>
-          <h5>Quick Approvals</h5>
-          <p>Receive loan approvals in just a few hours.</p>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="benefit-icon">📄</div>
-          <h5>Minimal Documentation</h5>
-          <p>Simple and easy application process.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="bg-light py-5">
-      <div class="container text-center">
-        <h2>How It Works</h2>
-        <div class="row mt-4">
-          <div class="col-md-3 mb-3">
-            <div class="step-icon">📝</div>
-            <h5>Step 1</h5>
-            <p>Fill the online application form.</p>
-          </div>
-          <div class="col-md-3 mb-3">
-            <div class="step-icon">📂</div>
-            <h5>Step 2</h5>
-            <p>Upload required documents.</p>
-          </div>
-          <div class="col-md-3 mb-3">
-            <div class="step-icon">✔️</div>
-            <h5>Step 3</h5>
-            <p>Get loan approval in 24 hours.</p>
-          </div>
-          <div class="col-md-3 mb-3">
-            <div class="step-icon">🏦</div>
-            <h5>Step 4</h5>
-            <p>Receive the amount in your bank.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="container my-5 text-center">
-      <h2>What Our Customers Say</h2>
-      <div class="row mt-4">
-        <div class="col-md-4 mb-4">
-          <div class="card p-3 shadow-sm h-100">
-            <p>"Atyant Loan Solutions helped me get my loan in just 2 days. Super fast and easy!"</p>
-            <strong>- Rahul Sharma</strong>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card p-3 shadow-sm h-100">
-            <p>"Their interest rates are really competitive, and the service is great!"</p>
-            <strong>- Priya Verma</strong>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card p-3 shadow-sm h-100">
-            <p>"I got my loan approved with minimal paperwork. Highly recommended!"</p>
-            <strong>- Aman Singh</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <!-- <div id="footer-container"></div> -->
+  </div>
 
 
-      <style>
-        .footer-gradient {
-          background: linear-gradient(135deg, #0d0d0d, #1b1f24, #0d1117);
-          padding: 30px 15px;
-          color: #fff;
-          text-align: center;
-        }
-        .footer-gradient h5 { margin-bottom: 8px; font-size: 20px; }
-        .footer-gradient p { margin: 2px 0; font-size: 14px; }
 
-        .social-icons a { margin: 0 5px; color: #fff; font-size: 18px; transition: transform 0.3s; }
-        .social-icons a:hover { transform: scale(1.2); color: #0abcf9; }
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
 
-        .footer-map-container {
-          width: 100%;
-          max-width: 700px;
-          margin: 20px auto;
-          border-radius: 10px;
-          overflow: hidden;
-        }
-        .footer-map-container iframe {
-          width: 100%;
-          height: 300px;
-          border: 0;
-        }
+  <nav
+    class="navbar navbar-expand-lg atyant-navbar fixed-top"
+    id="atyantNavbar"
+  >
 
-        .get-directions-btn {
-          display: inline-block;
-          margin-top: 12px;
-          padding: 10px 18px;
-          background: #0a66c2;
-          color: #fff;
-          border-radius: 8px;
-          text-decoration: none;
-          font-size: 16px;
-        }
-        .get-directions-btn:hover { background: #004a99; }
+    <div class="container-fluid navbar-main-container">
 
-        .whatsapp-float, .callnow-float {
-          position: fixed;
-          width: 55px;
-          height: 55px;
-          bottom: 20px;
-          color: #fff;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          z-index: 999;
-          font-size: 28px;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-          transition: transform 0.3s ease;
-        }
-        .whatsapp-float { background: #25d366; right: 20px; }
-        .callnow-float { background: #ff4d4d; right: 90px; }
-        .whatsapp-float:hover, .callnow-float:hover { transform: scale(1.1); }
 
-        @media(max-width: 480px){
-          .footer-gradient h5 { font-size: 18px; }
-          .footer-gradient p { font-size: 13px; }
-          .get-directions-btn { font-size: 14px; padding:8px 15px; }
-          .whatsapp-float, .callnow-float { width:50px; height:50px; font-size:24px; }
-        }
-      </style>
+      <!-- Brand -->
 
-      <footer class="footer-gradient">
-        <div class="container">
-          <h5>Atyant Loan Solutions</h5>
-          <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
-          <p><strong>Phone:</strong> +91 8692877974 | <strong>Email:</strong> anup.gupta@atyantloan.com</p>
+      <a
+        class="navbar-brand atyant-brand"
+        href="./index.html"
+      >
 
-          <!-- Google Map without API Key -->
-          <div class="footer-map-container">
-            <iframe
-              src="https://www.google.com/maps?q=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India&output=embed"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India"
-               target="_blank"
-               class="get-directions-btn">
-               Get Directions
+        <span class="brand-logo-wrapper">
+
+          <img
+            src="./assets/logo.png"
+            alt="Atyant Loan Solutions"
+            class="brand-logo"
+          >
+
+        </span>
+
+
+        <span class="brand-text">
+
+          <span class="brand-name">
+            Atyant
+          </span>
+
+          <span class="brand-tagline">
+            LOAN SOLUTIONS
+          </span>
+
+        </span>
+
+      </a>
+
+
+
+      <!-- Mobile Button -->
+
+      <button
+        class="navbar-toggler atyant-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#atyantNavbarMenu"
+        aria-controls="atyantNavbarMenu"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+
+        <span class="navbar-toggler-line"></span>
+        <span class="navbar-toggler-line"></span>
+        <span class="navbar-toggler-line"></span>
+
+      </button>
+
+
+
+      <!-- Navigation -->
+
+      <div
+        class="collapse navbar-collapse"
+        id="atyantNavbarMenu"
+      >
+
+        <ul
+          class="navbar-nav ms-auto align-items-lg-center"
+        >
+
+
+          <!-- Home -->
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link atyant-nav-link active"
+              href="./index.html"
+            >
+
+              <span class="nav-icon">
+                <i class="fa-solid fa-house"></i>
+              </span>
+
+              <span>
+                Home
+              </span>
+
             </a>
+
+          </li>
+
+
+          <!-- Apply -->
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link atyant-nav-link"
+              href="./apply/apply.html"
+            >
+
+              <span class="nav-icon">
+                <i class="fa-solid fa-file-signature"></i>
+              </span>
+
+              <span>
+                Apply
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- About -->
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link atyant-nav-link"
+              href="./about/about.html"
+            >
+
+              <span class="nav-icon">
+                <i class="fa-solid fa-circle-info"></i>
+              </span>
+
+              <span>
+                About
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- Contact -->
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link atyant-nav-link"
+              href="./contact/contact.html"
+            >
+
+              <span class="nav-icon">
+                <i class="fa-solid fa-phone"></i>
+              </span>
+
+              <span>
+                Contact
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- Calculator -->
+
+          <li class="nav-item">
+
+            <a
+              class="nav-link atyant-nav-link"
+              href="./cal/cal.html"
+            >
+
+              <span class="nav-icon">
+                <i class="fa-solid fa-calculator"></i>
+              </span>
+
+              <span>
+                Calculator
+              </span>
+
+            </a>
+
+          </li>
+
+
+          <!-- Login -->
+
+          <!-- <li class="nav-item login-nav-item">
+
+            <a
+              class="nav-link atyant-login-btn"
+              href="./login/login.html"
+            >
+
+              <i class="fa-solid fa-right-to-bracket"></i>
+
+              <span>
+                Login
+              </span>
+
+            </a>
+
+          </li> -->
+
+
+          <!-- Apply Now -->
+
+          <li class="nav-item apply-nav-item">
+
+            <a
+              class="atyant-apply-btn"
+              href="./apply/apply.html"
+            >
+
+              <span>
+                Apply Now
+              </span>
+
+              <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+          </li>
+
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <!-- =====================================================
+       MAIN CONTENT
+  ====================================================== -->
+
+  <main>
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section class="hero-section">
+
+      <div class="hero-glow hero-glow-one"></div>
+
+      <div class="hero-glow hero-glow-two"></div>
+
+
+      <div class="container position-relative">
+
+        <div class="row align-items-center g-5">
+
+
+          <!-- Hero Content -->
+
+          <div class="col-lg-7">
+
+            <div class="hero-badge">
+
+              <span class="pulse-dot"></span>
+
+              Simple • Convenient • Transparent
+
+            </div>
+
+
+            <h1>
+
+              Personal Loans
+
+              <span>
+                up to ₹50 Lakhs
+              </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+              Explore suitable personal loan options
+              with a simple application process and
+              dedicated assistance from our team.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+              <a
+                href="./apply/apply.html"
+                class="btn-primary-premium"
+              >
+
+                Apply Now
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+              </a>
+
+
+              <a
+                href="#how-it-works"
+                class="btn-outline-premium"
+              >
+
+                <i class="fa-solid fa-play"></i>
+
+                How It Works
+
+              </a>
+
+            </div>
+
+
+            <div class="hero-trust">
+
+              <div class="trust-item">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                  Secure Process
+                </span>
+
+              </div>
+
+
+              <div class="trust-divider"></div>
+
+
+              <div class="trust-item">
+
+                <i class="fa-solid fa-headset"></i>
+
+                <span>
+                  Expert Assistance
+                </span>
+
+              </div>
+
+
+              <div class="trust-divider"></div>
+
+
+              <div class="trust-item">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <span>
+                  Quick Processing
+                </span>
+
+              </div>
+
+            </div>
+
           </div>
 
-          <!-- Social Icons -->
-          <div class="social-icons mt-4 mb-3">
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/atyantloansolutions/" target="_blank"><i class="fab fa-instagram"></i></a>
+
+
+          <!-- Loan Card -->
+
+          <div class="col-lg-5">
+
+            <div class="loan-card">
+
+
+              <div class="loan-card-top">
+
+                <div>
+
+                  <small>
+                    PERSONAL LOAN
+                  </small>
+
+                  <h3>
+                    Plan Your Finances
+                  </h3>
+
+                </div>
+
+
+                <div class="loan-card-icon">
+
+                  <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                </div>
+
+              </div>
+
+
+              <div class="amount-display">
+
+                <span>
+                  Loan amount
+                </span>
+
+                <strong>
+                  ₹50,00,000
+                </strong>
+
+              </div>
+
+
+              <div class="loan-mini-stats">
+
+                <div>
+
+                  <span>
+                    Amount range
+                  </span>
+
+                  <strong>
+                    ₹10K – ₹50L
+                  </strong>
+
+                </div>
+
+
+                <div>
+
+                  <span>
+                    Application
+                  </span>
+
+                  <strong>
+                    Online
+                  </strong>
+
+                </div>
+
+              </div>
+
+
+              <div class="loan-progress">
+
+                <div class="progress-label">
+
+                  <span>
+                    Maximum loan amount
+                  </span>
+
+                  <strong>
+                    ₹50 Lakhs
+                  </strong>
+
+                </div>
+
+
+                <div class="progress-track">
+
+                  <span></span>
+
+                </div>
+
+              </div>
+
+
+              <a
+                href="./apply/apply.html"
+                class="loan-card-btn"
+              >
+
+                Check Your Options
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+              </a>
+
+
+              <p class="loan-note">
+
+                *Loan approval, amount, interest rate
+                and tenure are subject to lender
+                eligibility and applicable terms.
+
+              </p>
+
+            </div>
+
           </div>
 
-          <p>&copy; 2025 Atyant Loan Solutions. All Rights Reserved.</p>
+
         </div>
-      </footer>
 
-      <!-- Floating WhatsApp & Call -->
-      <a href="https://wa.me/918692877974?text=Hello%20Atyant%20Loan%20Solutions" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="tel:+918692877974" class="callnow-float">
-        <i class="fas fa-phone-alt"></i>
-      </a>
-    
+      </div>
+
+    </section>
 
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../navbar.js"></script>
 
-    <!-- Preloader Script -->
-    <script>
-      const preloader = document.getElementById("preloader");
-      const MIN_LOAD_TIME = 600;
-      const startTime = Date.now();
+    <!-- ===================================================
+         STATS
+    ==================================================== -->
 
-      window.addEventListener("load", function () {
-        const elapsed = Date.now() - startTime;
-        const delay = Math.max(0, MIN_LOAD_TIME - elapsed);
-        setTimeout(() => {
-          preloader.classList.add("fade-out");
-          setTimeout(() => (preloader.style.display = "none"), 600);
-        }, delay);
-      });
-    </script>
-  </body>
+    <section class="stats-section">
+
+      <div class="container">
+
+        <div class="stats-card">
+
+
+          <div class="stat-item">
+
+            <div class="stat-icon">
+
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                ₹50 Lakhs
+              </strong>
+
+              <span>
+                Maximum loan amount
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-item">
+
+            <div class="stat-icon">
+
+              <i class="fa-solid fa-file-circle-check"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Simple
+              </strong>
+
+              <span>
+                Application process
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-item">
+
+            <div class="stat-icon">
+
+              <i class="fa-solid fa-clock"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Quick
+              </strong>
+
+              <span>
+                Application processing
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="stat-item">
+
+            <div class="stat-icon">
+
+              <i class="fa-solid fa-headset"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Support
+              </strong>
+
+              <span>
+                Dedicated assistance
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         BANKS
+    ==================================================== -->
+
+    <section class="banks-section">
+
+      <div class="container">
+
+
+        <div class="section-heading compact-heading text-center">
+
+          <span class="section-kicker">
+            OUR LENDING NETWORK
+          </span>
+
+          <h2>
+            Explore Loan Options From Leading
+            Financial Institutions
+          </h2>
+
+          <p>
+
+            We help customers explore available options
+            across a network of reputed banks and
+            financial institutions.
+
+          </p>
+
+        </div>
+
+
+        <div class="bank-slider">
+
+          <div class="bank-track">
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/hdfc bank logo.jpg"
+                alt="HDFC Bank"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/Icici Bank Logo.jpg"
+                alt="ICICI Bank"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/aditya-birla-capital.jpg"
+                alt="Aditya Birla Capital"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/Kotak_Mahindra_Bank_logo.png"
+                alt="Kotak Mahindra Bank"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/Bajaj_Finserv_Logo.svg"
+                alt="Bajaj Finserv"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/Axis_Bank_logo.svg.png"
+                alt="Axis Bank"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/indusind bank logo.jpg"
+                alt="IndusInd Bank"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/Tata_Capital_Logo.jpg"
+                alt="Tata Capital"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/IDFC bank logo.png"
+                alt="IDFC First Bank"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/Chola.jpg"
+                alt="Cholamandalam"
+              >
+
+            </div>
+
+
+            <div class="bank-logo">
+
+              <img
+                src="./assets/logo/Yes bank logo.webp"
+                alt="Yes Bank"
+              >
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         WHY CHOOSE US
+    ==================================================== -->
+
+    <section
+      class="benefits-section"
+      id="about"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading text-center">
+
+          <span class="section-kicker">
+            WHY ATYANT
+          </span>
+
+          <h2>
+            A Smarter Way To Explore Personal Loans
+          </h2>
+
+          <p>
+
+            From application to assistance, our goal
+            is to make your loan journey clear,
+            convenient and easy to understand.
+
+          </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+          <div class="col-md-6 col-lg-3">
+
+            <div class="benefit-card">
+
+              <div class="benefit-icon blue">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+              </div>
+
+              <h3>
+                Flexible Options
+              </h3>
+
+              <p>
+                Explore loan amounts based on your
+                requirement and eligibility.
+              </p>
+
+              <span class="benefit-number">
+                01
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-6 col-lg-3">
+
+            <div class="benefit-card">
+
+              <div class="benefit-icon green">
+
+                <i class="fa-solid fa-bolt"></i>
+
+              </div>
+
+              <h3>
+                Quick Processing
+              </h3>
+
+              <p>
+                Get assistance through a streamlined
+                application and documentation journey.
+              </p>
+
+              <span class="benefit-number">
+                02
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-6 col-lg-3">
+
+            <div class="benefit-card">
+
+              <div class="benefit-icon purple">
+
+                <i class="fa-solid fa-file-shield"></i>
+
+              </div>
+
+              <h3>
+                Simple Documentation
+              </h3>
+
+              <p>
+                Understand the documents required for
+                your application with guidance.
+              </p>
+
+              <span class="benefit-number">
+                03
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-6 col-lg-3">
+
+            <div class="benefit-card">
+
+              <div class="benefit-icon orange">
+
+                <i class="fa-solid fa-headset"></i>
+
+              </div>
+
+              <h3>
+                Dedicated Support
+              </h3>
+
+              <p>
+                Our team is available to help you
+                understand the application process.
+              </p>
+
+              <span class="benefit-number">
+                04
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         LOAN RANGE
+    ==================================================== -->
+
+    <section class="loan-range-section">
+
+      <div class="container">
+
+        <div class="loan-range-wrapper">
+
+
+          <div class="range-content">
+
+            <span class="section-kicker light">
+              LOAN RANGE
+            </span>
+
+            <h2>
+              Funding options designed around
+              your requirement.
+            </h2>
+
+            <p>
+
+              Explore personal loan options up to
+              <strong>₹50 lakhs</strong>, subject to
+              lender eligibility and applicable terms.
+
+            </p>
+
+
+            <div class="range-points">
+
+              <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Starting from ₹10,000
+
+              </div>
+
+
+              <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Up to ₹50,00,000
+
+              </div>
+
+
+              <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Multiple lender options
+
+              </div>
+
+
+              <div>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Assisted application journey
+
+              </div>
+
+            </div>
+
+
+            <a
+              href="./apply/apply.html"
+              class="range-btn"
+            >
+
+              Start Your Application
+
+              <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+          </div>
+
+
+          <div class="range-visual">
+
+            <div class="range-circle">
+
+              <span>
+                UP TO
+              </span>
+
+              <strong>
+                ₹50L
+              </strong>
+
+              <small>
+                Personal Loan
+              </small>
+
+            </div>
+
+
+            <div class="floating-chip chip-one">
+
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+
+              Flexible Amount
+
+            </div>
+
+
+            <div class="floating-chip chip-two">
+
+              <i class="fa-solid fa-shield-halved"></i>
+
+              Secure Journey
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         HOW IT WORKS
+    ==================================================== -->
+
+    <section
+      class="process-section"
+      id="how-it-works"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading text-center">
+
+          <span class="section-kicker">
+            SIMPLE PROCESS
+          </span>
+
+          <h2>
+            How It Works
+          </h2>
+
+          <p>
+            Four simple steps to begin your
+            loan application journey.
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+          <div class="process-card">
+
+            <div class="process-top">
+
+              <span>
+                01
+              </span>
+
+              <div class="process-icon">
+
+                <i class="fa-solid fa-pen-to-square"></i>
+
+              </div>
+
+            </div>
+
+            <h3>
+              Apply Online
+            </h3>
+
+            <p>
+              Complete the application form
+              with your basic details.
+            </p>
+
+          </div>
+
+
+          <div class="process-line"></div>
+
+
+          <div class="process-card">
+
+            <div class="process-top">
+
+              <span>
+                02
+              </span>
+
+              <div class="process-icon">
+
+                <i class="fa-solid fa-folder-open"></i>
+
+              </div>
+
+            </div>
+
+            <h3>
+              Share Documents
+            </h3>
+
+            <p>
+              Provide the documents requested
+              for your application.
+            </p>
+
+          </div>
+
+
+          <div class="process-line"></div>
+
+
+          <div class="process-card">
+
+            <div class="process-top">
+
+              <span>
+                03
+              </span>
+
+              <div class="process-icon">
+
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+
+              </div>
+
+            </div>
+
+            <h3>
+              Eligibility Review
+            </h3>
+
+            <p>
+              Your profile and available
+              options are reviewed.
+            </p>
+
+          </div>
+
+
+          <div class="process-line"></div>
+
+
+          <div class="process-card">
+
+            <div class="process-top">
+
+              <span>
+                04
+              </span>
+
+              <div class="process-icon">
+
+                <i class="fa-solid fa-building-columns"></i>
+
+              </div>
+
+            </div>
+
+            <h3>
+              Disbursal
+            </h3>
+
+            <p>
+              On approval, the lender completes
+              the disbursal process.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         FEATURES
+    ==================================================== -->
+
+    <section class="features-section">
+
+      <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+          <div class="col-lg-6">
+
+            <div class="feature-visual">
+
+              <div class="feature-main-card">
+
+                <div class="feature-card-header">
+
+                  <span>
+                    ATYANT
+                  </span>
+
+                  <i class="fa-solid fa-ellipsis"></i>
+
+                </div>
+
+
+                <div class="feature-amount">
+
+                  <small>
+                    Loan requirement
+                  </small>
+
+                  <strong>
+                    ₹25,00,000
+                  </strong>
+
+                </div>
+
+
+                <div class="feature-bar">
+
+                  <span></span>
+
+                </div>
+
+
+                <div class="feature-card-footer">
+
+                  <span>
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Application Started
+
+                  </span>
+
+                  <span>
+                    Personal Loan
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="feature-small-card">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <div>
+
+                  <strong>
+                    Assisted Journey
+                  </strong>
+
+                  <small>
+                    Step-by-step support
+                  </small>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="col-lg-6">
+
+
+            <div class="section-heading left">
+
+              <span class="section-kicker">
+                BUILT FOR CONVENIENCE
+              </span>
+
+              <h2>
+                Everything you need for a
+                smoother loan journey.
+              </h2>
+
+              <p>
+
+                We focus on making the application
+                journey easy to understand while
+                helping you explore available
+                loan options.
+
+              </p>
+
+            </div>
+
+
+            <div class="feature-list">
+
+
+              <div class="feature-list-item">
+
+                <div>
+
+                  <i class="fa-solid fa-check"></i>
+
+                </div>
+
+                <span>
+
+                  <strong>
+                    Convenient online application
+                  </strong>
+
+                  – begin the process from wherever
+                  you are.
+
+                </span>
+
+              </div>
+
+
+              <div class="feature-list-item">
+
+                <div>
+
+                  <i class="fa-solid fa-check"></i>
+
+                </div>
+
+                <span>
+
+                  <strong>
+                    Clear guidance
+                  </strong>
+
+                  – understand the next steps and
+                  document requirements.
+
+                </span>
+
+              </div>
+
+
+              <div class="feature-list-item">
+
+                <div>
+
+                  <i class="fa-solid fa-check"></i>
+
+                </div>
+
+                <span>
+
+                  <strong>
+                    Multiple options
+                  </strong>
+
+                  – explore available options across
+                  our lender network.
+
+                </span>
+
+              </div>
+
+
+              <div class="feature-list-item">
+
+                <div>
+
+                  <i class="fa-solid fa-check"></i>
+
+                </div>
+
+                <span>
+
+                  <strong>
+                    Human assistance
+                  </strong>
+
+                  – get support when you need help
+                  with your application.
+
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         TESTIMONIALS
+    ==================================================== -->
+
+    <section class="testimonials-section">
+
+      <div class="container">
+
+
+        <div class="section-heading text-center">
+
+          <span class="section-kicker">
+            CUSTOMER EXPERIENCES
+          </span>
+
+          <h2>
+            What Our Customers Say
+          </h2>
+
+          <p>
+            Feedback from customers about
+            their experience with our team.
+          </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+          <div class="col-md-4">
+
+            <div class="testimonial-card">
+
+              <div class="quote-icon">
+
+                <i class="fa-solid fa-quote-left"></i>
+
+              </div>
+
+              <div class="stars">
+                ★★★★★
+              </div>
+
+              <p>
+
+                “The team explained the process
+                clearly and helped me understand
+                the documents required. The overall
+                experience was smooth.”
+
+              </p>
+
+
+              <div class="customer">
+
+                <div class="customer-avatar">
+                  RS
+                </div>
+
+                <div>
+
+                  <strong>
+                    Rahul S.
+                  </strong>
+
+                  <span>
+                    Customer
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+
+            <div class="testimonial-card featured">
+
+              <div class="quote-icon">
+
+                <i class="fa-solid fa-quote-left"></i>
+
+              </div>
+
+              <div class="stars">
+                ★★★★★
+              </div>
+
+              <p>
+
+                “I received good assistance throughout
+                the application journey. The communication
+                was simple and easy to follow.”
+
+              </p>
+
+
+              <div class="customer">
+
+                <div class="customer-avatar">
+                  PV
+                </div>
+
+                <div>
+
+                  <strong>
+                    Priya V.
+                  </strong>
+
+                  <span>
+                    Customer
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+
+            <div class="testimonial-card">
+
+              <div class="quote-icon">
+
+                <i class="fa-solid fa-quote-left"></i>
+
+              </div>
+
+              <div class="stars">
+                ★★★★★
+              </div>
+
+              <p>
+
+                “The application process was
+                convenient and the team was responsive
+                whenever I had questions.”
+
+              </p>
+
+
+              <div class="customer">
+
+                <div class="customer-avatar">
+                  AS
+                </div>
+
+                <div>
+
+                  <strong>
+                    Aman S.
+                  </strong>
+
+                  <span>
+                    Customer
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         FAQ
+    ==================================================== -->
+
+    <section
+      class="faq-section"
+      id="faq"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading text-center">
+
+          <span class="section-kicker">
+            FAQ
+          </span>
+
+          <h2>
+            Frequently Asked Questions
+          </h2>
+
+          <p>
+            Quick answers to common questions
+            about the loan application process.
+          </p>
+
+        </div>
+
+
+        <div
+          class="accordion faq-accordion"
+          id="faqAccordion"
+        >
+
+
+          <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqOne"
+                aria-expanded="true"
+              >
+
+                What is the maximum loan
+                amount available?
+
+              </button>
+
+            </h2>
+
+
+            <div
+              id="faqOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#faqAccordion"
+            >
+
+              <div class="accordion-body">
+
+                Loan options can be explored up to
+                ₹50 lakhs, subject to lender eligibility,
+                income, credit profile and applicable
+                terms.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqTwo"
+              >
+
+                What documents may be required?
+
+              </button>
+
+            </h2>
+
+
+            <div
+              id="faqTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#faqAccordion"
+            >
+
+              <div class="accordion-body">
+
+                Requirements vary by lender and
+                applicant profile. Commonly, identity,
+                address, income and banking-related
+                documents may be requested.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqThree"
+              >
+
+                How long does the loan process take?
+
+              </button>
+
+            </h2>
+
+
+            <div
+              id="faqThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#faqAccordion"
+            >
+
+              <div class="accordion-body">
+
+                Processing time depends on the lender,
+                applicant profile, documentation and
+                verification.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#faqFour"
+              >
+
+                Is the interest rate fixed for everyone?
+
+              </button>
+
+            </h2>
+
+
+            <div
+              id="faqFour"
+              class="accordion-collapse collapse"
+              data-bs-parent="#faqAccordion"
+            >
+
+              <div class="accordion-body">
+
+                No. Interest rates are determined by
+                the respective lender based on eligibility,
+                credit profile, income, loan amount,
+                tenure and other applicable factors.
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         CTA
+    ==================================================== -->
+
+    <section class="cta-section">
+
+      <div class="container">
+
+        <div class="cta-card">
+
+          <div class="cta-pattern"></div>
+
+
+          <div class="cta-content">
+
+            <span class="section-kicker light">
+              READY TO GET STARTED?
+            </span>
+
+
+            <h2>
+
+              Take the first step towards
+              your financial goals.
+
+            </h2>
+
+
+            <p>
+
+              Start your application and let our
+              team guide you through the next steps.
+
+            </p>
+
+
+            <a
+              href="./apply/apply.html"
+              class="cta-btn"
+            >
+
+              Apply for a Personal Loan
+
+              <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+          </div>
+
+
+          <div class="cta-icon">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       PROFESSIONAL FOOTER
+       NO LOGO
+  ====================================================== -->
+
+  <footer class="atyant-footer">
+
+    <div class="container">
+
+
+      <div class="footer-main">
+
+
+        <!-- Company -->
+
+        <div class="footer-company">
+
+          <h3>
+            Atyant Loan Solutions
+          </h3>
+
+          <div class="footer-title-line"></div>
+
+          <p>
+
+            Your trusted financial partner for exploring
+            personal loan options with a simple,
+            transparent and convenient application journey.
+
+          </p>
+
+
+          <div class="footer-contact-item">
+
+            <div class="footer-contact-icon">
+
+              <i class="fa-solid fa-location-dot"></i>
+
+            </div>
+
+            <div>
+
+              <span>
+                Office Address
+              </span>
+
+              <p>
+
+                Office No. 406, 4th Floor, Kaveri Building,
+                Near Sakinaka Metro, Andheri East,
+                Mumbai - 400072
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- Quick Links -->
+
+        <div class="footer-column">
+
+          <h4>
+            Quick Links
+          </h4>
+
+          <span class="footer-line"></span>
+
+
+          <a href="./index.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            Home
+
+          </a>
+
+
+          <a href="./apply/apply.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            Apply Now
+
+          </a>
+
+
+          <a href="./about/about.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            About Us
+
+          </a>
+
+
+          <a href="./contact/contact.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            Contact Us
+
+          </a>
+
+
+          <a href="./cal/cal.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            EMI Calculator
+
+          </a>
+
+
+          <a href="./login/login.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            Login
+
+          </a>
+
+        </div>
+
+
+
+        <!-- Loan Services -->
+
+        <div class="footer-column">
+
+          <h4>
+            Loan Services
+          </h4>
+
+          <span class="footer-line"></span>
+
+
+          <a href="./apply/apply.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            Personal Loan
+
+          </a>
+
+
+          <a href="./cal/cal.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            Loan Calculator
+
+          </a>
+
+
+          <a href="#how-it-works">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            How It Works
+
+          </a>
+
+
+          <a href="#faq">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            Frequently Asked Questions
+
+          </a>
+
+
+          <a href="./apply/apply.html">
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            Loan Application
+
+          </a>
+
+        </div>
+
+
+
+        <!-- Contact -->
+
+        <div class="footer-column footer-contact">
+
+          <h4>
+            Contact Us
+          </h4>
+
+          <span class="footer-line"></span>
+
+
+          <a href="tel:+918692877974">
+
+            <div class="footer-small-icon">
+
+              <i class="fa-solid fa-phone"></i>
+
+            </div>
+
+            <div>
+
+              <span>
+                Call Us
+              </span>
+
+              <strong>
+                +91 8692877974
+              </strong>
+
+            </div>
+
+          </a>
+
+
+          <a href="mailto:anup.gupta@atyantloan.com">
+
+            <div class="footer-small-icon">
+
+              <i class="fa-solid fa-envelope"></i>
+
+            </div>
+
+            <div>
+
+              <span>
+                Email Us
+              </span>
+
+              <strong>
+                anup.gupta@atyantloan.com
+              </strong>
+
+            </div>
+
+          </a>
+
+
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India"
+            target="_blank"
+            rel="noopener"
+          >
+
+            <div class="footer-small-icon">
+
+              <i class="fa-solid fa-map-location-dot"></i>
+
+            </div>
+
+            <div>
+
+              <span>
+                Location
+              </span>
+
+              <strong>
+                Get Directions
+              </strong>
+
+            </div>
+
+          </a>
+
+
+          <div class="footer-social-wrapper">
+
+            <span>
+              Follow Us
+            </span>
+
+
+            <div class="footer-social">
+
+              <a
+                href="#"
+                aria-label="Facebook"
+              >
+
+                <i class="fab fa-facebook-f"></i>
+
+              </a>
+
+
+              <a
+                href="#"
+                aria-label="Twitter"
+              >
+
+                <i class="fab fa-twitter"></i>
+
+              </a>
+
+
+              <a
+                href="#"
+                aria-label="LinkedIn"
+              >
+
+                <i class="fab fa-linkedin-in"></i>
+
+              </a>
+
+
+              <a
+                href="https://www.instagram.com/atyantloansolutions/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+
+                <i class="fab fa-instagram"></i>
+
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- Footer Highlights -->
+
+      <div class="footer-highlights">
+
+
+        <div class="footer-highlight">
+
+          <div>
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+          </div>
+
+          <span>
+            Secure Application Process
+          </span>
+
+        </div>
+
+
+        <div class="footer-highlight">
+
+          <div>
+
+            <i class="fa-solid fa-headset"></i>
+
+          </div>
+
+          <span>
+            Dedicated Customer Support
+          </span>
+
+        </div>
+
+
+        <div class="footer-highlight">
+
+          <div>
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+          </div>
+
+          <span>
+            Simple Documentation
+          </span>
+
+        </div>
+
+
+        <div class="footer-highlight">
+
+          <div>
+
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+
+          </div>
+
+          <span>
+            Loan Options up to ₹50 Lakhs
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- Disclaimer -->
+
+      <div class="footer-disclaimer">
+
+        <strong>
+          Important:
+        </strong>
+
+        Loan approval, interest rate, tenure, processing
+        time and disbursal are subject to the respective
+        lender's eligibility criteria, policies and
+        applicable terms and conditions.
+
+      </div>
+
+
+
+      <!-- Bottom -->
+
+      <div class="footer-bottom">
+
+        <p>
+
+          © 2025 Atyant Loan Solutions.
+          All Rights Reserved.
+
+        </p>
+
+
+        <div class="footer-bottom-links">
+
+          <a href="#">
+            Privacy Policy
+          </a>
+
+          <span>
+            |
+          </span>
+
+          <a href="#">
+            Terms & Conditions
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       WHATSAPP
+  ====================================================== -->
+
+  <a
+    href="https://wa.me/918692877974?text=Hello%20Atyant%20Loan%20Solutions"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener"
+    aria-label="WhatsApp"
+  >
+
+    <i class="fab fa-whatsapp"></i>
+
+  </a>
+
+
+
+  <!-- =====================================================
+       CALL
+  ====================================================== -->
+
+  <a
+    href="tel:+918692877974"
+    class="callnow-float"
+    aria-label="Call Atyant Loan Solutions"
+  >
+
+    <i class="fas fa-phone-alt"></i>
+
+  </a>
+
+
+
+  <!-- =====================================================
+       BACK TO TOP
+  ====================================================== -->
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    aria-label="Back to top"
+  >
+
+    <i class="fa-solid fa-arrow-up"></i>
+
+  </button>
+
+
+
+  <!-- Bootstrap JS -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+
+
+  <!-- Homepage JS -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+
+        /* Preloader */
+
+        const preloader =
+          document.getElementById("preloader");
+
+
+        const startTime =
+          Date.now();
+
+
+        const minimumTime =
+          600;
+
+
+        window.addEventListener(
+          "load",
+          function () {
+
+            const elapsed =
+              Date.now() - startTime;
+
+
+            const delay =
+              Math.max(
+                0,
+                minimumTime - elapsed
+              );
+
+
+            setTimeout(
+              function () {
+
+                if (!preloader) {
+                  return;
+                }
+
+
+                preloader.classList.add(
+                  "fade-out"
+                );
+
+
+                setTimeout(
+                  function () {
+
+                    preloader.style.display =
+                      "none";
+
+                  },
+                  500
+                );
+
+              },
+              delay
+            );
+
+          }
+        );
+
+
+
+        /* Navbar shadow */
+
+        const navbar =
+          document.getElementById(
+            "atyantNavbar"
+          );
+
+
+        function updateNavbar() {
+
+          if (!navbar) {
+            return;
+          }
+
+
+          if (window.scrollY > 15) {
+
+            navbar.classList.add(
+              "navbar-scrolled"
+            );
+
+          } else {
+
+            navbar.classList.remove(
+              "navbar-scrolled"
+            );
+
+          }
+
+        }
+
+
+        window.addEventListener(
+          "scroll",
+          updateNavbar
+        );
+
+
+        updateNavbar();
+
+
+
+        /* Back to top */
+
+        const backToTop =
+          document.getElementById(
+            "backToTop"
+          );
+
+
+        if (backToTop) {
+
+          window.addEventListener(
+            "scroll",
+            function () {
+
+              if (window.scrollY > 500) {
+
+                backToTop.classList.add(
+                  "show"
+                );
+
+              } else {
+
+                backToTop.classList.remove(
+                  "show"
+                );
+
+              }
+
+            }
+          );
+
+
+          backToTop.addEventListener(
+            "click",
+            function () {
+
+              window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+              });
+
+            }
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
 </html>
