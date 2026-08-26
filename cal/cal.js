@@ -1,16 +1,30 @@
-// =====================================================
-// ATYANT LOAN SOLUTIONS
-// EMI CALCULATOR - COMPLETE JS
-// =====================================================
+/* =========================================================
+   ATYANT LOAN SOLUTIONS
+   PROFESSIONAL EMI CALCULATOR
+   COMPLETE REVISED JAVASCRIPT
+========================================================= */
 
 let emiChart = null;
-
 let emiSchedule = [];
 
 
-// =====================================================
-// GET ELEMENTS
-// =====================================================
+/* =========================================================
+   CONSTANTS
+========================================================= */
+
+const MIN_LOAN_AMOUNT = 10000;
+const MAX_LOAN_AMOUNT = 5000000; // ₹50 Lakh
+
+const MIN_INTEREST_RATE = 0;
+const MAX_INTEREST_RATE = 50;
+
+const MIN_LOAN_TERM = 1;
+const MAX_LOAN_TERM = 360;
+
+
+/* =========================================================
+   GET ELEMENTS
+========================================================= */
 
 const loanAmountSlider =
     document.getElementById("loanAmountSlider");
@@ -18,13 +32,11 @@ const loanAmountSlider =
 const loanAmountInput =
     document.getElementById("loanAmountInput");
 
-
 const interestRateSlider =
     document.getElementById("interestRateSlider");
 
 const interestRateInput =
     document.getElementById("interestRateInput");
-
 
 const loanTermSlider =
     document.getElementById("loanTermSlider");
@@ -52,39 +64,44 @@ const totalPayment =
 const totalInterest =
     document.getElementById("totalInterest");
 
-
 const principalAmount =
     document.getElementById("principalAmount");
 
 const chartInterest =
     document.getElementById("chartInterest");
 
+const chartPrincipal =
+    document.getElementById("chartPrincipal");
 
-// =====================================================
-// FORMAT INDIAN RUPEES
-// =====================================================
+
+/* =========================================================
+   HELPER - ELEMENT CHECK
+========================================================= */
+
+function elementExists(element) {
+    return element !== null && element !== undefined;
+}
+
+
+/* =========================================================
+   FORMAT INDIAN RUPEES
+========================================================= */
 
 function formatINR(value) {
 
     value = Number(value) || 0;
 
-    return new Intl.NumberFormat(
-        "en-IN",
-        {
-            style: "currency",
-            currency: "INR",
-            maximumFractionDigits: 0
-        }
-    ).format(value);
-
+    return new Intl.NumberFormat("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumFractionDigits: 0
+    }).format(value);
 }
 
 
-// =====================================================
-// FORMAT CURRENCY FOR PDF
-// Using Rs. because standard jsPDF fonts
-// don't reliably support ₹.
-// =====================================================
+/* =========================================================
+   FORMAT NUMBER FOR PDF
+========================================================= */
 
 function formatPDF(value) {
 
@@ -92,182 +109,219 @@ function formatPDF(value) {
 
     return (
         "Rs. " +
-        value.toLocaleString(
-            "en-IN",
-            {
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-            }
-        )
+        value.toLocaleString("en-IN", {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        })
+    );
+}
+
+
+/* =========================================================
+   FORMAT PDF NUMBER WITHOUT RS
+========================================================= */
+
+function formatPDFNumber(value) {
+
+    value = Number(value) || 0;
+
+    return value.toLocaleString("en-IN", {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    });
+}
+
+
+/* =========================================================
+   SAFE NUMBER
+========================================================= */
+
+function getNumber(value, defaultValue = 0) {
+
+    const number = parseFloat(value);
+
+    if (Number.isNaN(number)) {
+        return defaultValue;
+    }
+
+    return number;
+}
+
+
+/* =========================================================
+   ROUND TO 2 DECIMAL
+========================================================= */
+
+function round2(value) {
+
+    return Math.round(
+        (Number(value) + Number.EPSILON) * 100
+    ) / 100;
+
+}
+
+
+/* =========================================================
+   UPDATE RANGE VISUAL
+========================================================= */
+
+function updateRangeVisual(
+    slider,
+    min,
+    max
+) {
+
+    if (!elementExists(slider)) {
+        return;
+    }
+
+    const value =
+        getNumber(slider.value, min);
+
+    const percentage =
+        ((value - min) / (max - min)) * 100;
+
+    slider.style.background =
+        `linear-gradient(
+            90deg,
+            #0757d5 0%,
+            #0757d5 ${percentage}%,
+            #dce5f1 ${percentage}%,
+            #dce5f1 100%
+        )`;
+
+}
+
+
+/* =========================================================
+   UPDATE ALL SLIDER VISUALS
+========================================================= */
+
+function updateAllRangeVisuals() {
+
+    updateRangeVisual(
+        loanAmountSlider,
+        MIN_LOAN_AMOUNT,
+        MAX_LOAN_AMOUNT
+    );
+
+    updateRangeVisual(
+        interestRateSlider,
+        MIN_INTEREST_RATE,
+        MAX_INTEREST_RATE
+    );
+
+    updateRangeVisual(
+        loanTermSlider,
+        MIN_LOAN_TERM,
+        MAX_LOAN_TERM
     );
 
 }
 
 
-// =====================================================
-// SAFE NUMBER
-// =====================================================
-
-function getNumber(
-    value,
-    defaultValue = 0
-) {
-
-    const number =
-        parseFloat(value);
-
-    if (
-        Number.isNaN(number)
-    ) {
-
-        return defaultValue;
-
-    }
-
-    return number;
-
-}
-
-
-// =====================================================
-// LOAN AMOUNT
-//
-// Range:
-// ₹0 to ₹1,00,00,000
-//
-// Manual entry allowed
-//
-// + / - changes by ₹1
-// =====================================================
+/* =========================================================
+   SET LOAN AMOUNT
+========================================================= */
 
 function setLoanAmount(value) {
 
     let amount =
-        parseFloat(value);
+        parseFloat(
+            String(value).replace(/,/g, "")
+        );
 
 
-    if (
-        Number.isNaN(amount)
-    ) {
-
-        amount = 0;
-
+    if (Number.isNaN(amount)) {
+        amount = MIN_LOAN_AMOUNT;
     }
 
 
-    // Minimum ₹0
+    /*
+       Minimum ₹10,000
+    */
 
-    if (
-        amount < 0
-    ) {
-
-        amount = 0;
-
+    if (amount < MIN_LOAN_AMOUNT) {
+        amount = MIN_LOAN_AMOUNT;
     }
 
 
-    // Maximum ₹1 crore
+    /*
+       Maximum ₹50 Lakh
+    */
 
-    if (
-        amount > 10000000
-    ) {
-
-        amount = 10000000;
-
+    if (amount > MAX_LOAN_AMOUNT) {
+        amount = MAX_LOAN_AMOUNT;
     }
 
 
-    // Loan amount should be a whole number
+    /*
+       Whole number
+    */
 
-    amount =
-        Math.round(amount);
-
-
-    // Update input
-
-    loanAmountInput.value =
-        amount;
+    amount = Math.round(amount);
 
 
-    // Update slider
+    if (elementExists(loanAmountInput)) {
+        loanAmountInput.value = amount;
+    }
 
-    loanAmountSlider.value =
-        amount;
 
+    if (elementExists(loanAmountSlider)) {
+        loanAmountSlider.value = amount;
+    }
 
-    // Update label
 
     updateLabels();
 
-
-    // Calculate
+    updateAllRangeVisuals();
 
     calculateEMI();
 
 }
 
 
-// =====================================================
-// INTEREST RATE
-//
-// Examples:
-// 0.11
-// 0.12
-// 1
-// 5.5
-// 9.99
-// 10.5
-// 12
-//
-// + / - changes by 0.01
-// =====================================================
+/* =========================================================
+   SET INTEREST RATE
+========================================================= */
 
 function setInterestRate(value) {
 
     let rateText =
-        String(value).trim();
+        String(value)
+            .trim()
+            .replace(/[^0-9.]/g, "");
 
 
-    // Remove invalid characters
-
-    rateText =
-        rateText.replace(
-            /[^0-9.]/g,
-            ""
-        );
-
-
-    // Allow only one decimal point
+    /*
+       Allow only one decimal point
+    */
 
     const parts =
         rateText.split(".");
 
 
-    if (
-        parts.length > 2
-    ) {
+    if (parts.length > 2) {
 
         rateText =
             parts[0] +
             "." +
-            parts
-                .slice(1)
-                .join("");
+            parts.slice(1).join("");
 
     }
 
 
-    // Empty value
+    /*
+       Empty value
+    */
 
-    if (
-        rateText === ""
-    ) {
+    if (rateText === "") {
 
-        interestRateValue.textContent =
-            "0%";
+        if (elementExists(interestRateValue)) {
+            interestRateValue.textContent = "0%";
+        }
 
         return;
-
     }
 
 
@@ -275,74 +329,65 @@ function setInterestRate(value) {
         parseFloat(rateText);
 
 
-    if (
-        Number.isNaN(rate)
-    ) {
-
+    if (Number.isNaN(rate)) {
         return;
-
     }
 
 
-    // Minimum 0%
+    /*
+       Minimum
+    */
 
-    if (
-        rate < 0
-    ) {
+    if (rate < MIN_INTEREST_RATE) {
 
-        rate = 0;
+        rate = MIN_INTEREST_RATE;
 
         rateText = "0";
 
     }
 
 
-    // Maximum 50%
+    /*
+       Maximum
+    */
 
-    if (
-        rate > 50
-    ) {
+    if (rate > MAX_INTEREST_RATE) {
 
-        rate = 50;
+        rate = MAX_INTEREST_RATE;
 
         rateText = "50";
 
     }
 
 
-    // Update input
-
-    interestRateInput.value =
-        rateText;
-
-
-    // Update slider
-
-    interestRateSlider.value =
-        rate;
+    if (elementExists(interestRateInput)) {
+        interestRateInput.value = rateText;
+    }
 
 
-    // Update label
+    if (elementExists(interestRateSlider)) {
+        interestRateSlider.value = rate;
+    }
 
-    interestRateValue.textContent =
-        rateText + "%";
+
+    if (elementExists(interestRateValue)) {
+
+        interestRateValue.textContent =
+            rateText + "%";
+
+    }
 
 
-    // Calculate
+    updateAllRangeVisuals();
 
     calculateEMI();
 
 }
 
 
-// =====================================================
-// LOAN TENURE
-//
-// Range:
-// 1 to 360 months
-//
-// + / - changes by 1 month
-// =====================================================
+/* =========================================================
+   SET LOAN TERM
+========================================================= */
 
 function setLoanTerm(value) {
 
@@ -350,288 +395,452 @@ function setLoanTerm(value) {
         parseFloat(value);
 
 
-    if (
-        Number.isNaN(term)
-    ) {
-
-        term = 1;
-
+    if (Number.isNaN(term)) {
+        term = MIN_LOAN_TERM;
     }
 
 
-    term =
-        Math.round(term);
+    term = Math.round(term);
 
 
-    // Minimum 1 month
+    /*
+       Minimum 1 month
+    */
 
-    if (
-        term < 1
-    ) {
-
-        term = 1;
-
+    if (term < MIN_LOAN_TERM) {
+        term = MIN_LOAN_TERM;
     }
 
 
-    // Maximum 360 months
+    /*
+       Maximum 360 months
+    */
 
-    if (
-        term > 360
-    ) {
-
-        term = 360;
-
+    if (term > MAX_LOAN_TERM) {
+        term = MAX_LOAN_TERM;
     }
 
 
-    // Update input
-
-    loanTermInput.value =
-        term;
-
-
-    // Update slider
-
-    loanTermSlider.value =
-        term;
+    if (elementExists(loanTermInput)) {
+        loanTermInput.value = term;
+    }
 
 
-    // Update label
+    if (elementExists(loanTermSlider)) {
+        loanTermSlider.value = term;
+    }
+
 
     updateLabels();
 
-
-    // Calculate
+    updateAllRangeVisuals();
 
     calculateEMI();
 
 }
 
 
-// =====================================================
-// LOAN AMOUNT SLIDER
-// =====================================================
+/* =========================================================
+   LOAN AMOUNT SLIDER
+========================================================= */
 
-loanAmountSlider.addEventListener(
-    "input",
-    function () {
+if (elementExists(loanAmountSlider)) {
 
-        setLoanAmount(
-            this.value
-        );
+    loanAmountSlider.addEventListener(
+        "input",
+        function () {
 
-    }
-);
-
-
-// =====================================================
-// INTEREST RATE SLIDER
-// =====================================================
-
-interestRateSlider.addEventListener(
-    "input",
-    function () {
-
-        interestRateInput.value =
-            this.value;
-
-        setInterestRate(
-            this.value
-        );
-
-    }
-);
-
-
-// =====================================================
-// LOAN TENURE SLIDER
-// =====================================================
-
-loanTermSlider.addEventListener(
-    "input",
-    function () {
-
-        setLoanTerm(
-            this.value
-        );
-
-    }
-);
-
-
-// =====================================================
-// LOAN AMOUNT MANUAL INPUT
-// =====================================================
-
-loanAmountInput.addEventListener(
-    "input",
-    function () {
-
-        let value =
-            this.value.replace(
-                /[^0-9]/g,
-                ""
-            );
-
-
-        if (
-            value === ""
-        ) {
-
-            loanAmountValue.textContent =
-                "₹0";
-
-            return;
+            setLoanAmount(this.value);
 
         }
+    );
+
+}
 
 
-        setLoanAmount(
-            value
-        );
+/* =========================================================
+   INTEREST RATE SLIDER
+========================================================= */
 
-    }
-);
+if (elementExists(interestRateSlider)) {
 
+    interestRateSlider.addEventListener(
+        "input",
+        function () {
 
-// =====================================================
-// INTEREST RATE MANUAL INPUT
-// =====================================================
+            if (elementExists(interestRateInput)) {
+                interestRateInput.value = this.value;
+            }
 
-interestRateInput.addEventListener(
-    "input",
-    function () {
-
-        setInterestRate(
-            this.value
-        );
-
-    }
-);
-
-
-// =====================================================
-// TENURE MANUAL INPUT
-// =====================================================
-
-loanTermInput.addEventListener(
-    "input",
-    function () {
-
-        let value =
-            this.value.replace(
-                /[^0-9]/g,
-                ""
-            );
-
-
-        if (
-            value === ""
-        ) {
-
-            loanTermValue.textContent =
-                "0 Months";
-
-            return;
+            setInterestRate(this.value);
 
         }
+    );
+
+}
 
 
-        setLoanTerm(
-            value
-        );
+/* =========================================================
+   TENURE SLIDER
+========================================================= */
 
-    }
-);
+if (elementExists(loanTermSlider)) {
+
+    loanTermSlider.addEventListener(
+        "input",
+        function () {
+
+            setLoanTerm(this.value);
+
+        }
+    );
+
+}
 
 
-// =====================================================
-// LOAN AMOUNT MINUS
-// STEP = ₹1
-// =====================================================
+/* =========================================================
+   LOAN AMOUNT MANUAL INPUT
+========================================================= */
 
-document
-    .getElementById("loanMinus")
-    .addEventListener(
+if (elementExists(loanAmountInput)) {
+
+    loanAmountInput.addEventListener(
+        "input",
+        function () {
+
+            let value =
+                this.value.replace(
+                    /[^0-9]/g,
+                    ""
+                );
+
+
+            /*
+               Allow temporary empty input
+            */
+
+            if (value === "") {
+
+                if (elementExists(loanAmountValue)) {
+                    loanAmountValue.textContent = "₹0";
+                }
+
+                return;
+            }
+
+
+            let amount =
+                parseInt(value, 10);
+
+
+            if (amount > MAX_LOAN_AMOUNT) {
+
+                amount =
+                    MAX_LOAN_AMOUNT;
+
+                this.value = amount;
+
+            }
+
+
+            if (amount >= MIN_LOAN_AMOUNT) {
+
+                if (elementExists(loanAmountSlider)) {
+                    loanAmountSlider.value = amount;
+                }
+
+                updateLabels();
+
+                updateAllRangeVisuals();
+
+                calculateEMI();
+
+            }
+
+        }
+    );
+
+
+    loanAmountInput.addEventListener(
+        "blur",
+        function () {
+
+            let amount =
+                parseInt(
+                    this.value,
+                    10
+                );
+
+
+            if (
+                Number.isNaN(amount) ||
+                amount < MIN_LOAN_AMOUNT
+            ) {
+
+                amount =
+                    MIN_LOAN_AMOUNT;
+
+            }
+
+
+            if (amount > MAX_LOAN_AMOUNT) {
+
+                amount =
+                    MAX_LOAN_AMOUNT;
+
+            }
+
+
+            setLoanAmount(amount);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   INTEREST RATE MANUAL INPUT
+========================================================= */
+
+if (elementExists(interestRateInput)) {
+
+    interestRateInput.addEventListener(
+        "input",
+        function () {
+
+            setInterestRate(
+                this.value
+            );
+
+        }
+    );
+
+
+    interestRateInput.addEventListener(
+        "blur",
+        function () {
+
+            let rate =
+                parseFloat(
+                    this.value
+                );
+
+
+            if (Number.isNaN(rate)) {
+                rate = 0;
+            }
+
+
+            if (rate < MIN_INTEREST_RATE) {
+                rate = MIN_INTEREST_RATE;
+            }
+
+
+            if (rate > MAX_INTEREST_RATE) {
+                rate = MAX_INTEREST_RATE;
+            }
+
+
+            setInterestRate(
+                round2(rate).toString()
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   TENURE MANUAL INPUT
+========================================================= */
+
+if (elementExists(loanTermInput)) {
+
+    loanTermInput.addEventListener(
+        "input",
+        function () {
+
+            let value =
+                this.value.replace(
+                    /[^0-9]/g,
+                    ""
+                );
+
+
+            if (value === "") {
+
+                if (elementExists(loanTermValue)) {
+                    loanTermValue.textContent =
+                        "0 Months";
+                }
+
+                return;
+            }
+
+
+            let term =
+                parseInt(
+                    value,
+                    10
+                );
+
+
+            if (term > MAX_LOAN_TERM) {
+
+                term =
+                    MAX_LOAN_TERM;
+
+                this.value = term;
+
+            }
+
+
+            if (term >= MIN_LOAN_TERM) {
+
+                if (elementExists(loanTermSlider)) {
+                    loanTermSlider.value = term;
+                }
+
+                updateLabels();
+
+                updateAllRangeVisuals();
+
+                calculateEMI();
+
+            }
+
+        }
+    );
+
+
+    loanTermInput.addEventListener(
+        "blur",
+        function () {
+
+            let term =
+                parseInt(
+                    this.value,
+                    10
+                );
+
+
+            if (
+                Number.isNaN(term) ||
+                term < MIN_LOAN_TERM
+            ) {
+
+                term = MIN_LOAN_TERM;
+
+            }
+
+
+            if (term > MAX_LOAN_TERM) {
+                term = MAX_LOAN_TERM;
+            }
+
+
+            setLoanTerm(term);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LOAN AMOUNT MINUS
+========================================================= */
+
+const loanMinus =
+    document.getElementById("loanMinus");
+
+if (elementExists(loanMinus)) {
+
+    loanMinus.addEventListener(
         "click",
         function () {
 
             let amount =
                 getNumber(
                     loanAmountInput.value,
-                    0
+                    MIN_LOAN_AMOUNT
                 );
 
+
+            /*
+               Step ₹1
+            */
 
             amount =
                 amount - 1;
 
 
-            if (
-                amount < 0
-            ) {
-
-                amount = 0;
-
+            if (amount < MIN_LOAN_AMOUNT) {
+                amount = MIN_LOAN_AMOUNT;
             }
 
 
-            setLoanAmount(
-                amount
-            );
+            setLoanAmount(amount);
 
         }
     );
 
+}
 
-// =====================================================
-// LOAN AMOUNT PLUS
-// STEP = ₹1
-// =====================================================
 
-document
-    .getElementById("loanPlus")
-    .addEventListener(
+/* =========================================================
+   LOAN AMOUNT PLUS
+========================================================= */
+
+const loanPlus =
+    document.getElementById("loanPlus");
+
+if (elementExists(loanPlus)) {
+
+    loanPlus.addEventListener(
         "click",
         function () {
 
             let amount =
                 getNumber(
                     loanAmountInput.value,
-                    0
+                    MIN_LOAN_AMOUNT
                 );
 
+
+            /*
+               Step ₹1
+            */
 
             amount =
                 amount + 1;
 
 
-            if (
-                amount > 10000000
-            ) {
-
-                amount = 10000000;
-
+            if (amount > MAX_LOAN_AMOUNT) {
+                amount = MAX_LOAN_AMOUNT;
             }
 
 
-            setLoanAmount(
-                amount
-            );
+            setLoanAmount(amount);
 
         }
     );
 
+}
 
-// =====================================================
-// INTEREST RATE MINUS
-// STEP = 0.01
-// =====================================================
 
-document
-    .getElementById("interestMinus")
-    .addEventListener(
+/* =========================================================
+   INTEREST MINUS
+========================================================= */
+
+const interestMinus =
+    document.getElementById("interestMinus");
+
+if (elementExists(interestMinus)) {
+
+    interestMinus.addEventListener(
         "click",
         function () {
 
@@ -646,41 +855,35 @@ document
                 rate - 0.01;
 
 
-            if (
-                rate < 0
-            ) {
-
-                rate = 0;
-
+            if (rate < MIN_INTEREST_RATE) {
+                rate = MIN_INTEREST_RATE;
             }
 
 
             rate =
-                Math.round(
-                    rate * 100
-                ) / 100;
-
-
-            const value =
-                rate.toFixed(2);
+                round2(rate);
 
 
             setInterestRate(
-                value
+                rate.toFixed(2)
             );
 
         }
     );
 
+}
 
-// =====================================================
-// INTEREST RATE PLUS
-// STEP = 0.01
-// =====================================================
 
-document
-    .getElementById("interestPlus")
-    .addEventListener(
+/* =========================================================
+   INTEREST PLUS
+========================================================= */
+
+const interestPlus =
+    document.getElementById("interestPlus");
+
+if (elementExists(interestPlus)) {
+
+    interestPlus.addEventListener(
         "click",
         function () {
 
@@ -695,41 +898,35 @@ document
                 rate + 0.01;
 
 
-            if (
-                rate > 50
-            ) {
-
-                rate = 50;
-
+            if (rate > MAX_INTEREST_RATE) {
+                rate = MAX_INTEREST_RATE;
             }
 
 
             rate =
-                Math.round(
-                    rate * 100
-                ) / 100;
-
-
-            const value =
-                rate.toFixed(2);
+                round2(rate);
 
 
             setInterestRate(
-                value
+                rate.toFixed(2)
             );
 
         }
     );
 
+}
 
-// =====================================================
-// TENURE MINUS
-// STEP = 1 MONTH
-// =====================================================
 
-document
-    .getElementById("termMinus")
-    .addEventListener(
+/* =========================================================
+   TENURE MINUS
+========================================================= */
+
+const termMinus =
+    document.getElementById("termMinus");
+
+if (elementExists(termMinus)) {
+
+    termMinus.addEventListener(
         "click",
         function () {
 
@@ -744,31 +941,29 @@ document
                 term - 1;
 
 
-            if (
-                term < 1
-            ) {
-
-                term = 1;
-
+            if (term < MIN_LOAN_TERM) {
+                term = MIN_LOAN_TERM;
             }
 
 
-            setLoanTerm(
-                term
-            );
+            setLoanTerm(term);
 
         }
     );
 
+}
 
-// =====================================================
-// TENURE PLUS
-// STEP = 1 MONTH
-// =====================================================
 
-document
-    .getElementById("termPlus")
-    .addEventListener(
+/* =========================================================
+   TENURE PLUS
+========================================================= */
+
+const termPlus =
+    document.getElementById("termPlus");
+
+if (elementExists(termPlus)) {
+
+    termPlus.addEventListener(
         "click",
         function () {
 
@@ -783,155 +978,163 @@ document
                 term + 1;
 
 
-            if (
-                term > 360
-            ) {
-
-                term = 360;
-
+            if (term > MAX_LOAN_TERM) {
+                term = MAX_LOAN_TERM;
             }
 
 
-            setLoanTerm(
-                term
-            );
+            setLoanTerm(term);
 
         }
     );
 
+}
 
-// =====================================================
-// UPDATE LABELS
-// =====================================================
+
+/* =========================================================
+   UPDATE LABELS
+========================================================= */
 
 function updateLabels() {
 
     const loan =
         getNumber(
-            loanAmountInput.value,
-            0
+            loanAmountInput?.value,
+            MIN_LOAN_AMOUNT
         );
 
 
     const rate =
         getNumber(
-            interestRateInput.value,
+            interestRateInput?.value,
             0
         );
 
 
     const term =
         getNumber(
-            loanTermInput.value,
-            1
+            loanTermInput?.value,
+            MIN_LOAN_TERM
         );
 
 
-    // Loan amount
+    if (elementExists(loanAmountValue)) {
 
-    loanAmountValue.textContent =
-        formatINR(
-            loan
-        );
+        loanAmountValue.textContent =
+            formatINR(loan);
 
-
-    // Interest rate
-
-    interestRateValue.textContent =
-        interestRateInput.value +
-        "%";
+    }
 
 
-    // Tenure
+    if (elementExists(interestRateValue)) {
 
-    loanTermValue.textContent =
-        term +
-        (
-            term === 1
-                ? " Month"
-                : " Months"
-        );
+        interestRateValue.textContent =
+            String(
+                interestRateInput?.value || rate
+            ) + "%";
+
+    }
+
+
+    if (elementExists(loanTermValue)) {
+
+        loanTermValue.textContent =
+            term +
+            (
+                term === 1
+                    ? " Month"
+                    : " Months"
+            );
+
+    }
 
 }
 
 
-// =====================================================
-// CALCULATE EMI
-// =====================================================
+/* =========================================================
+   CALCULATE EMI
+========================================================= */
 
 function calculateEMI() {
 
-    const principal =
+    let principal =
         getNumber(
-            loanAmountInput.value,
+            loanAmountInput?.value,
             0
         );
 
 
-    const annualRate =
+    let annualRate =
         getNumber(
-            interestRateInput.value,
+            interestRateInput?.value,
             0
         );
 
 
-    const months =
+    let months =
         getNumber(
-            loanTermInput.value,
+            loanTermInput?.value,
             1
         );
 
 
-    // If loan amount is zero
+    /*
+       Protect values
+    */
 
-    if (
-        principal <= 0
-    ) {
+    principal =
+        Math.min(
+            Math.max(
+                principal,
+                0
+            ),
+            MAX_LOAN_AMOUNT
+        );
 
-        monthlyPayment.textContent =
-            formatINR(0);
 
-        totalPayment.textContent =
-            formatINR(0);
+    annualRate =
+        Math.min(
+            Math.max(
+                annualRate,
+                MIN_INTEREST_RATE
+            ),
+            MAX_INTEREST_RATE
+        );
 
-        totalInterest.textContent =
-            formatINR(0);
 
-        principalAmount.textContent =
-            formatINR(0);
+    months =
+        Math.min(
+            Math.max(
+                Math.round(months),
+                MIN_LOAN_TERM
+            ),
+            MAX_LOAN_TERM
+        );
 
-        chartInterest.textContent =
-            formatINR(0);
 
+    /*
+       Zero loan amount
+    */
+
+    if (principal <= 0) {
+
+        displayZeroResults();
 
         emiSchedule = [];
-
 
         createChart(
             0,
             0
         );
 
-
         return;
 
     }
 
 
-    // If tenure is invalid
-
-    if (
-        months <= 0
-    ) {
-
-        return;
-
-    }
-
-
-    // =================================================
-    // MONTHLY INTEREST RATE
-    // =================================================
+    /*
+       Monthly interest rate
+    */
 
     const monthlyRate =
         annualRate /
@@ -942,13 +1145,11 @@ function calculateEMI() {
     let emi;
 
 
-    // =================================================
-    // ZERO INTEREST
-    // =================================================
+    /*
+       Zero interest
+    */
 
-    if (
-        monthlyRate === 0
-    ) {
+    if (monthlyRate === 0) {
 
         emi =
             principal /
@@ -957,81 +1158,110 @@ function calculateEMI() {
     }
 
 
-    // =================================================
-    // NORMAL EMI
-    // =================================================
+    /*
+       Normal EMI
+    */
 
     else {
+
+        const power =
+            Math.pow(
+                1 + monthlyRate,
+                months
+            );
+
 
         emi =
             principal *
             monthlyRate *
-            Math.pow(
-                1 + monthlyRate,
-                months
-            )
-            /
-            (
-                Math.pow(
-                    1 + monthlyRate,
-                    months
-                ) - 1
-            );
+            power /
+            (power - 1);
 
     }
 
 
-    // =================================================
-    // TOTAL
-    // =================================================
+    /*
+       Total payment
+    */
 
     const totalPaymentAmount =
         emi *
         months;
 
 
+    /*
+       Total interest
+    */
+
     const totalInterestAmount =
-        totalPaymentAmount -
-        principal;
-
-
-    // =================================================
-    // DISPLAY RESULTS
-    // =================================================
-
-    monthlyPayment.textContent =
-        formatINR(
-            emi
-        );
-
-
-    totalPayment.textContent =
-        formatINR(
-            totalPaymentAmount
-        );
-
-
-    totalInterest.textContent =
-        formatINR(
-            totalInterestAmount
-        );
-
-
-    principalAmount.textContent =
-        formatINR(
+        Math.max(
+            0,
+            totalPaymentAmount -
             principal
         );
 
 
-    chartInterest.textContent =
-        formatINR(
-            totalInterestAmount
-        );
+    /*
+       Display
+    */
+
+    if (elementExists(monthlyPayment)) {
+
+        monthlyPayment.textContent =
+            formatINR(emi);
+
+    }
 
 
-    // =================================================
-    // CREATE SCHEDULE
-    // =================================================
+    if (elementExists(totalPayment)) {
+
+        totalPayment.textContent =
+            formatINR(
+                totalPaymentAmount
+            );
+
+    }
+
+
+    if (elementExists(totalInterest)) {
+
+        totalInterest.textContent =
+            formatINR(
+                totalInterestAmount
+            );
+
+    }
+
+
+    if (elementExists(principalAmount)) {
+
+        principalAmount.textContent =
+            formatINR(principal);
+
+    }
+
+
+    if (elementExists(chartInterest)) {
+
+        chartInterest.textContent =
+            formatINR(
+                totalInterestAmount
+            );
+
+    }
+
+
+    if (elementExists(chartPrincipal)) {
+
+        chartPrincipal.textContent =
+            formatINR(principal);
+
+    }
+
+
+    /*
+       Schedule
+    */
 
     createSchedule(
         principal,
@@ -1041,24 +1271,58 @@ function calculateEMI() {
     );
 
 
-    // =================================================
-    // CREATE CHART
-    // =================================================
+    /*
+       Chart
+    */
 
     createChart(
         principal,
-        Math.max(
-            0,
-            totalInterestAmount
-        )
+        totalInterestAmount
     );
 
 }
 
 
-// =====================================================
-// CREATE EMI SCHEDULE
-// =====================================================
+/* =========================================================
+   DISPLAY ZERO RESULTS
+========================================================= */
+
+function displayZeroResults() {
+
+    const zero =
+        formatINR(0);
+
+
+    if (elementExists(monthlyPayment)) {
+        monthlyPayment.textContent = zero;
+    }
+
+    if (elementExists(totalPayment)) {
+        totalPayment.textContent = zero;
+    }
+
+    if (elementExists(totalInterest)) {
+        totalInterest.textContent = zero;
+    }
+
+    if (elementExists(principalAmount)) {
+        principalAmount.textContent = zero;
+    }
+
+    if (elementExists(chartInterest)) {
+        chartInterest.textContent = zero;
+    }
+
+    if (elementExists(chartPrincipal)) {
+        chartPrincipal.textContent = zero;
+    }
+
+}
+
+
+/* =========================================================
+   CREATE EMI SCHEDULE
+========================================================= */
 
 function createSchedule(
     principal,
@@ -1086,7 +1350,6 @@ function createSchedule(
         month++
     ) {
 
-
         const openingBalance =
             balance;
 
@@ -1098,27 +1361,22 @@ function createSchedule(
         let payment = emi;
 
 
-        // =================================================
-        // ZERO INTEREST
-        // =================================================
+        /*
+           Zero interest
+        */
 
-        if (
-            monthlyRate === 0
-        ) {
+        if (monthlyRate === 0) {
 
-            interestAmount =
-                0;
+            interestAmount = 0;
 
-
-            principalPaid =
-                emi;
+            principalPaid = emi;
 
         }
 
 
-        // =================================================
-        // NORMAL INTEREST
-        // =================================================
+        /*
+           Normal interest
+        */
 
         else {
 
@@ -1134,14 +1392,11 @@ function createSchedule(
         }
 
 
-        // =================================================
-        // LAST EMI ADJUSTMENT
-        // =================================================
+        /*
+           Protect against rounding
+        */
 
-        if (
-            principalPaid >
-            balance
-        ) {
+        if (principalPaid > balance) {
 
             principalPaid =
                 balance;
@@ -1154,16 +1409,32 @@ function createSchedule(
         }
 
 
-        // =================================================
-        // UPDATE BALANCE
-        // =================================================
+        /*
+           Prevent negative values
+        */
+
+        if (principalPaid < 0) {
+            principalPaid = 0;
+        }
+
+
+        if (interestAmount < 0) {
+            interestAmount = 0;
+        }
+
+
+        /*
+           Update balance
+        */
 
         balance =
             balance -
             principalPaid;
 
 
-        // Remove tiny floating point balance
+        /*
+           Remove tiny floating value
+        */
 
         if (
             Math.abs(balance) <
@@ -1174,10 +1445,6 @@ function createSchedule(
 
         }
 
-
-        // =================================================
-        // STORE
-        // =================================================
 
         emiSchedule.push({
 
@@ -1206,9 +1473,9 @@ function createSchedule(
 }
 
 
-// =====================================================
-// CREATE PIE CHART
-// =====================================================
+/* =========================================================
+   CREATE PIE CHART
+========================================================= */
 
 function createChart(
     principal,
@@ -1221,20 +1488,16 @@ function createChart(
         );
 
 
-    if (
-        !canvas
-    ) {
-
+    if (!canvas) {
         return;
-
     }
 
 
-    // Destroy old chart
+    /*
+       Destroy old chart
+    */
 
-    if (
-        emiChart
-    ) {
+    if (emiChart) {
 
         emiChart.destroy();
 
@@ -1243,15 +1506,20 @@ function createChart(
     }
 
 
-    // Don't create invalid chart
+    /*
+       Empty chart
+    */
 
-    if (
-        principal <= 0
-    ) {
-
+    if (principal <= 0) {
         return;
-
     }
+
+
+    const safeInterest =
+        Math.max(
+            0,
+            interest
+        );
 
 
     emiChart =
@@ -1266,11 +1534,8 @@ function createChart(
                 data: {
 
                     labels: [
-
                         "Principal",
-
                         "Interest"
-
                     ],
 
 
@@ -1279,23 +1544,14 @@ function createChart(
                         {
 
                             data: [
-
                                 principal,
-
-                                Math.max(
-                                    0,
-                                    interest
-                                )
-
+                                safeInterest
                             ],
 
 
                             backgroundColor: [
-
-                                "#0d6efd",
-
-                                "#dc3545"
-
+                                "#3182f6",
+                                "#e55b62"
                             ],
 
 
@@ -1304,7 +1560,11 @@ function createChart(
 
 
                             borderWidth:
-                                4
+                                4,
+
+
+                            hoverOffset:
+                                5
 
                         }
 
@@ -1324,36 +1584,40 @@ function createChart(
 
 
                     cutout:
-                        "58%",
+                        "63%",
+
+
+                    animation: {
+
+                        duration:
+                            700
+
+                    },
 
 
                     plugins: {
 
                         legend: {
 
-                            position:
-                                "bottom",
-
-
-                            labels: {
-
-                                padding:
-                                    18,
-
-
-                                font: {
-
-                                    size:
-                                        13
-
-                                }
-
-                            }
+                            display:
+                                false
 
                         },
 
 
                         tooltip: {
+
+                            backgroundColor:
+                                "#061a3b",
+
+                            titleColor:
+                                "#ffffff",
+
+                            bodyColor:
+                                "#ffffff",
+
+                            padding:
+                                12,
 
                             callbacks: {
 
@@ -1386,29 +1650,64 @@ function createChart(
 }
 
 
-// =====================================================
-// CALCULATE BUTTON
-// =====================================================
+/* =========================================================
+   CALCULATE BUTTON
+========================================================= */
 
-document
-    .getElementById("calculateBtn")
-    .addEventListener(
+const calculateBtn =
+    document.getElementById(
+        "calculateBtn"
+    );
+
+
+if (elementExists(calculateBtn)) {
+
+    calculateBtn.addEventListener(
         "click",
         function () {
 
+            /*
+               Add small button animation
+            */
+
+            this.classList.add(
+                "calculating"
+            );
+
+
             calculateEMI();
+
+
+            setTimeout(
+                () => {
+
+                    this.classList.remove(
+                        "calculating"
+                    );
+
+                },
+                250
+            );
 
         }
     );
 
+}
 
-// =====================================================
-// PDF BUTTON
-// =====================================================
 
-document
-    .getElementById("downloadPdfBtn")
-    .addEventListener(
+/* =========================================================
+   PDF BUTTON
+========================================================= */
+
+const downloadPdfBtn =
+    document.getElementById(
+        "downloadPdfBtn"
+    );
+
+
+if (elementExists(downloadPdfBtn)) {
+
+    downloadPdfBtn.addEventListener(
         "click",
         function () {
 
@@ -1417,21 +1716,396 @@ document
         }
     );
 
+}
 
-// =====================================================
-// DOWNLOAD PDF
-// =====================================================
+
+/* =========================================================
+   PDF COLORS
+========================================================= */
+
+const PDF_COLORS = {
+
+    navy:
+        [6, 26, 59],
+
+    blue:
+        [7, 87, 213],
+
+    lightBlue:
+        [238, 245, 255],
+
+    green:
+        [21, 150, 106],
+
+    red:
+        [229, 91, 98],
+
+    text:
+        [52, 68, 90],
+
+    muted:
+        [113, 128, 150],
+
+    light:
+        [247, 249, 252],
+
+    border:
+        [225, 232, 241],
+
+    white:
+        [255, 255, 255]
+
+};
+
+
+/* =========================================================
+   PDF HEADER
+========================================================= */
+
+function drawPDFHeader(
+    pdf,
+    pageWidth
+) {
+
+    /*
+       Top navy header
+    */
+
+    pdf.setFillColor(
+        ...PDF_COLORS.navy
+    );
+
+    pdf.rect(
+        0,
+        0,
+        pageWidth,
+        38,
+        "F"
+    );
+
+
+    /*
+       Brand
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    pdf.setFontSize(
+        17
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.white
+    );
+
+    pdf.text(
+        "ATYANT LOAN SOLUTIONS",
+        15,
+        15
+    );
+
+
+    /*
+       Subtitle
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.setFontSize(
+        8
+    );
+
+    pdf.setTextColor(
+        190,
+        210,
+        235
+    );
+
+    pdf.text(
+        "Professional EMI Calculation Report",
+        15,
+        23
+    );
+
+
+    /*
+       Report label
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    pdf.setFontSize(
+        8
+    );
+
+    pdf.setTextColor(
+        115,
+        175,
+        255
+    );
+
+    pdf.text(
+        "EMI REPORT",
+        pageWidth - 15,
+        14,
+        {
+            align:
+                "right"
+        }
+    );
+
+
+    /*
+       Date
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.setFontSize(
+        7
+    );
+
+    pdf.setTextColor(
+        190,
+        210,
+        235
+    );
+
+    pdf.text(
+        getCurrentDate(),
+        pageWidth - 15,
+        23,
+        {
+            align:
+                "right"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   PDF FOOTER
+========================================================= */
+
+function drawPDFFooter(
+    pdf,
+    pageWidth,
+    pageHeight,
+    pageNumber
+) {
+
+    pdf.setDrawColor(
+        ...PDF_COLORS.border
+    );
+
+    pdf.setLineWidth(
+        0.3
+    );
+
+    pdf.line(
+        15,
+        pageHeight - 14,
+        pageWidth - 15,
+        pageHeight - 14
+    );
+
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.setFontSize(
+        7
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.muted
+    );
+
+
+    pdf.text(
+        "Atyant Loan Solutions | +91 8692877974",
+        15,
+        pageHeight - 7
+    );
+
+
+    pdf.text(
+        "Page " + pageNumber,
+        pageWidth - 15,
+        pageHeight - 7,
+        {
+            align:
+                "right"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   PDF SUMMARY CARD
+========================================================= */
+
+function drawPDFCard(
+    pdf,
+    x,
+    y,
+    width,
+    height,
+    title,
+    value,
+    accent
+) {
+
+    pdf.setFillColor(
+        249,
+        251,
+        254
+    );
+
+    pdf.setDrawColor(
+        ...PDF_COLORS.border
+    );
+
+    pdf.roundedRect(
+        x,
+        y,
+        width,
+        height,
+        3,
+        3,
+        "FD"
+    );
+
+
+    /*
+       Accent line
+    */
+
+    pdf.setFillColor(
+        ...accent
+    );
+
+    pdf.roundedRect(
+        x,
+        y,
+        3,
+        height,
+        1.5,
+        1.5,
+        "F"
+    );
+
+
+    /*
+       Title
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.setFontSize(
+        7
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.muted
+    );
+
+    pdf.text(
+        title,
+        x + 10,
+        y + 10
+    );
+
+
+    /*
+       Value
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    pdf.setFontSize(
+        11
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.navy
+    );
+
+    pdf.text(
+        value,
+        x + 10,
+        y + 22
+    );
+
+}
+
+
+/* =========================================================
+   GET CURRENT DATE
+========================================================= */
+
+function getCurrentDate() {
+
+    const date =
+        new Date();
+
+
+    return date.toLocaleDateString(
+        "en-IN",
+        {
+            day:
+                "2-digit",
+
+            month:
+                "short",
+
+            year:
+                "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   DOWNLOAD PROFESSIONAL PDF
+========================================================= */
 
 function downloadPDF() {
 
-    // Check schedule
+    /*
+       Validate schedule
+    */
 
     if (
+        !emiSchedule ||
         emiSchedule.length === 0
     ) {
 
         alert(
-            "Please enter a valid loan amount and calculate EMI first."
+            "Please enter valid loan details and calculate EMI first."
         );
 
         return;
@@ -1439,7 +2113,9 @@ function downloadPDF() {
     }
 
 
-    // Check jsPDF
+    /*
+       Check jsPDF
+    */
 
     if (
         typeof window.jspdf ===
@@ -1447,7 +2123,7 @@ function downloadPDF() {
     ) {
 
         alert(
-            "PDF library is not loaded. Please check your internet connection and refresh the page."
+            "PDF library is not loaded. Please refresh the page."
         );
 
         return;
@@ -1455,15 +2131,13 @@ function downloadPDF() {
     }
 
 
-    // Check AutoTable
-
     if (
         typeof window.jspdf.jsPDF !==
         "function"
     ) {
 
         alert(
-            "PDF library is not available."
+            "PDF library is not available. Please refresh the page."
         );
 
         return;
@@ -1475,53 +2149,69 @@ function downloadPDF() {
         window.jspdf.jsPDF;
 
 
-    // =================================================
-    // CREATE PDF
-    // =================================================
+    /*
+       Create A4 Portrait PDF
+    */
 
     const pdf =
         new jsPDF(
-            "landscape",
+            "p",
             "mm",
             "a4"
         );
 
 
-    // =================================================
-    // INPUT VALUES
-    // =================================================
+    const pageWidth =
+        pdf.internal
+            .pageSize
+            .getWidth();
+
+
+    const pageHeight =
+        pdf.internal
+            .pageSize
+            .getHeight();
+
+
+    /*
+       Input values
+    */
 
     const principal =
         getNumber(
-            loanAmountInput.value,
+            loanAmountInput?.value,
             0
         );
 
 
     const rate =
         getNumber(
-            interestRateInput.value,
+            interestRateInput?.value,
             0
         );
 
 
     const months =
         getNumber(
-            loanTermInput.value,
+            loanTermInput?.value,
             1
         );
 
 
-    // =================================================
-    // TOTAL INTEREST
-    // =================================================
+    /*
+       Calculate totals directly
+    */
 
-    const totalInterest =
+    const monthlyEMI =
+        emiSchedule[0]?.emi || 0;
+
+
+    const totalInterestAmount =
         emiSchedule.reduce(
-            function (
+            (
                 total,
                 row
-            ) {
+            ) => {
 
                 return (
                     total +
@@ -1533,16 +2223,12 @@ function downloadPDF() {
         );
 
 
-    // =================================================
-    // TOTAL PAYMENT
-    // =================================================
-
     const totalPaymentAmount =
         emiSchedule.reduce(
-            function (
+            (
                 total,
                 row
-            ) {
+            ) => {
 
                 return (
                     total +
@@ -1554,132 +2240,517 @@ function downloadPDF() {
         );
 
 
-    // =================================================
-    // MONTHLY EMI
-    // =================================================
+    /* =====================================================
+       PAGE 1 HEADER
+    ====================================================== */
 
-    const firstEMI =
-        emiSchedule[0].emi;
+    drawPDFHeader(
+        pdf,
+        pageWidth
+    );
 
 
-    // =================================================
-    // HEADER
-    // =================================================
+    /*
+       Report title
+    */
 
     pdf.setFont(
         "helvetica",
         "bold"
     );
 
-
     pdf.setFontSize(
-        20
+        15
     );
 
+    pdf.setTextColor(
+        ...PDF_COLORS.navy
+    );
 
     pdf.text(
-        "ATYANT LOAN SOLUTIONS",
-        148,
+        "Loan EMI Summary",
         15,
-        {
-            align:
-                "center"
-        }
+        52
     );
 
-
-    pdf.setFontSize(
-        14
-    );
-
-
-    pdf.text(
-        "EMI REPAYMENT SCHEDULE",
-        148,
-        23,
-        {
-            align:
-                "center"
-        }
-    );
-
-
-    // =================================================
-    // SUMMARY
-    // =================================================
 
     pdf.setFont(
         "helvetica",
         "normal"
     );
 
+    pdf.setFontSize(
+        8
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.muted
+    );
+
+    pdf.text(
+        "Estimated repayment summary based on the information entered.",
+        15,
+        59
+    );
+
+
+    /* =====================================================
+       MAIN EMI CARD
+    ====================================================== */
+
+    pdf.setFillColor(
+        ...PDF_COLORS.lightBlue
+    );
+
+    pdf.setDrawColor(
+        207,
+        224,
+        247
+    );
+
+    pdf.roundedRect(
+        15,
+        68,
+        pageWidth - 30,
+        38,
+        4,
+        4,
+        "FD"
+    );
+
+
+    /*
+       Left label
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
 
     pdf.setFontSize(
-        10
+        8
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.blue
+    );
+
+    pdf.text(
+        "ESTIMATED MONTHLY EMI",
+        24,
+        80
     );
 
 
+    /*
+       EMI
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    pdf.setFontSize(
+        24
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.navy
+    );
+
     pdf.text(
-        "Loan Amount: " +
-        formatPDF(
-            principal
-        ),
+        formatPDF(monthlyEMI),
+        24,
+        94
+    );
+
+
+    /*
+       EMI note
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.setFontSize(
+        7
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.muted
+    );
+
+    pdf.text(
+        "Estimated monthly instalment",
+        24,
+        101
+    );
+
+
+    /*
+       Right information
+    */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    pdf.setFontSize(
+        8
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.text
+    );
+
+    pdf.text(
+        "Loan Amount",
+        pageWidth - 75,
+        79
+    );
+
+    pdf.text(
+        "Interest Rate",
+        pageWidth - 75,
+        88
+    );
+
+    pdf.text(
+        "Tenure",
+        pageWidth - 75,
+        97
+    );
+
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.text(
+        formatPDF(principal),
+        pageWidth - 20,
+        79,
+        {
+            align:
+                "right"
+        }
+    );
+
+    pdf.text(
+        rate + "%",
+        pageWidth - 20,
+        88,
+        {
+            align:
+                "right"
+        }
+    );
+
+    pdf.text(
+        months + " Months",
+        pageWidth - 20,
+        97,
+        {
+            align:
+                "right"
+        }
+    );
+
+
+    /* =====================================================
+       SUMMARY CARDS
+    ====================================================== */
+
+    const cardY =
+        116;
+
+    const cardGap =
+        5;
+
+    const cardWidth =
+        (
+            pageWidth -
+            30 -
+            cardGap * 2
+        ) / 3;
+
+
+    drawPDFCard(
+        pdf,
         15,
-        37
+        cardY,
+        cardWidth,
+        34,
+        "Principal Amount",
+        formatPDF(principal),
+        PDF_COLORS.blue
     );
 
 
+    drawPDFCard(
+        pdf,
+        15 +
+            cardWidth +
+            cardGap,
+        cardY,
+        cardWidth,
+        34,
+        "Total Interest",
+        formatPDF(totalInterestAmount),
+        PDF_COLORS.red
+    );
+
+
+    drawPDFCard(
+        pdf,
+        15 +
+            (cardWidth + cardGap) * 2,
+        cardY,
+        cardWidth,
+        34,
+        "Total Payment",
+        formatPDF(totalPaymentAmount),
+        PDF_COLORS.green
+    );
+
+
+    /* =====================================================
+       PAYMENT BREAKDOWN
+    ====================================================== */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    pdf.setFontSize(
+        12
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.navy
+    );
+
     pdf.text(
-        "Interest Rate: " +
-        rate +
-        "%",
+        "Payment Breakdown",
         15,
-        45
+        166
     );
 
 
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.setFontSize(
+        7
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.muted
+    );
+
     pdf.text(
-        "Loan Tenure: " +
-        months +
-        " Months",
+        "Principal versus total interest over the selected tenure.",
         15,
-        53
+        173
+    );
+
+
+    /*
+       Breakdown bar
+    */
+
+    const barX =
+        15;
+
+    const barY =
+        182;
+
+    const barWidth =
+        pageWidth - 30;
+
+    const barHeight =
+        9;
+
+
+    const totalForBar =
+        principal +
+        totalInterestAmount;
+
+
+    const principalWidth =
+        totalForBar > 0
+            ? (
+                principal /
+                totalForBar
+            ) * barWidth
+            : 0;
+
+
+    pdf.setFillColor(
+        ...PDF_COLORS.blue
+    );
+
+    pdf.roundedRect(
+        barX,
+        barY,
+        principalWidth,
+        barHeight,
+        2,
+        2,
+        "F"
+    );
+
+
+    if (
+        barWidth -
+        principalWidth >
+        0
+    ) {
+
+        pdf.setFillColor(
+            ...PDF_COLORS.red
+        );
+
+        pdf.rect(
+            barX +
+                principalWidth,
+            barY,
+            barWidth -
+                principalWidth,
+            barHeight,
+            "F"
+        );
+
+    }
+
+
+    /*
+       Legend
+    */
+
+    pdf.setFillColor(
+        ...PDF_COLORS.blue
+    );
+
+    pdf.circle(
+        18,
+        202,
+        2,
+        "F"
+    );
+
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.setFontSize(
+        7
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.text
+    );
+
+    pdf.text(
+        "Principal: " +
+        formatPDF(principal),
+        24,
+        204
+    );
+
+
+    pdf.setFillColor(
+        ...PDF_COLORS.red
+    );
+
+    pdf.circle(
+        105,
+        202,
+        2,
+        "F"
     );
 
 
     pdf.text(
-        "Monthly EMI: " +
-        formatPDF(
-            firstEMI
-        ),
-        155,
-        37
+        "Interest: " +
+        formatPDF(totalInterestAmount),
+        111,
+        204
     );
 
+
+    /* =====================================================
+       REPAYMENT SCHEDULE TITLE
+    ====================================================== */
+
+    pdf.setFont(
+        "helvetica",
+        "bold"
+    );
+
+    pdf.setFontSize(
+        12
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.navy
+    );
 
     pdf.text(
-        "Total Interest: " +
-        formatPDF(
-            totalInterest
-        ),
-        155,
-        45
+        "Repayment Schedule",
+        15,
+        222
     );
 
+
+    pdf.setFont(
+        "helvetica",
+        "normal"
+    );
+
+    pdf.setFontSize(
+        7
+    );
+
+    pdf.setTextColor(
+        ...PDF_COLORS.muted
+    );
 
     pdf.text(
-        "Total Payment: " +
-        formatPDF(
-            totalPaymentAmount
-        ),
-        155,
-        53
+        "Detailed monthly principal, interest and outstanding balance.",
+        15,
+        229
     );
 
 
-    // =================================================
-    // TABLE
-    // =================================================
+    /* =====================================================
+       TABLE
+    ====================================================== */
+
+    if (
+        typeof pdf.autoTable !==
+        "function"
+    ) {
+
+        alert(
+            "PDF table plugin is not loaded. Please refresh the page."
+        );
+
+        return;
+
+    }
+
 
     const tableRows =
         emiSchedule.map(
@@ -1717,40 +2788,24 @@ function downloadPDF() {
         );
 
 
-    // =================================================
-    // AUTO TABLE
-    // =================================================
-
-    if (
-        typeof pdf.autoTable !==
-        "function"
-    ) {
-
-        alert(
-            "PDF table plugin is not loaded. Please refresh the page."
-        );
-
-        return;
-
-    }
-
-
     pdf.autoTable({
 
         startY:
-            60,
-
+            234,
 
         margin: {
 
+            top:
+                45,
+
             left:
-                10,
+                15,
 
             right:
-                10,
+                15,
 
             bottom:
-                15
+                18
 
         },
 
@@ -1789,16 +2844,19 @@ function downloadPDF() {
                 7,
 
             cellPadding:
-                2,
+                2.5,
 
             lineWidth:
                 0.1,
 
             lineColor:
-                [210, 210, 210],
+                PDF_COLORS.border,
 
             textColor:
-                [40, 40, 40],
+                PDF_COLORS.text,
+
+            valign:
+                "middle",
 
             halign:
                 "right"
@@ -1809,19 +2867,30 @@ function downloadPDF() {
         headStyles: {
 
             fillColor:
-                [13, 110, 253],
+                PDF_COLORS.navy,
 
             textColor:
-                [255, 255, 255],
+                PDF_COLORS.white,
 
             fontStyle:
                 "bold",
 
             fontSize:
-                8,
+                7,
 
             halign:
-                "center"
+                "center",
+
+            cellPadding:
+                3
+
+        },
+
+
+        alternateRowStyles: {
+
+            fillColor:
+                [248, 250, 253]
 
         },
 
@@ -1830,56 +2899,48 @@ function downloadPDF() {
 
             0: {
 
-                cellWidth:
-                    18,
-
                 halign:
-                    "center"
+                    "center",
+
+                cellWidth:
+                    14
 
             },
 
             1: {
 
                 cellWidth:
-                    50
+                    31
 
             },
 
             2: {
 
                 cellWidth:
-                    43
+                    29
 
             },
 
             3: {
 
                 cellWidth:
-                    43
+                    29
 
             },
 
             4: {
 
                 cellWidth:
-                    43
+                    29
 
             },
 
             5: {
 
                 cellWidth:
-                    50
+                    31
 
             }
-
-        },
-
-
-        alternateRowStyles: {
-
-            fillColor:
-                [248, 249, 250]
 
         },
 
@@ -1887,51 +2948,23 @@ function downloadPDF() {
         didDrawPage:
             function () {
 
-                const pageWidth =
-                    pdf.internal
-                        .pageSize
-                        .getWidth();
-
-
-                const pageHeight =
-                    pdf.internal
-                        .pageSize
-                        .getHeight();
-
-
-                const pageNumber =
+                const currentPage =
                     pdf.internal
                         .getCurrentPageInfo()
                         .pageNumber;
 
 
-                pdf.setFont(
-                    "helvetica",
-                    "normal"
+                drawPDFHeader(
+                    pdf,
+                    pageWidth
                 );
 
 
-                pdf.setFontSize(
-                    8
-                );
-
-
-                pdf.text(
-                    "Atyant Loan Solutions",
-                    10,
-                    pageHeight - 7
-                );
-
-
-                pdf.text(
-                    "Page " +
-                    pageNumber,
-                    pageWidth - 10,
-                    pageHeight - 7,
-                    {
-                        align:
-                            "right"
-                    }
+                drawPDFFooter(
+                    pdf,
+                    pageWidth,
+                    pageHeight,
+                    currentPage
                 );
 
             }
@@ -1939,21 +2972,268 @@ function downloadPDF() {
     });
 
 
-    // =================================================
-    // SAVE PDF
-    // =================================================
+    /* =====================================================
+       FINAL DISCLAIMER PAGE CONTENT
+    ====================================================== */
+
+    const finalY =
+        pdf.lastAutoTable &&
+        pdf.lastAutoTable.finalY
+            ? pdf.lastAutoTable.finalY
+            : 240;
+
+
+    /*
+       If enough room exists on current page
+    */
+
+    if (
+        finalY <
+        pageHeight - 45
+    ) {
+
+        pdf.setFont(
+            "helvetica",
+            "bold"
+        );
+
+        pdf.setFontSize(
+            8
+        );
+
+        pdf.setTextColor(
+            ...PDF_COLORS.navy
+        );
+
+        pdf.text(
+            "Important Information",
+            15,
+            finalY + 15
+        );
+
+
+        pdf.setFont(
+            "helvetica",
+            "normal"
+        );
+
+        pdf.setFontSize(
+            7
+        );
+
+        pdf.setTextColor(
+            ...PDF_COLORS.muted
+        );
+
+
+        const disclaimer =
+            "This EMI calculation is indicative and provided for planning purposes only. " +
+            "Actual interest rates, processing fees, loan tenure, EMI and approval are " +
+            "subject to the applicable lender's eligibility criteria, policies and terms.";
+
+
+        const disclaimerLines =
+            pdf.splitTextToSize(
+                disclaimer,
+                pageWidth - 30
+            );
+
+
+        pdf.text(
+            disclaimerLines,
+            15,
+            finalY + 23
+        );
+
+    }
+
+
+    /* =====================================================
+       SAVE
+    ====================================================== */
+
+    const safeDate =
+        new Date()
+            .toISOString()
+            .split("T")[0];
+
 
     pdf.save(
-        "Atyant-Loan-EMI-Schedule.pdf"
+        "Atyant-Loan-EMI-Report-" +
+        safeDate +
+        ".pdf"
     );
 
 }
 
 
-// =====================================================
-// INITIAL CALCULATION
-// =====================================================
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
-updateLabels();
+function initializeCalculator() {
 
-calculateEMI();
+    /*
+       Make sure slider limits are correct
+    */
+
+    if (elementExists(loanAmountSlider)) {
+
+        loanAmountSlider.min =
+            MIN_LOAN_AMOUNT;
+
+        loanAmountSlider.max =
+            MAX_LOAN_AMOUNT;
+
+    }
+
+
+    if (elementExists(interestRateSlider)) {
+
+        interestRateSlider.min =
+            MIN_INTEREST_RATE;
+
+        interestRateSlider.max =
+            MAX_INTEREST_RATE;
+
+    }
+
+
+    if (elementExists(loanTermSlider)) {
+
+        loanTermSlider.min =
+            MIN_LOAN_TERM;
+
+        loanTermSlider.max =
+            MAX_LOAN_TERM;
+
+    }
+
+
+    /*
+       Default values
+    */
+
+    let initialLoan =
+        getNumber(
+            loanAmountInput?.value,
+            1000000
+        );
+
+
+    let initialRate =
+        getNumber(
+            interestRateInput?.value,
+            9.99
+        );
+
+
+    let initialTerm =
+        getNumber(
+            loanTermInput?.value,
+            60
+        );
+
+
+    /*
+       Protect initial values
+    */
+
+    initialLoan =
+        Math.min(
+            Math.max(
+                initialLoan,
+                MIN_LOAN_AMOUNT
+            ),
+            MAX_LOAN_AMOUNT
+        );
+
+
+    initialRate =
+        Math.min(
+            Math.max(
+                initialRate,
+                MIN_INTEREST_RATE
+            ),
+            MAX_INTEREST_RATE
+        );
+
+
+    initialTerm =
+        Math.min(
+            Math.max(
+                Math.round(initialTerm),
+                MIN_LOAN_TERM
+            ),
+            MAX_LOAN_TERM
+        );
+
+
+    /*
+       Set values
+    */
+
+    if (elementExists(loanAmountInput)) {
+        loanAmountInput.value =
+            initialLoan;
+    }
+
+
+    if (elementExists(loanAmountSlider)) {
+        loanAmountSlider.value =
+            initialLoan;
+    }
+
+
+    if (elementExists(interestRateInput)) {
+        interestRateInput.value =
+            initialRate;
+    }
+
+
+    if (elementExists(interestRateSlider)) {
+        interestRateSlider.value =
+            initialRate;
+    }
+
+
+    if (elementExists(loanTermInput)) {
+        loanTermInput.value =
+            initialTerm;
+    }
+
+
+    if (elementExists(loanTermSlider)) {
+        loanTermSlider.value =
+            initialTerm;
+    }
+
+
+    updateLabels();
+
+    updateAllRangeVisuals();
+
+    calculateEMI();
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeCalculator
+    );
+
+} else {
+
+    initializeCalculator();
+
+}

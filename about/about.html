@@ -1,187 +1,2411 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>About Us - Atyant Loan Solutions</title>
-  <link rel="icon" href="../assets/logo.png" type="image/png">
 
-  <!-- Bootstrap & FontAwesome -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="../navbar.css">
-  <link rel="stylesheet" href="about.css">
+  <meta
+    name="description"
+    content="Learn more about Atyant Loan Solutions and our professional approach to personal and business loan assistance."
+  >
+
+  <meta
+    name="theme-color"
+    content="#061a3b"
+  >
+
+  <title>About Us | Atyant Loan Solutions</title>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    href="../assets/logo.png"
+    type="image/png"
+  >
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+  <!-- Navbar CSS -->
+  <link
+    rel="stylesheet"
+    href="../navbar.css"
+  >
+
+  <!-- About CSS -->
+  <link
+    rel="stylesheet"
+    href="./about.css"
+  >
+
 </head>
+
+
 <body>
-   <div id="preloader">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <p>Loading...</p>
+
+
+<!-- =====================================================
+     PRELOADER
+====================================================== -->
+
+<div id="preloader">
+
+  <div class="preloader-box">
+
+    <div class="preloader-logo">
+
+      <img
+        src="../assets/logo.png"
+        alt="Atyant Loan Solutions"
+      >
+
     </div>
-  <!-- Dynamic Navbar -->
-  <div id="navbar-container"></div>
 
-  <!-- Hero Section -->
-  <section class="about-hero text-center text-white">
-    <div class="container py-5">
-      <h1>About Atyant Loan Solutions</h1>
-      <p class="lead">Your trusted partner for all personal and business loan needs.</p>
+    <div
+      class="spinner-border text-primary"
+      role="status"
+    >
+
+      <span class="visually-hidden">
+        Loading...
+      </span>
+
     </div>
-  </section>
 
-  <!-- About Content -->
-  <section class="about-content py-5">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <img src="../assets/images/team-photo.jpg" alt="Our Team" class="img-fluid rounded shadow">
-        </div>
-        <div class="col-lg-6 mt-4 mt-lg-0">
-          <h2>Who We Are</h2>
-          <p>Atyant Loan Solutions is a trusted name in providing hassle-free financial assistance. Our mission is to connect borrowers with the best loan options in the market, ensuring a smooth and transparent process.</p>
-          <p>Whether you're seeking personal loans, business funding, or mortgage solutions — we guide you every step of the way with professionalism and reliability.</p>
-          <ul>
-            <li>✔️ Fast and paperless process</li>
-            <li>✔️ Trusted by thousands of satisfied clients</li>
-            <li>✔️ Transparent charges and no hidden fees</li>
-            <li>✔️ Expert advice from experienced professionals</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+    <p>
+      Loading Atyant Loan Solutions...
+    </p>
 
-  <!-- Dynamic Footer -->
-  <!-- <div id="footer-container"></div> -->
+  </div>
 
-      <style>
-        .footer-gradient {
-          background: linear-gradient(135deg, #0d0d0d, #1b1f24, #0d1117);
-          padding: 30px 15px;
-          color: #fff;
-          text-align: center;
-        }
-        .footer-gradient h5 { margin-bottom: 8px; font-size: 20px; }
-        .footer-gradient p { margin: 2px 0; font-size: 14px; }
+</div>
 
-        .social-icons a { margin: 0 5px; color: #fff; font-size: 18px; transition: transform 0.3s; }
-        .social-icons a:hover { transform: scale(1.2); color: #0abcf9; }
 
-        .footer-map-container {
-          width: 100%;
-          max-width: 700px;
-          margin: 20px auto;
-          border-radius: 10px;
-          overflow: hidden;
-        }
-        .footer-map-container iframe {
-          width: 100%;
-          height: 300px;
-          border: 0;
-        }
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
 
-        .get-directions-btn {
-          display: inline-block;
-          margin-top: 12px;
-          padding: 10px 18px;
-          background: #0a66c2;
-          color: #fff;
-          border-radius: 8px;
-          text-decoration: none;
-          font-size: 16px;
-        }
-        .get-directions-btn:hover { background: #004a99; }
+<div id="navbar-container"></div>
 
-        .whatsapp-float, .callnow-float {
-          position: fixed;
-          width: 55px;
-          height: 55px;
-          bottom: 20px;
-          color: #fff;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          z-index: 999;
-          font-size: 28px;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-          transition: transform 0.3s ease;
-        }
-        .whatsapp-float { background: #25d366; right: 20px; }
-        .callnow-float { background: #ff4d4d; right: 90px; }
-        .whatsapp-float:hover, .callnow-float:hover { transform: scale(1.1); }
 
-        @media(max-width: 480px){
-          .footer-gradient h5 { font-size: 18px; }
-          .footer-gradient p { font-size: 13px; }
-          .get-directions-btn { font-size: 14px; padding:8px 15px; }
-          .whatsapp-float, .callnow-float { width:50px; height:50px; font-size:24px; }
-        }
-      </style>
+<!-- =====================================================
+     HERO SECTION
+====================================================== -->
 
-      <footer class="footer-gradient">
-        <div class="container">
-          <h5>Atyant Loan Solutions</h5>
-          <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
-          <p><strong>Phone:</strong> +91 8692877974 | <strong>Email:</strong> anup.gupta@atyantloan.com</p>
+<section class="about-hero">
 
-          <!-- Google Map without API Key -->
-          <div class="footer-map-container">
-            <iframe
-              src="https://www.google.com/maps?q=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India&output=embed"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India"
-               target="_blank"
-               class="get-directions-btn">
-               Get Directions
+  <div class="hero-pattern"></div>
+
+  <div class="hero-glow hero-glow-one"></div>
+
+  <div class="hero-glow hero-glow-two"></div>
+
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+
+      <!-- HERO CONTENT -->
+
+      <div class="col-lg-6">
+
+        <div class="hero-content">
+
+
+          <div class="breadcrumb-box">
+
+            <a href="../index.html">
+              Home
             </a>
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            <span>
+              About Us
+            </span>
+
           </div>
 
-          <!-- Social Icons -->
-          <div class="social-icons mt-4 mb-3">
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/atyantloansolutions/" target="_blank"><i class="fab fa-instagram"></i></a>
+
+          <span class="hero-label">
+            ABOUT ATYANT LOAN SOLUTIONS
+          </span>
+
+
+          <h1>
+
+            Your Trusted Partner
+
+            <span>
+              For Better Loan Options
+            </span>
+
+          </h1>
+
+
+          <p>
+
+            Atyant Loan Solutions aims to make the
+            financial journey simpler, clearer and
+            more convenient by helping customers
+            explore suitable loan options and
+            understand the application process.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="../apply/apply.html"
+              class="hero-primary-btn"
+            >
+
+              Apply Now
+
+              <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a
+              href="../contact/contact.html"
+              class="hero-outline-btn"
+            >
+
+              Contact Us
+
+              <i class="fa-solid fa-phone"></i>
+
+            </a>
+
           </div>
 
-          <p>&copy; 2025 Atyant Loan Solutions. All Rights Reserved.</p>
+
+          <div class="hero-trust-row">
+
+            <div>
+
+              <i class="fa-solid fa-shield-halved"></i>
+
+              <span>
+                Professional Assistance
+              </span>
+
+            </div>
+
+
+            <div>
+
+              <i class="fa-solid fa-file-circle-check"></i>
+
+              <span>
+                Simple Application
+              </span>
+
+            </div>
+
+          </div>
+
+
         </div>
-      </footer>
 
-      <!-- Floating WhatsApp & Call -->
-      <a href="https://wa.me/918692877974?text=Hello%20Atyant%20Loan%20Solutions" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="tel:+918692877974" class="callnow-float">
-        <i class="fas fa-phone-alt"></i>
-      </a>
-    
+      </div>
 
 
-  
-    <!-- Preloader Script -->
-    <script>
-      const preloader = document.getElementById("preloader");
-      const MIN_LOAD_TIME = 600;
-      const startTime = Date.now();
+      <!-- HERO IMAGE -->
 
-      window.addEventListener("load", function () {
-        const elapsed = Date.now() - startTime;
-        const delay = Math.max(0, MIN_LOAD_TIME - elapsed);
-        setTimeout(() => {
-          preloader.classList.add("fade-out");
-          setTimeout(() => (preloader.style.display = "none"), 600);
-        }, delay);
-      });
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../navbar.js"></script>
+      <div class="col-lg-6">
+
+        <div class="hero-visual">
+
+          <div class="hero-image-card">
+
+            <img
+              src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1200&q=85"
+              alt="Professional financial consultation"
+              loading="eager"
+            >
+
+
+            <div class="image-overlay"></div>
+
+
+            <div class="image-shield">
+
+              <i class="fa-solid fa-shield-halved"></i>
+
+              <span>
+                Professional
+              </span>
+
+            </div>
+
+
+            <div class="image-loan-badge">
+
+              <div class="loan-badge-icon">
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+              </div>
+
+              <div>
+
+                <strong>
+                  ₹50 Lakhs
+                </strong>
+
+                <span>
+                  Loan options up to
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="floating-stat floating-stat-one">
+
+            <div class="floating-icon">
+
+              <i class="fa-solid fa-bolt"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Simple Process
+              </strong>
+
+              <span>
+                Easy application
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="floating-stat floating-stat-two">
+
+            <div class="floating-icon">
+
+              <i class="fa-solid fa-headset"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Customer Support
+              </strong>
+
+              <span>
+                Professional assistance
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATISTICS
+====================================================== -->
+
+<section class="stats-section">
+
+  <div class="container">
+
+    <div class="stats-card">
+
+
+      <div class="stat-item">
+
+        <div class="stat-icon blue">
+
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+
+        </div>
+
+        <div>
+
+          <strong>
+            ₹50 Lakhs
+          </strong>
+
+          <span>
+            Loan options up to
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="stat-item">
+
+        <div class="stat-icon green">
+
+          <i class="fa-solid fa-user-group"></i>
+
+        </div>
+
+        <div>
+
+          <strong>
+            Customer First
+          </strong>
+
+          <span>
+            Service approach
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="stat-item">
+
+        <div class="stat-icon purple">
+
+          <i class="fa-solid fa-building-columns"></i>
+
+        </div>
+
+        <div>
+
+          <strong>
+            Multiple
+          </strong>
+
+          <span>
+            Loan options
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="stat-item">
+
+        <div class="stat-icon orange">
+
+          <i class="fa-solid fa-headset"></i>
+
+        </div>
+
+        <div>
+
+          <strong>
+            Dedicated
+          </strong>
+
+          <span>
+            Customer assistance
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHO WE ARE
+====================================================== -->
+
+<section class="company-section">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+
+      <div class="col-lg-6">
+
+        <div class="company-visual">
+
+
+          <div class="company-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=85"
+              alt="Financial planning and loan consultation"
+              loading="lazy"
+            >
+
+            <div class="company-image-overlay"></div>
+
+          </div>
+
+
+          <div class="company-experience">
+
+            <div class="experience-number">
+              ₹50L
+            </div>
+
+            <div>
+
+              <strong>
+                Loan Options
+              </strong>
+
+              <span>
+                Up to ₹50 Lakhs
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="decorative-circle"></div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-6">
+
+
+        <span class="section-label">
+          WHO WE ARE
+        </span>
+
+
+        <h2 class="section-title">
+
+          Making the loan journey
+
+          <span>
+            simpler and clearer
+          </span>
+
+        </h2>
+
+
+        <p class="section-description">
+
+          Atyant Loan Solutions is focused on
+          providing customers with a convenient
+          platform to explore personal and other
+          loan options.
+
+        </p>
+
+
+        <p class="section-description">
+
+          Our approach is built around clear
+          communication, professional assistance
+          and a simple application experience.
+          We help customers understand the
+          process and information required to
+          move forward.
+
+        </p>
+
+
+        <div class="check-list">
+
+
+          <div class="check-item">
+
+            <div class="check-icon">
+
+              <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <span>
+              Simple and convenient application journey
+            </span>
+
+          </div>
+
+
+          <div class="check-item">
+
+            <div class="check-icon">
+
+              <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <span>
+              Clear guidance throughout the process
+            </span>
+
+          </div>
+
+
+          <div class="check-item">
+
+            <div class="check-icon">
+
+              <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <span>
+              Assistance with documentation requirements
+            </span>
+
+          </div>
+
+
+          <div class="check-item">
+
+            <div class="check-icon">
+
+              <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <span>
+              Customer-focused service approach
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+        <a
+          href="../apply/apply.html"
+          class="dark-button"
+        >
+
+          Start Your Application
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     MISSION & VISION
+====================================================== -->
+
+<section class="mission-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        OUR PURPOSE
+      </span>
+
+      <h2>
+        Our Mission & Vision
+      </h2>
+
+      <p>
+        The principles that guide our approach
+        to customer service.
+      </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <!-- MISSION -->
+
+      <div class="col-lg-6">
+
+        <div class="purpose-card">
+
+
+          <div class="purpose-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85"
+              alt="Professional team discussion"
+              loading="lazy"
+            >
+
+            <div class="purpose-image-overlay">
+
+              <i class="fa-solid fa-bullseye"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="purpose-content">
+
+            <span>
+              OUR MISSION
+            </span>
+
+            <h3>
+              Simplify financial access
+            </h3>
+
+            <p>
+
+              Our mission is to provide a structured
+              and convenient loan application experience
+              while helping customers understand their
+              available options.
+
+            </p>
+
+
+            <ul>
+
+              <li>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Simplify the application journey
+
+              </li>
+
+
+              <li>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Provide clear information
+
+              </li>
+
+
+              <li>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Support customer requirements
+
+              </li>
+
+            </ul>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- VISION -->
+
+      <div class="col-lg-6">
+
+        <div class="purpose-card">
+
+
+          <div class="purpose-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
+              alt="Professional business meeting"
+              loading="lazy"
+            >
+
+            <div class="purpose-image-overlay">
+
+              <i class="fa-solid fa-eye"></i>
+
+            </div>
+
+          </div>
+
+
+          <div class="purpose-content">
+
+            <span>
+              OUR VISION
+            </span>
+
+            <h3>
+              Build long-term trust
+            </h3>
+
+            <p>
+
+              We aim to create a dependable financial
+              assistance experience where customers
+              can understand the process and make
+              informed decisions.
+
+            </p>
+
+
+            <ul>
+
+              <li>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Build professional relationships
+
+              </li>
+
+
+              <li>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Maintain clear communication
+
+              </li>
+
+
+              <li>
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                Continuously improve service
+
+              </li>
+
+            </ul>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+====================================================== -->
+
+<section class="why-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        WHY ATYANT
+      </span>
+
+      <h2>
+        Why Choose Atyant Loan Solutions?
+      </h2>
+
+      <p>
+
+        A professional approach designed to make
+        the loan application journey more convenient.
+
+      </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <div class="col-md-6 col-lg">
+
+        <div class="why-card">
+
+          <div class="why-number">
+            01
+          </div>
+
+          <div class="why-icon blue">
+
+            <i class="fa-solid fa-bolt"></i>
+
+          </div>
+
+          <h3>
+            Simple Process
+          </h3>
+
+          <p>
+            A structured application journey
+            with clear next steps.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6 col-lg">
+
+        <div class="why-card">
+
+          <div class="why-number">
+            02
+          </div>
+
+          <div class="why-icon green">
+
+            <i class="fa-solid fa-handshake"></i>
+
+          </div>
+
+          <h3>
+            Professional Assistance
+          </h3>
+
+          <p>
+            Guidance throughout the application
+            and documentation process.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6 col-lg">
+
+        <div class="why-card">
+
+          <div class="why-number">
+            03
+          </div>
+
+          <div class="why-icon purple">
+
+            <i class="fa-solid fa-user-tie"></i>
+
+          </div>
+
+          <h3>
+            Customer Focus
+          </h3>
+
+          <p>
+            Our approach starts with understanding
+            customer requirements.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6 col-lg">
+
+        <div class="why-card">
+
+          <div class="why-number">
+            04
+          </div>
+
+          <div class="why-icon orange">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+          </div>
+
+          <h3>
+            Secure Approach
+          </h3>
+
+          <p>
+            We take a responsible approach to
+            handling customer information.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6 col-lg">
+
+        <div class="why-card">
+
+          <div class="why-number">
+            05
+          </div>
+
+          <div class="why-icon blue">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+          </div>
+
+          <h3>
+            Flexible Options
+          </h3>
+
+          <p>
+            Explore loan options based on
+            applicable eligibility requirements.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOW IT WORKS
+====================================================== -->
+
+<section class="process-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        HOW IT WORKS
+      </span>
+
+      <h2>
+        Our Loan Assistance Process
+      </h2>
+
+      <p>
+        A simple four-stage journey from
+        application to lender decision.
+      </p>
+
+    </div>
+
+
+    <div class="process-wrapper">
+
+
+      <div class="process-line"></div>
+
+
+      <div class="process-item">
+
+        <div class="process-circle">
+          01
+        </div>
+
+        <div class="process-icon">
+
+          <i class="fa-solid fa-file-signature"></i>
+
+        </div>
+
+        <h3>
+          Apply Online
+        </h3>
+
+        <p>
+          Fill out the application
+          with your basic details.
+        </p>
+
+      </div>
+
+
+      <div class="process-item">
+
+        <div class="process-circle">
+          02
+        </div>
+
+        <div class="process-icon">
+
+          <i class="fa-solid fa-folder-open"></i>
+
+        </div>
+
+        <h3>
+          Documents
+        </h3>
+
+        <p>
+          Provide the required
+          documents when requested.
+        </p>
+
+      </div>
+
+
+      <div class="process-item">
+
+        <div class="process-circle">
+          03
+        </div>
+
+        <div class="process-icon">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+        </div>
+
+        <h3>
+          Verification
+        </h3>
+
+        <p>
+          Information may be reviewed
+          against lender requirements.
+        </p>
+
+      </div>
+
+
+      <div class="process-item">
+
+        <div class="process-circle">
+          04
+        </div>
+
+        <div class="process-icon">
+
+          <i class="fa-solid fa-building-columns"></i>
+
+        </div>
+
+        <h3>
+          Lender Decision
+        </h3>
+
+        <p>
+          The respective lender determines
+          approval and applicable terms.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PERSONAL LOAN
+====================================================== -->
+
+<section class="loan-section">
+
+  <div class="container">
+
+
+    <div class="loan-panel">
+
+
+      <div class="loan-content">
+
+
+        <span class="light-label">
+          PERSONAL LOAN
+        </span>
+
+
+        <h2>
+
+          Explore Personal Loan
+
+          <span>
+            Options Up To ₹50 Lakhs
+          </span>
+
+        </h2>
+
+
+        <p>
+
+          Whether you are planning a major purchase,
+          managing an important expense or looking
+          for additional financial flexibility, you
+          can begin by exploring applicable personal
+          loan options.
+
+        </p>
+
+
+        <div class="loan-points">
+
+
+          <div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Loan options from ₹10,000 onwards
+
+          </div>
+
+
+          <div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Options up to ₹50,00,000
+
+          </div>
+
+
+          <div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Simple online application
+
+          </div>
+
+
+          <div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Professional assistance
+
+          </div>
+
+
+        </div>
+
+
+        <a
+          href="../apply/apply.html"
+          class="white-button"
+        >
+
+          Apply Now
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+      </div>
+
+
+      <div class="loan-visual">
+
+
+        <img
+          src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85"
+          alt="Personal financial planning"
+          loading="lazy"
+        >
+
+
+        <div class="loan-visual-overlay"></div>
+
+
+        <div class="loan-visual-content">
+
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+
+          <strong>
+            ₹50L
+          </strong>
+
+          <span>
+            Loan Options
+          </span>
+
+        </div>
+
+
+        <div class="loan-floating">
+
+          <i class="fa-solid fa-check"></i>
+
+          <span>
+            Simple Application
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     BUSINESS LOAN
+====================================================== -->
+
+<section class="business-section">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+
+      <div class="col-lg-6 order-lg-2">
+
+
+        <div class="business-image">
+
+
+          <img
+            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=85"
+            alt="Business financial planning"
+            loading="lazy"
+          >
+
+
+          <div class="business-image-overlay"></div>
+
+
+          <div class="business-image-content">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <strong>
+              Business Growth
+            </strong>
+
+            <span>
+              Financial solutions
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+      <div class="col-lg-6 order-lg-1">
+
+
+        <span class="section-label">
+          BUSINESS FINANCIAL SOLUTIONS
+        </span>
+
+
+        <h2 class="section-title">
+
+          Supporting your
+
+          <span>
+            business goals
+          </span>
+
+        </h2>
+
+
+        <p class="section-description">
+
+          Businesses may require additional
+          financial support for expansion,
+          working capital, equipment or other
+          operational requirements.
+
+        </p>
+
+
+        <div class="business-points">
+
+
+          <div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Working capital requirements
+
+          </div>
+
+
+          <div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Business expansion
+
+          </div>
+
+
+          <div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Equipment and operational needs
+
+          </div>
+
+
+          <div>
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            Financial assistance options
+
+          </div>
+
+
+        </div>
+
+
+        <a
+          href="../contact/contact.html"
+          class="dark-button"
+        >
+
+          Contact Our Team
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     VALUES
+====================================================== -->
+
+<section class="values-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        OUR VALUES
+      </span>
+
+      <h2>
+        What We Stand For
+      </h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="value-card">
+
+          <div class="value-icon">
+
+            <i class="fa-solid fa-handshake"></i>
+
+          </div>
+
+          <h3>
+            Trust
+          </h3>
+
+          <p>
+            We believe long-term relationships
+            are built through professionalism
+            and consistency.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="value-card">
+
+          <div class="value-icon">
+
+            <i class="fa-solid fa-scale-balanced"></i>
+
+          </div>
+
+          <h3>
+            Clarity
+          </h3>
+
+          <p>
+            We aim to communicate requirements
+            and next steps clearly.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="value-card">
+
+          <div class="value-icon">
+
+            <i class="fa-solid fa-user-check"></i>
+
+          </div>
+
+          <h3>
+            Responsibility
+          </h3>
+
+          <p>
+            We approach every customer interaction
+            with care and professionalism.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="value-card">
+
+          <div class="value-icon">
+
+            <i class="fa-solid fa-arrow-trend-up"></i>
+
+          </div>
+
+          <h3>
+            Improvement
+          </h3>
+
+          <p>
+            We continuously work to improve
+            our customer experience.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     TESTIMONIALS
+====================================================== -->
+
+<section class="testimonial-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        CUSTOMER EXPERIENCE
+      </span>
+
+      <h2>
+        What Our Customers Say
+      </h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <div class="col-lg-4">
+
+        <div class="testimonial-card">
+
+          <div class="quote-icon">
+            "
+          </div>
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+
+            The application process was simple
+            and the team explained the required
+            information clearly.
+
+          </p>
+
+
+          <div class="customer">
+
+            <div class="customer-avatar">
+              RS
+            </div>
+
+            <div>
+
+              <strong>
+                Rahul S.
+              </strong>
+
+              <span>
+                Mumbai
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4">
+
+        <div class="testimonial-card">
+
+          <div class="quote-icon">
+            "
+          </div>
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+
+            I appreciated the professional
+            communication and assistance during
+            the application journey.
+
+          </p>
+
+
+          <div class="customer">
+
+            <div class="customer-avatar">
+              PS
+            </div>
+
+            <div>
+
+              <strong>
+                Priya S.
+              </strong>
+
+              <span>
+                Pune
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4">
+
+        <div class="testimonial-card">
+
+          <div class="quote-icon">
+            "
+          </div>
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+
+            The team was helpful and explained
+            the next steps in a straightforward
+            manner.
+
+          </p>
+
+
+          <div class="customer">
+
+            <div class="customer-avatar">
+              AV
+            </div>
+
+            <div>
+
+              <strong>
+                Amit V.
+              </strong>
+
+              <span>
+                Delhi
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+====================================================== -->
+
+<section class="faq-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        FAQ
+      </span>
+
+      <h2>
+        Frequently Asked Questions
+      </h2>
+
+    </div>
+
+
+    <div
+      class="accordion faq-accordion"
+      id="aboutFAQ"
+    >
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqOne"
+          >
+
+            What does Atyant Loan Solutions do?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="faqOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#aboutFAQ"
+        >
+
+          <div class="accordion-body">
+
+            Atyant Loan Solutions helps customers
+            explore loan options and provides
+            assistance throughout the application
+            journey.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqTwo"
+          >
+
+            What loan amount can I apply for?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="faqTwo"
+          class="accordion-collapse collapse"
+          data-bs-parent="#aboutFAQ"
+        >
+
+          <div class="accordion-body">
+
+            Personal loan options can be explored
+            up to ₹50 lakhs, subject to applicable
+            eligibility criteria and lender policies.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqThree"
+          >
+
+            Is loan approval guaranteed?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="faqThree"
+          class="accordion-collapse collapse"
+          data-bs-parent="#aboutFAQ"
+        >
+
+          <div class="accordion-body">
+
+            No. Loan approval is determined by the
+            respective lender based on eligibility,
+            credit assessment, policies and other
+            applicable factors.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqFour"
+          >
+
+            How can I contact Atyant Loan Solutions?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="faqFour"
+          class="accordion-collapse collapse"
+          data-bs-parent="#aboutFAQ"
+        >
+
+          <div class="accordion-body">
+
+            You can contact our team at
+            +91 8692877974 or email
+            anup.gupta@atyantloan.com.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+====================================================== -->
+
+<section class="cta-section">
+
+  <div class="container">
+
+    <div class="cta-box">
+
+
+      <div class="cta-content">
+
+        <span>
+          GET STARTED
+        </span>
+
+        <h2>
+          Ready to explore your loan options?
+        </h2>
+
+        <p>
+          Take the first step towards your
+          financial goals.
+        </p>
+
+      </div>
+
+
+      <div class="cta-buttons">
+
+        <a
+          href="../apply/apply.html"
+          class="cta-primary"
+        >
+
+          Apply Now
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a
+          href="../contact/contact.html"
+          class="cta-secondary"
+        >
+
+          Contact Us
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROFESSIONAL FOOTER
+     NO MAP
+     NO LOGO
+====================================================== -->
+
+<footer class="professional-footer">
+
+  <div class="container">
+
+
+    <div class="footer-main">
+
+
+      <!-- COMPANY -->
+
+      <div class="footer-company">
+
+        <h3>
+          Atyant Loan Solutions
+        </h3>
+
+        <p>
+
+          Your trusted financial assistance partner.
+          Explore suitable loan options with a
+          simple and professional application journey.
+
+        </p>
+
+
+        <div class="footer-social">
+
+          <a
+            href="#"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+
+          <a
+            href="#"
+            aria-label="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+
+
+          <a
+            href="#"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+
+          <a
+            href="https://www.instagram.com/atyantloansolutions/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- QUICK LINKS -->
+
+      <div class="footer-column">
+
+        <h4>
+          Quick Links
+        </h4>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="../about/about.html">
+          About Us
+        </a>
+
+        <a href="../apply/apply.html">
+          Apply Now
+        </a>
+
+        <a href="../cal/cal.html">
+          Loan Calculator
+        </a>
+
+        <a href="../contact/contact.html">
+          Contact Us
+        </a>
+
+      </div>
+
+
+      <!-- LOAN SERVICES -->
+
+      <div class="footer-column">
+
+        <h4>
+          Loan Services
+        </h4>
+
+        <a href="../apply/apply.html">
+          Personal Loan
+        </a>
+
+        <a href="../apply/apply.html">
+          Business Loan
+        </a>
+
+        <a href="../cal/cal.html">
+          EMI Calculator
+        </a>
+
+        <a href="../apply/apply.html">
+          Loan Application
+        </a>
+
+      </div>
+
+
+      <!-- CONTACT -->
+
+      <div class="footer-column footer-contact">
+
+        <h4>
+          Contact Us
+        </h4>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+          </div>
+
+          <span>
+
+            Office No. 406, 4th Floor,
+            Kaveri Building, Near Sakinaka Metro,
+            Andheri East, Mumbai - 400072
+
+          </span>
+
+        </div>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-phone"></i>
+
+          </div>
+
+          <a href="tel:+918692877974">
+
+            +91 8692877974
+
+          </a>
+
+        </div>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-envelope"></i>
+
+          </div>
+
+          <a href="mailto:anup.gupta@atyantloan.com">
+
+            anup.gupta@atyantloan.com
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
+
+
+      <p>
+
+        © 2026
+        <strong>
+          Atyant Loan Solutions
+        </strong>.
+        All Rights Reserved.
+
+      </p>
+
+
+      <div class="footer-bottom-links">
+
+        <a href="#">
+          Privacy Policy
+        </a>
+
+        <span>
+          |
+        </span>
+
+        <a href="#">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</footer>
+
+
+<!-- =====================================================
+     FLOATING WHATSAPP
+====================================================== -->
+
+<a
+  href="https://wa.me/918692877974?text=Hello%20Atyant%20Loan%20Solutions"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="WhatsApp"
+>
+
+  <i class="fab fa-whatsapp"></i>
+
+</a>
+
+
+<!-- CALL -->
+
+<a
+  href="tel:+918692877974"
+  class="call-float"
+  aria-label="Call Atyant Loan Solutions"
+>
+
+  <i class="fas fa-phone"></i>
+
+</a>
+
+
+<!-- BACK TO TOP -->
+
+<button
+  id="backToTop"
+  aria-label="Back to top"
+>
+
+  <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+<!-- =====================================================
+     BOOTSTRAP JS
+====================================================== -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- YOUR SHARED NAVBAR JS -->
+
+<script src="../navbar.js"></script>
+
+
+<!-- =====================================================
+     PAGE JAVASCRIPT
+====================================================== -->
+
+<script>
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+
+    /* =========================
+       PRELOADER
+    ========================= */
+
+    const preloader =
+      document.getElementById("preloader");
+
+    const startTime =
+      Date.now();
+
+
+    window.addEventListener(
+      "load",
+      function () {
+
+        const elapsed =
+          Date.now() - startTime;
+
+        const delay =
+          Math.max(
+            0,
+            600 - elapsed
+          );
+
+
+        setTimeout(
+          function () {
+
+            if (!preloader) {
+              return;
+            }
+
+
+            preloader.classList.add(
+              "fade-out"
+            );
+
+
+            setTimeout(
+              function () {
+
+                preloader.style.display =
+                  "none";
+
+              },
+              500
+            );
+
+          },
+          delay
+        );
+
+      }
+    );
+
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    const backToTop =
+      document.getElementById(
+        "backToTop"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+        if (
+          window.scrollY > 450
+        ) {
+
+          backToTop.classList.add(
+            "show"
+          );
+
+        } else {
+
+          backToTop.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    backToTop.addEventListener(
+      "click",
+      function () {
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+
+  }
+);
+
+</script>
+
+
 </body>
+
 </html>

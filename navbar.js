@@ -1,76 +1,393 @@
+/* =========================================================
+   ATYANT LOAN SOLUTIONS
+   SHARED NAVBAR
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+    loadNavbar();
+
+  }
+);
+
+
+/* =========================================================
+   DETERMINE PAGE DEPTH
+========================================================= */
+
 function getBasePath() {
-  const path = window.location.pathname;
-  const depth = path.split("/").length - 2; // folder depth
-  return "../".repeat(depth);
+
+  const path =
+    window.location.pathname;
+
+
+  const cleanPath =
+    path
+      .split("?")[0]
+      .split("#")[0];
+
+
+  const parts =
+    cleanPath
+      .split("/")
+      .filter(Boolean);
+
+
+  /*
+    ROOT:
+
+    /index.html
+
+    returns:
+
+    /
+  */
+
+  if (parts.length <= 1) {
+
+    return "/";
+
+  }
+
+
+  /*
+    FOLDER:
+
+    /apply/apply.html
+
+    returns:
+
+    /
+  */
+
+  return "/";
+
 }
 
-function loadNavbar() {
-  const navbarContainer = document.getElementById("navbar-container");
-  const basePath = getBasePath();
 
-  navbarContainer.innerHTML = `
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="../index.html">
-          <img src="../assets/logo.png" width="45" height="45" class="me-2" alt="logo"/>
-          <span class="fw-bold">Atyant Loan Solutions</span>
-        </a>
+/* =========================================================
+   LOAD NAVBAR CSS
+========================================================= */
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-          aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+function loadNavbarCSS() {
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-          <ul class="navbar-nav text-center">
-            <li class="nav-item"><a class="nav-link" href="${basePath}index.html">🏠 Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="${basePath}apply/apply.html">📝 Apply</a></li>
-            <li class="nav-item"><a class="nav-link" href="${basePath}about/about.html">ℹ️ About</a></li>
-            <li class="nav-item"><a class="nav-link" href="${basePath}contact/contact.html">📞 Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="${basePath}cal/cal.html">🧮 Calculator</a></li>
-            <li class="nav-item">
-              <a class="nav-link btn btn-login ms-2" href="${basePath}login/login.html">🔐 Login</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  `;
+  /*
+    Prevent loading the CSS more than once.
+  */
 
-  // Highlight active link
-  const currentPage = window.location.pathname.split("/").pop();
-  const links = document.querySelectorAll("#navbar-container .nav-link");
-  links.forEach(link => {
-    if (link.getAttribute("href") && link.getAttribute("href").includes(currentPage)) {
-      link.classList.add("active");
+  if (
+    document.getElementById(
+      "atyant-navbar-css"
+    )
+  ) {
+
+    return;
+
+  }
+
+
+  const link =
+    document.createElement(
+      "link"
+    );
+
+
+  link.id =
+    "atyant-navbar-css";
+
+
+  link.rel =
+    "stylesheet";
+
+
+  link.href =
+    "/navbar.css";
+
+
+  document.head.appendChild(
+    link
+  );
+
+}
+
+
+/* =========================================================
+   LOAD NAVBAR
+========================================================= */
+
+async function loadNavbar() {
+
+  const container =
+    document.getElementById(
+      "navbar-container"
+    );
+
+
+  if (!container) {
+
+    console.warn(
+      "navbar-container was not found."
+    );
+
+    return;
+
+  }
+
+
+  /*
+    Load navbar CSS.
+  */
+
+  loadNavbarCSS();
+
+
+  try {
+
+    const response =
+      await fetch(
+        "/navbar.html",
+        {
+          cache: "no-cache"
+        }
+      );
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        "Navbar HTML could not be loaded. Status: " +
+        response.status
+      );
+
     }
-  });
-}
 
-function loadFooter() {
-  const footerContainer = document.getElementById("footer-container");
-  const basePath = getBasePath();
 
-  footerContainer.innerHTML = `
-    <footer class="bg-dark text-white text-center py-4 mt-5">
-      <div class="container">
-        <h5>Atyant Loan Solutions</h5>
-        <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
-        <p><strong>Phone:</strong> +91 8692877974 | <strong>Email:</strong> anup.gupta@atyantloan.com</p>
-        <div class="social-icons mb-3">
-          <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="text-white mx-2"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/atyantloansolutions/" class="text-white mx-2" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-        <p>&copy; 2025 Atyant Loan Solutions. All Rights Reserved.</p>
+    const html =
+      await response.text();
+
+
+    container.innerHTML =
+      html;
+
+
+    initializeNavbar();
+
+
+  } catch (error) {
+
+    console.error(
+      "Atyant Navbar Error:",
+      error
+    );
+
+
+    container.innerHTML = `
+
+      <div class="navbar-error">
+
+        Navigation could not be loaded.
+
       </div>
-    </footer>
-  `;
+
+    `;
+
+  }
+
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadNavbar();
-  loadFooter();
-});
+
+/* =========================================================
+   INITIALIZE NAVBAR
+========================================================= */
+
+function initializeNavbar() {
+
+  const navbar =
+    document.getElementById(
+      "atyantNavbar"
+    );
+
+
+  if (!navbar) {
+
+    console.error(
+      "atyantNavbar was not found."
+    );
+
+    return;
+
+  }
+
+
+  /* =======================================================
+     SCROLL EFFECT
+  ======================================================== */
+
+  function handleScroll() {
+
+    if (
+      window.scrollY > 15
+    ) {
+
+      navbar.classList.add(
+        "navbar-scrolled"
+      );
+
+    } else {
+
+      navbar.classList.remove(
+        "navbar-scrolled"
+      );
+
+    }
+
+  }
+
+
+  window.addEventListener(
+    "scroll",
+    handleScroll
+  );
+
+
+  handleScroll();
+
+
+  /* =======================================================
+     ACTIVE PAGE
+  ======================================================== */
+
+  const currentPath =
+    window.location.pathname
+      .toLowerCase()
+      .replace(
+        /\/$/,
+        ""
+      );
+
+
+  const links =
+    navbar.querySelectorAll(
+      ".atyant-nav-link, .atyant-login-btn"
+    );
+
+
+  links.forEach(
+    function (link) {
+
+      const href =
+        link.getAttribute(
+          "href"
+        );
+
+
+      if (!href) {
+
+        return;
+
+      }
+
+
+      try {
+
+        const linkPath =
+          new URL(
+            href,
+            window.location.origin
+          )
+            .pathname
+            .toLowerCase()
+            .replace(
+              /\/$/,
+              ""
+            );
+
+
+        if (
+          linkPath === currentPath
+        ) {
+
+          link.classList.add(
+            "active"
+          );
+
+        }
+
+      } catch (error) {
+
+        console.warn(
+          "Navbar link error:",
+          href
+        );
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     MOBILE MENU
+  ======================================================== */
+
+  const menu =
+    document.getElementById(
+      "atyantNavbarMenu"
+    );
+
+
+  if (!menu) {
+
+    return;
+
+  }
+
+
+  const menuLinks =
+    menu.querySelectorAll(
+      "a"
+    );
+
+
+  menuLinks.forEach(
+    function (link) {
+
+      link.addEventListener(
+        "click",
+        function () {
+
+          if (
+            window.innerWidth < 992
+          ) {
+
+            if (
+              typeof bootstrap !==
+              "undefined"
+            ) {
+
+              const collapse =
+                bootstrap.Collapse
+                  .getInstance(
+                    menu
+                  );
+
+
+              if (collapse) {
+
+                collapse.hide();
+
+              }
+
+            }
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+}

@@ -1,278 +1,1840 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Contact Us - Atyant Loan Solutions</title>
-<link rel="icon" href="../assets/logo.png" type="image/png"/>
 
-<!-- Bootstrap & FontAwesome -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta charset="UTF-8">
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="../navbar.css" />
-<link rel="stylesheet" href="./contact.css" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Contact Atyant Loan Solutions for professional assistance with your loan requirements."
+  >
+
+  <meta
+    name="theme-color"
+    content="#061a3b"
+  >
+
+  <title>Contact Us | Atyant Loan Solutions</title>
+
+  <link
+    rel="icon"
+    href="../assets/logo.png"
+    type="image/png"
+  >
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+  <!-- Shared Navbar -->
+  <link
+    rel="stylesheet"
+    href="../navbar.css"
+  >
+
+  <!-- Contact Page CSS -->
+  <link
+    rel="stylesheet"
+    href="./contact.css"
+  >
+
 </head>
+
+
 <body>
 
-<!-- Loader -->
-<div id="preloader" class="d-flex justify-content-center align-items-center flex-column">
-  <div class="spinner-border spinner-border-sm text-primary" role="status">
-    <span class="visually-hidden">Loading...</span>
+
+<!-- =====================================================
+     PRELOADER
+====================================================== -->
+
+<div id="preloader">
+
+  <div class="preloader-box">
+
+    <div class="preloader-logo">
+
+      <img
+        src="../assets/logo.png"
+        alt="Atyant Loan Solutions"
+      >
+
+    </div>
+
+    <div
+      class="spinner-border text-primary"
+      role="status"
+    >
+
+      <span class="visually-hidden">
+        Loading...
+      </span>
+
+    </div>
+
+    <p>
+      Loading Atyant Loan Solutions...
+    </p>
+
   </div>
-  <p class="mt-2">Loading...</p>
+
 </div>
 
-<!-- Navbar dynamically injected -->
+
+<!-- =====================================================
+     SHARED NAVBAR
+====================================================== -->
+
 <div id="navbar-container"></div>
 
-<!-- Contact Form -->
-<div class="container mt-5 mb-5">
-  <h2 class="text-center mb-4 logo-title">📬 Contact Us</h2>
-  <form id="contactForm">
-    
-    <div class="mb-3">
-      <label for="name" class="form-label">👤 Full Name</label>
-      <input type="text" id="name" class="form-control" placeholder="John Doe" required>
-    </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">📧 Email</label>
-      <input type="email" id="email" class="form-control" placeholder="example@gmail.com" required>
-    </div>
-    <div class="mb-3">
-      <label for="phone" class="form-label">📞 Mobile Number</label>
-      <input type="tel" id="phone" class="form-control" pattern="[0-9]{10}" placeholder="9876543210" required>
-    </div>
-    <div class="mb-3">
-      <label for="message" class="form-label">📝 Message</label>
-      <textarea id="message" class="form-control" rows="5" placeholder="Type your message here..." required></textarea>
-    </div>
 
-    <div class="terms-box mb-3">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="agreeTerms" required>
-        <label class="form-check-label" for="agreeTerms">
-          I hereby declare that the information provided above is true and correct. 
-          I authorize Atyant Loan Solutions and its financial partners to contact me for loan assistance and related services, 
-          and I agree to the <a href="../terms/terms.html" target="_blank">Terms & Conditions</a> and Privacy Policy.
-        </label>
-      </div>
-    </div>
+<!-- =====================================================
+     HERO
+====================================================== -->
 
-    <button type="submit" class="btn btn-primary w-100">🚀 Submit</button>
+<section class="contact-hero">
 
-    <div id="thankYouMessage" class="alert alert-success mt-3 d-none">
-      ✅ Thank you! Your message has been sent successfully.
-    </div>
-  </form>
-</div>
+  <div class="hero-pattern"></div>
 
-<!-- Footer dynamically injected -->
-<div id="footer-container"></div>
+  <div class="hero-glow hero-glow-one"></div>
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../navbar.js"></script>
-<script>
-  const preloader = document.getElementById("preloader");
+  <div class="hero-glow hero-glow-two"></div>
 
-  // Hide loader after page fully loads
-  window.addEventListener("load", () => {
-    preloader.style.transition = "opacity 0.5s ease";
-    preloader.style.opacity = 0;
-    preloader.style.pointerEvents = "none"; // prevent blocking clicks
-    setTimeout(() => preloader.style.display = "none", 500);
-  });
 
-  // Load navbar and footer after DOM ready
-  document.addEventListener('DOMContentLoaded', () => {
-    if (typeof loadNavbar === 'function') loadNavbar();
-    if (typeof loadFooter === 'function') loadFooter();
-  });
+  <div class="container">
 
-  // function loadFooter() {
-  //   const footerContainer = document.getElementById('footer-container');
-  //   footerContainer.innerHTML = `
-  //     <footer class="bg-dark text-white text-center py-4">
-  //       <div class="container">
-  //         <h5>Atyant Loan Solutions</h5>
-  //         <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
-  //         <p><strong>Phone:</strong> +91 8692877974 | <strong>Email:</strong> anup.gupta@atyantloan.com</p>
-  //         <div class="social-icons mb-3">
-  //           <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-  //           <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-  //           <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-  //           <a href="https://www.instagram.com/atyantloansolutions/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-  //         </div>
-  //         <p>&copy; 2025 Atyant Loan Solutions. All Rights Reserved.</p>
-  //       </div>
-  //     </footer>
-  //   `;
-  // }
+    <div class="row align-items-center g-5">
 
-function loadFooter() {
-    const footerContainer = document.getElementById('footer-container');
-    footerContainer.innerHTML = `
-      <style>
-        .footer-gradient {
-          background: linear-gradient(135deg, #0d0d0d, #1b1f24, #0d1117);
-          padding: 30px 15px;
-          color: #fff;
-          text-align: center;
-        }
-        .footer-gradient h5 { margin-bottom: 8px; font-size: 20px; }
-        .footer-gradient p { margin: 2px 0; font-size: 14px; }
 
-        .social-icons a { margin: 0 5px; color: #fff; font-size: 18px; transition: transform 0.3s; }
-        .social-icons a:hover { transform: scale(1.2); color: #0abcf9; }
+      <div class="col-lg-7">
 
-        .footer-map-container {
-          width: 100%;
-          max-width: 700px;
-          margin: 20px auto;
-          border-radius: 10px;
-          overflow: hidden;
-        }
-        .footer-map-container iframe {
-          width: 100%;
-          height: 300px;
-          border: 0;
-        }
+        <div class="hero-content">
 
-        .get-directions-btn {
-          display: inline-block;
-          margin-top: 12px;
-          padding: 10px 18px;
-          background: #0a66c2;
-          color: #fff;
-          border-radius: 8px;
-          text-decoration: none;
-          font-size: 16px;
-        }
-        .get-directions-btn:hover { background: #004a99; }
 
-        .whatsapp-float, .callnow-float {
-          position: fixed;
-          width: 55px;
-          height: 55px;
-          bottom: 20px;
-          color: #fff;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          z-index: 999;
-          font-size: 28px;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-          transition: transform 0.3s ease;
-        }
-        .whatsapp-float { background: #25d366; right: 20px; }
-        .callnow-float { background: #ff4d4d; right: 90px; }
-        .whatsapp-float:hover, .callnow-float:hover { transform: scale(1.1); }
+          <div class="breadcrumb-box">
 
-        @media(max-width: 480px){
-          .footer-gradient h5 { font-size: 18px; }
-          .footer-gradient p { font-size: 13px; }
-          .get-directions-btn { font-size: 14px; padding:8px 15px; }
-          .whatsapp-float, .callnow-float { width:50px; height:50px; font-size:24px; }
-        }
-      </style>
-
-      <footer class="footer-gradient">
-        <div class="container">
-          <h5>Atyant Loan Solutions</h5>
-          <p>Office No. 406, 4th Floor, Kaveri Building, Near Sakinaka Metro, Andheri East, Mumbai-400072</p>
-          <p><strong>Phone:</strong> +91 8692877974 | <strong>Email:</strong> anup.gupta@atyantloan.com</p>
-
-          <!-- Google Map without API Key -->
-          <div class="footer-map-container">
-            <iframe
-              src="https://www.google.com/maps?q=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India&output=embed"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Office+No+406,+4th+Floor,+Kaveri+Building,+Near+Sakinaka+Metro,+Andheri+East,+Mumbai,+India"
-               target="_blank"
-               class="get-directions-btn">
-               Get Directions
+            <a href="../index.html">
+              Home
             </a>
+
+            <i class="fa-solid fa-angle-right"></i>
+
+            <span>
+              Contact Us
+            </span>
+
           </div>
 
-          <!-- Social Icons -->
-          <div class="social-icons mt-4 mb-3">
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/atyantloansolutions/" target="_blank"><i class="fab fa-instagram"></i></a>
+
+          <span class="hero-label">
+            GET IN TOUCH
+          </span>
+
+
+          <h1>
+
+            Let's discuss your
+
+            <span>
+              financial requirements
+            </span>
+
+          </h1>
+
+
+          <p>
+
+            Have questions about our loan assistance
+            process? Our team is here to help you
+            understand the application journey and
+            provide the information you need.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a
+              href="../apply/apply.html"
+              class="hero-primary-btn"
+            >
+
+              Apply Now
+
+              <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+
+            <a
+              href="tel:+918692877974"
+              class="hero-outline-btn"
+            >
+
+              <i class="fa-solid fa-phone"></i>
+
+              Call Us
+
+            </a>
+
           </div>
 
-          <p>&copy; 2025 Atyant Loan Solutions. All Rights Reserved.</p>
+
         </div>
-      </footer>
 
-      <!-- Floating WhatsApp & Call -->
-      <a href="https://wa.me/918692877974?text=Hello%20Atyant%20Loan%20Solutions" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="tel:+918692877974" class="callnow-float">
-        <i class="fas fa-phone-alt"></i>
-      </a>
-    `;
-}
+      </div>
 
-  
-  // Contact form submission
-  const contactForm = document.getElementById("contactForm");
-  contactForm.addEventListener("submit", async function(e){
-    e.preventDefault();
-    const agreeTerms = document.getElementById("agreeTerms");
-    if (!agreeTerms.checked) {
-      alert("⚠️ Please agree to the Terms & Conditions before submitting.");
-      return;
-    }
 
-    // Show loader during submission
-    preloader.style.display = "flex";
-    preloader.style.opacity = 1;
-    preloader.style.pointerEvents = "auto";
+      <div class="col-lg-5">
 
-    const data = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      message: document.getElementById("message").value
-    };
+        <div class="hero-contact-card">
 
-    try {
-      const res = await fetch("/.netlify/functions/sendEmail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
 
-      const result = await res.json();
+          <div class="hero-contact-icon">
 
-      // Hide loader after response
-      preloader.style.opacity = 0;
-      preloader.style.pointerEvents = "none";
-      setTimeout(() => preloader.style.display = "none", 500);
+            <i class="fa-solid fa-headset"></i>
 
-      if (res.ok && result.success) {
-        contactForm.reset();
-        document.getElementById("thankYouMessage").classList.remove("d-none");
-      } else {
-        alert("❌ Failed: " + (result.error || result.message));
+          </div>
+
+
+          <span>
+            CUSTOMER SUPPORT
+          </span>
+
+
+          <h3>
+            We're here to assist you
+          </h3>
+
+
+          <p>
+
+            Speak with our team for assistance
+            regarding your loan requirements,
+            application and documentation.
+
+          </p>
+
+
+          <a
+            href="tel:+918692877974"
+            class="hero-phone"
+          >
+
+            <i class="fa-solid fa-phone"></i>
+
+            +91 8692877974
+
+          </a>
+
+
+          <a
+            href="mailto:anup.gupta@atyantloan.com"
+            class="hero-email"
+          >
+
+            <i class="fa-solid fa-envelope"></i>
+
+            anup.gupta@atyantloan.com
+
+          </a>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT INFO
+====================================================== -->
+
+<section class="contact-info-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        CONTACT INFORMATION
+      </span>
+
+      <h2>
+        We're here to help
+      </h2>
+
+      <p>
+
+        Reach out to us through any of the
+        channels below.
+
+      </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <!-- PHONE -->
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="info-card">
+
+          <div class="info-icon blue">
+
+            <i class="fa-solid fa-phone"></i>
+
+          </div>
+
+
+          <h3>
+            Call Us
+          </h3>
+
+
+          <p>
+            Speak with our team directly.
+          </p>
+
+
+          <a href="tel:+918692877974">
+
+            +91 8692877974
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- EMAIL -->
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="info-card">
+
+          <div class="info-icon green">
+
+            <i class="fa-solid fa-envelope"></i>
+
+          </div>
+
+
+          <h3>
+            Email Us
+          </h3>
+
+
+          <p>
+            Send us your questions or enquiry.
+          </p>
+
+
+          <a href="mailto:anup.gupta@atyantloan.com">
+
+            anup.gupta@atyantloan.com
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- OFFICE -->
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="info-card">
+
+          <div class="info-icon purple">
+
+            <i class="fa-solid fa-building"></i>
+
+          </div>
+
+
+          <h3>
+            Our Office
+          </h3>
+
+
+          <p>
+            Visit our office during working hours.
+          </p>
+
+
+          <span>
+
+            Andheri East, Mumbai
+
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- SUPPORT -->
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="info-card">
+
+          <div class="info-icon orange">
+
+            <i class="fa-solid fa-headset"></i>
+
+          </div>
+
+
+          <h3>
+            Assistance
+          </h3>
+
+
+          <p>
+            Get guidance for your loan journey.
+          </p>
+
+
+          <span>
+            Professional support
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT FORM SECTION
+====================================================== -->
+
+<section class="contact-form-section">
+
+  <div class="container">
+
+    <div class="contact-form-wrapper">
+
+
+      <!-- LEFT CONTENT -->
+
+      <div class="form-intro">
+
+
+        <span class="section-label">
+          SEND US AN ENQUIRY
+        </span>
+
+
+        <h2>
+
+          Tell us how
+
+          <span>
+            we can help
+          </span>
+
+        </h2>
+
+
+        <p>
+
+          Complete the form and our team will
+          review your enquiry and get in touch
+          with you regarding your requirements.
+
+        </p>
+
+
+        <div class="form-benefits">
+
+
+          <div>
+
+            <div class="benefit-icon">
+
+              <i class="fa-solid fa-circle-check"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Easy Enquiry
+              </strong>
+
+              <span>
+                Share your requirements in a few steps.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="benefit-icon">
+
+              <i class="fa-solid fa-user-shield"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Professional Assistance
+              </strong>
+
+              <span>
+                Get guidance from our support team.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="benefit-icon">
+
+              <i class="fa-solid fa-comments"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Clear Communication
+              </strong>
+
+              <span>
+                We aim to keep the process straightforward.
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="support-box">
+
+          <div class="support-icon">
+
+            <i class="fa-solid fa-phone"></i>
+
+          </div>
+
+          <div>
+
+            <span>
+              Prefer to speak with us?
+            </span>
+
+            <a href="tel:+918692877974">
+
+              +91 8692877974
+
+            </a>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- FORM -->
+
+      <div class="contact-form-card">
+
+
+        <div class="form-card-heading">
+
+          <h3>
+            Contact Us
+          </h3>
+
+          <p>
+            Please provide your details below.
+          </p>
+
+        </div>
+
+
+        <form
+          id="contactForm"
+          novalidate
+        >
+
+
+          <!-- NAME -->
+
+          <div class="form-group">
+
+            <label for="name">
+              Full Name
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="fa-solid fa-user"></i>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- EMAIL -->
+
+          <div class="form-group">
+
+            <label for="email">
+              Email Address
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="fa-solid fa-envelope"></i>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <!-- PHONE -->
+
+          <div class="form-group">
+
+            <label for="phone">
+              Mobile Number
+            </label>
+
+            <div class="input-wrapper">
+
+              <i class="fa-solid fa-mobile-screen-button"></i>
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter 10-digit mobile number"
+                maxlength="10"
+                pattern="[0-9]{10}"
+                inputmode="numeric"
+                autocomplete="tel"
+                required
+              >
+
+            </div>
+
+            <small>
+              Please enter a valid 10-digit mobile number.
+            </small>
+
+          </div>
+
+
+          <!-- MESSAGE -->
+
+          <div class="form-group">
+
+            <label for="message">
+              Your Message
+            </label>
+
+            <div class="input-wrapper textarea-wrapper">
+
+              <i class="fa-solid fa-message"></i>
+
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Tell us about your requirement..."
+                required
+              ></textarea>
+
+            </div>
+
+          </div>
+
+
+          <!-- TERMS -->
+
+          <div class="terms-box">
+
+            <div class="terms-check">
+
+              <input
+                type="checkbox"
+                id="agreeTerms"
+                required
+              >
+
+
+              <label for="agreeTerms">
+
+                I hereby declare that the information
+                provided above is true and correct. I
+                authorize Atyant Loan Solutions and its
+                financial partners to contact me for loan
+                assistance and related services, and I
+                agree to the
+                <a
+                  href="../terms/terms.html"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Terms & Conditions
+                </a>
+                and Privacy Policy.
+
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+
+          <button
+            type="submit"
+            class="submit-button"
+            id="submitButton"
+          >
+
+            <span>
+              Submit Enquiry
+            </span>
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+          </button>
+
+
+          <!-- SUCCESS -->
+
+          <div
+            id="thankYouMessage"
+            class="success-message d-none"
+          >
+
+            <div class="success-icon">
+
+              <i class="fa-solid fa-check"></i>
+
+            </div>
+
+            <div>
+
+              <strong>
+                Thank you!
+              </strong>
+
+              <span>
+                Your message has been sent successfully.
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- ERROR -->
+
+          <div
+            id="errorMessage"
+            class="error-message d-none"
+          >
+
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+            <span>
+              Something went wrong. Please try again later.
+            </span>
+
+          </div>
+
+
+        </form>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY CONTACT US
+====================================================== -->
+
+<section class="why-contact-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        WHY CONTACT US
+      </span>
+
+      <h2>
+        Professional assistance when you need it
+      </h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <div class="col-md-4">
+
+        <div class="why-card">
+
+          <div class="why-icon">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+          </div>
+
+          <h3>
+            Understand Requirements
+          </h3>
+
+          <p>
+
+            Get clarity about the information
+            and documentation that may be
+            required during the loan process.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="why-card">
+
+          <div class="why-icon">
+
+            <i class="fa-solid fa-comments"></i>
+
+          </div>
+
+          <h3>
+            Discuss Your Requirement
+          </h3>
+
+          <p>
+
+            Share your financial requirement
+            and receive assistance regarding
+            the next steps.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="why-card">
+
+          <div class="why-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+          </div>
+
+          <h3>
+            Responsible Approach
+          </h3>
+
+          <p>
+
+            We aim to maintain clear and
+            professional communication
+            throughout your enquiry.
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+====================================================== -->
+
+<section class="faq-section">
+
+  <div class="container">
+
+
+    <div class="section-heading text-center">
+
+      <span>
+        FREQUENTLY ASKED QUESTIONS
+      </span>
+
+      <h2>
+        Contact & enquiry questions
+      </h2>
+
+    </div>
+
+
+    <div
+      class="accordion faq-accordion"
+      id="contactFAQ"
+    >
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#contactFaqOne"
+          >
+
+            How can I contact Atyant Loan Solutions?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="contactFaqOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#contactFAQ"
+        >
+
+          <div class="accordion-body">
+
+            You can call us at +91 8692877974,
+            email us at
+            anup.gupta@atyantloan.com,
+            or submit the enquiry form on this page.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#contactFaqTwo"
+          >
+
+            What information should I provide in the enquiry?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="contactFaqTwo"
+          class="accordion-collapse collapse"
+          data-bs-parent="#contactFAQ"
+        >
+
+          <div class="accordion-body">
+
+            Please provide your name, email address,
+            mobile number and a brief description of
+            your requirement.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#contactFaqThree"
+          >
+
+            Can I contact you regarding a personal loan?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="contactFaqThree"
+          class="accordion-collapse collapse"
+          data-bs-parent="#contactFAQ"
+        >
+
+          <div class="accordion-body">
+
+            Yes. You can contact our team regarding
+            your personal loan requirement and receive
+            information about the application process.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="accordion-item">
+
+        <h2 class="accordion-header">
+
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#contactFaqFour"
+          >
+
+            Is loan approval guaranteed?
+
+          </button>
+
+        </h2>
+
+
+        <div
+          id="contactFaqFour"
+          class="accordion-collapse collapse"
+          data-bs-parent="#contactFAQ"
+        >
+
+          <div class="accordion-body">
+
+            No. Loan approval is subject to the
+            respective lender's eligibility criteria,
+            assessment, policies and other applicable
+            conditions.
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+====================================================== -->
+
+<section class="cta-section">
+
+  <div class="container">
+
+    <div class="cta-box">
+
+
+      <div>
+
+        <span>
+          READY TO GET STARTED?
+        </span>
+
+        <h2>
+          Explore your loan options today.
+        </h2>
+
+        <p>
+          Begin your application journey with Atyant Loan Solutions.
+        </p>
+
+      </div>
+
+
+      <div class="cta-buttons">
+
+        <a
+          href="../apply/apply.html"
+          class="cta-primary"
+        >
+
+          Apply Now
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <a
+          href="tel:+918692877974"
+          class="cta-secondary"
+        >
+
+          <i class="fa-solid fa-phone"></i>
+
+          Call Us
+
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROFESSIONAL FOOTER
+====================================================== -->
+
+<footer class="professional-footer">
+
+  <div class="container">
+
+
+    <div class="footer-main">
+
+
+      <!-- COMPANY -->
+
+      <div class="footer-company">
+
+        <h3>
+          Atyant Loan Solutions
+        </h3>
+
+        <p>
+
+          Your trusted financial assistance partner.
+          Explore suitable loan options with a
+          simple and professional application journey.
+
+        </p>
+
+
+        <div class="footer-social">
+
+          <a
+            href="#"
+            aria-label="Facebook"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+
+          <a
+            href="#"
+            aria-label="Twitter"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+
+
+          <a
+            href="#"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+
+
+          <a
+            href="https://www.instagram.com/atyantloansolutions/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- QUICK LINKS -->
+
+      <div class="footer-column">
+
+        <h4>
+          Quick Links
+        </h4>
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="../about/about.html">
+          About Us
+        </a>
+
+        <a href="../apply/apply.html">
+          Apply Now
+        </a>
+
+        <a href="../cal/cal.html">
+          Loan Calculator
+        </a>
+
+        <a href="../contact/contact.html">
+          Contact Us
+        </a>
+
+      </div>
+
+
+      <!-- SERVICES -->
+
+      <div class="footer-column">
+
+        <h4>
+          Loan Services
+        </h4>
+
+        <a href="../apply/apply.html">
+          Personal Loan
+        </a>
+
+        <a href="../apply/apply.html">
+          Business Loan
+        </a>
+
+        <a href="../cal/cal.html">
+          EMI Calculator
+        </a>
+
+        <a href="../apply/apply.html">
+          Loan Application
+        </a>
+
+      </div>
+
+
+      <!-- CONTACT -->
+
+      <div class="footer-column footer-contact">
+
+        <h4>
+          Contact Us
+        </h4>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+          </div>
+
+          <span>
+
+            Office No. 406, 4th Floor,
+            Kaveri Building, Near Sakinaka Metro,
+            Andheri East, Mumbai - 400072
+
+          </span>
+
+        </div>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-phone"></i>
+
+          </div>
+
+          <a href="tel:+918692877974">
+
+            +91 8692877974
+
+          </a>
+
+        </div>
+
+
+        <div class="footer-contact-item">
+
+          <div class="footer-contact-icon">
+
+            <i class="fa-solid fa-envelope"></i>
+
+          </div>
+
+          <a href="mailto:anup.gupta@atyantloan.com">
+
+            anup.gupta@atyantloan.com
+
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+
+      <p>
+
+        © 2026
+        <strong>
+          Atyant Loan Solutions
+        </strong>.
+        All Rights Reserved.
+
+      </p>
+
+
+      <div class="footer-bottom-links">
+
+        <a href="#">
+          Privacy Policy
+        </a>
+
+        <span>|</span>
+
+        <a href="../terms/terms.html">
+          Terms & Conditions
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</footer>
+
+
+<!-- =====================================================
+     FLOATING WHATSAPP
+====================================================== -->
+
+<a
+  href="https://wa.me/918692877974?text=Hello%20Atyant%20Loan%20Solutions"
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="WhatsApp"
+>
+
+  <i class="fab fa-whatsapp"></i>
+
+</a>
+
+
+<!-- CALL -->
+
+<a
+  href="tel:+918692877974"
+  class="call-float"
+  aria-label="Call Atyant Loan Solutions"
+>
+
+  <i class="fas fa-phone"></i>
+
+</a>
+
+
+<!-- BACK TO TOP -->
+
+<button
+  id="backToTop"
+  aria-label="Back to top"
+>
+
+  <i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+<!-- =====================================================
+     BOOTSTRAP
+====================================================== -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+
+
+<!-- SHARED NAVBAR -->
+
+<script src="../navbar.js"></script>
+
+
+<!-- =====================================================
+     CONTACT PAGE JAVASCRIPT
+====================================================== -->
+
+<script>
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+
+    /* =================================================
+       PRELOADER
+    ================================================= */
+
+    const preloader =
+      document.getElementById("preloader");
+
+
+    window.addEventListener(
+      "load",
+      function () {
+
+        setTimeout(
+          function () {
+
+            if (!preloader) {
+              return;
+            }
+
+            preloader.classList.add(
+              "fade-out"
+            );
+
+            setTimeout(
+              function () {
+
+                preloader.style.display =
+                  "none";
+
+              },
+              500
+            );
+
+          },
+          500
+        );
+
       }
-    } catch(err) {
-      preloader.style.opacity = 0;
-      preloader.style.pointerEvents = "none";
-      setTimeout(() => preloader.style.display = "none", 500);
-      console.error(err);
-      alert("❌ Failed to send message. Please try again later.");
-    }
-  });
+    );
+
+
+    /* =================================================
+       PHONE INPUT
+    ================================================= */
+
+    const phone =
+      document.getElementById("phone");
+
+
+    phone.addEventListener(
+      "input",
+      function () {
+
+        this.value =
+          this.value
+            .replace(/\D/g, "")
+            .slice(0, 10);
+
+      }
+    );
+
+
+    /* =================================================
+       FORM
+    ================================================= */
+
+    const contactForm =
+      document.getElementById(
+        "contactForm"
+      );
+
+
+    const submitButton =
+      document.getElementById(
+        "submitButton"
+      );
+
+
+    const thankYouMessage =
+      document.getElementById(
+        "thankYouMessage"
+      );
+
+
+    const errorMessage =
+      document.getElementById(
+        "errorMessage"
+      );
+
+
+    contactForm.addEventListener(
+      "submit",
+      async function (e) {
+
+        e.preventDefault();
+
+
+        thankYouMessage.classList.add(
+          "d-none"
+        );
+
+        errorMessage.classList.add(
+          "d-none"
+        );
+
+
+        if (!contactForm.checkValidity()) {
+
+          contactForm.classList.add(
+            "was-validated"
+          );
+
+          return;
+
+        }
+
+
+        const agreeTerms =
+          document.getElementById(
+            "agreeTerms"
+          );
+
+
+        if (!agreeTerms.checked) {
+
+          errorMessage
+            .querySelector("span")
+            .textContent =
+            "Please agree to the Terms & Conditions before submitting.";
+
+          errorMessage.classList.remove(
+            "d-none"
+          );
+
+          return;
+
+        }
+
+
+        const originalButton =
+          submitButton.innerHTML;
+
+
+        submitButton.disabled = true;
+
+
+        submitButton.innerHTML = `
+
+          <span>
+            Sending...
+          </span>
+
+          <i class="fa-solid fa-spinner fa-spin"></i>
+
+        `;
+
+
+        const data = {
+
+          name:
+            document
+              .getElementById("name")
+              .value
+              .trim(),
+
+          email:
+            document
+              .getElementById("email")
+              .value
+              .trim(),
+
+          phone:
+            document
+              .getElementById("phone")
+              .value
+              .trim(),
+
+          message:
+            document
+              .getElementById("message")
+              .value
+              .trim()
+
+        };
+
+
+        try {
+
+
+          const response =
+            await fetch(
+              "/.netlify/functions/sendEmail",
+              {
+
+                method: "POST",
+
+                headers: {
+
+                  "Content-Type":
+                    "application/json"
+
+                },
+
+                body:
+                  JSON.stringify(data)
+
+              }
+            );
+
+
+          const result =
+            await response.json();
+
+
+          if (
+            response.ok &&
+            result.success
+          ) {
+
+
+            contactForm.reset();
+
+            contactForm.classList.remove(
+              "was-validated"
+            );
+
+
+            thankYouMessage.classList.remove(
+              "d-none"
+            );
+
+
+            thankYouMessage.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
+
+
+          } else {
+
+
+            errorMessage
+              .querySelector("span")
+              .textContent =
+              result.error ||
+              result.message ||
+              "Unable to send your message. Please try again.";
+
+
+            errorMessage.classList.remove(
+              "d-none"
+            );
+
+          }
+
+
+        } catch (error) {
+
+
+          console.error(
+            "Contact form error:",
+            error
+          );
+
+
+          errorMessage
+            .querySelector("span")
+            .textContent =
+            "Unable to send your message. Please try again later.";
+
+
+          errorMessage.classList.remove(
+            "d-none"
+          );
+
+
+        } finally {
+
+
+          submitButton.disabled = false;
+
+          submitButton.innerHTML =
+            originalButton;
+
+
+        }
+
+      }
+    );
+
+
+    /* =================================================
+       BACK TO TOP
+    ================================================= */
+
+    const backToTop =
+      document.getElementById(
+        "backToTop"
+      );
+
+
+    window.addEventListener(
+      "scroll",
+      function () {
+
+        if (
+          window.scrollY > 450
+        ) {
+
+          backToTop.classList.add(
+            "show"
+          );
+
+        } else {
+
+          backToTop.classList.remove(
+            "show"
+          );
+
+        }
+
+      }
+    );
+
+
+    backToTop.addEventListener(
+      "click",
+      function () {
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+
+  }
+);
+
 </script>
+
+
 </body>
+
 </html>
