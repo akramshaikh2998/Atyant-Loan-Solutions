@@ -12,7 +12,7 @@
 
   <meta
     name="description"
-    content="Calculate your monthly EMI, total interest and total repayment with the Atyant Loan Solutions EMI Calculator."
+    content="Calculate EMI and FOIR for loan planning and indicative eligibility assessment with Atyant Loan Solutions."
   >
 
   <meta
@@ -20,7 +20,7 @@
     content="#061a3b"
   >
 
-  <title>EMI Calculator | Atyant Loan Solutions</title>
+  <title>EMI & FOIR Calculator | Atyant Loan Solutions</title>
 
   <link
     rel="icon"
@@ -177,6 +177,17 @@
           Calculate EMI
 
           <i class="fa-solid fa-calculator"></i>
+
+        </a>
+
+        <a
+          href="#foir-calculator"
+          class="hero-secondary"
+        >
+
+          Calculate FOIR
+
+          <i class="fa-solid fa-percent"></i>
 
         </a>
 
@@ -762,6 +773,425 @@
 
       </div>
 
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOIR CALCULATOR
+     Kept on the SAME page as the EMI Calculator
+====================================================== -->
+
+<section class="foir-calculator-section" id="foir-calculator">
+
+  <div class="container">
+
+    <div class="foir-heading text-center">
+      <span>LOAN ELIGIBILITY</span>
+
+      <h2>
+        FOIR Calculator
+      </h2>
+
+      <p>
+        Enter your income, existing obligations and proposed loan details
+        manually to calculate your FOIR for loan assessment.
+      </p>
+    </div>
+
+
+    <div class="foir-wrapper">
+
+
+      <!-- =================================================
+           FOIR INPUTS
+      ================================================== -->
+
+      <div class="foir-input-panel">
+
+        <div class="foir-panel-heading">
+
+          <div class="foir-heading-icon">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </div>
+
+          <div>
+
+            <h3>
+              Loan & Income Details
+            </h3>
+
+            <p>
+              Enter all values manually
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- MONTHLY INCOME -->
+
+        <div class="foir-input-card">
+
+          <label for="foirMonthlyIncome">
+            Monthly Net Income
+          </label>
+
+          <div class="foir-manual-field">
+
+            <span>₹</span>
+
+            <input
+              type="text"
+              id="foirMonthlyIncome"
+              placeholder="50000"
+              inputmode="numeric"
+              autocomplete="off"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- EXISTING EMI -->
+
+        <div class="foir-input-card">
+
+          <label for="foirExistingEmi">
+            Existing Monthly EMI
+          </label>
+
+          <div class="foir-manual-field">
+
+            <span>₹</span>
+
+            <input
+              type="text"
+              id="foirExistingEmi"
+              placeholder="10000"
+              inputmode="numeric"
+              autocomplete="off"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- OTHER OBLIGATIONS -->
+
+        <div class="foir-input-card">
+
+          <label for="foirOtherObligations">
+            Other Monthly Obligations
+          </label>
+
+          <div class="foir-manual-field">
+
+            <span>₹</span>
+
+            <input
+              type="text"
+              id="foirOtherObligations"
+              placeholder="0"
+              inputmode="numeric"
+              autocomplete="off"
+            >
+
+          </div>
+
+          <div class="foir-input-hint">
+            <i class="fa-solid fa-circle-info"></i>
+            Enter any other fixed monthly obligation you want to include.
+          </div>
+
+        </div>
+
+
+        <!-- TENURE -->
+
+        <div class="foir-input-card">
+
+          <label for="foirTenure">
+            Loan Tenure
+          </label>
+
+          <div class="foir-manual-field">
+
+            <input
+              type="text"
+              id="foirTenure"
+              placeholder="60"
+              inputmode="numeric"
+              autocomplete="off"
+            >
+
+            <span>Months</span>
+
+          </div>
+
+        </div>
+
+
+        <!-- FOIR % -->
+
+        <div class="foir-input-card foir-limit-card">
+
+          <label for="foirPercentage">
+            FOIR %
+          </label>
+
+          <div class="foir-manual-field">
+
+            <input
+              type="text"
+              id="foirPercentage"
+              placeholder="50"
+              inputmode="decimal"
+              autocomplete="off"
+            >
+
+            <span>%</span>
+
+          </div>
+
+          <div class="foir-input-hint">
+            <i class="fa-solid fa-circle-info"></i>
+            Enter the FOIR limit used for your loan assessment.
+          </div>
+
+        </div>
+
+
+        <!-- ONE CALCULATION BUTTON -->
+
+        <button
+          type="button"
+          id="calculateFoirButton"
+          class="foir-calculate-button"
+        >
+
+          <span>
+            Calculate FOIR
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+
+        <div
+          id="foirCalculationError"
+          class="foir-calculation-error"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+      </div>
+
+
+      <!-- =================================================
+           FOIR RESULTS
+      ================================================== -->
+
+      <div class="foir-result-panel">
+
+        <div class="foir-result-header">
+
+          <div>
+
+            <span>
+              LOAN ELIGIBILITY RESULT
+            </span>
+
+            <h3>
+              FOIR Summary
+            </h3>
+
+          </div>
+
+
+          <div
+            id="foirResultBadge"
+            class="foir-result-badge"
+          >
+
+            <i class="fa-solid fa-calculator"></i>
+
+            Ready
+
+          </div>
+
+        </div>
+
+
+        <!-- ACTUAL FOIR -->
+
+        <div class="foir-highlight">
+
+          <span>
+            ACTUAL FOIR
+          </span>
+
+          <strong id="foirActualResult">
+            0.00%
+          </strong>
+
+          <small id="foirResultStatus">
+            Enter details and click Calculate FOIR
+          </small>
+
+        </div>
+
+
+        <!-- RESULT CARDS -->
+
+        <div class="foir-result-grid">
+
+          <div class="foir-result-card">
+
+            <span>
+              Monthly Income
+            </span>
+
+            <strong id="foirResultIncome">
+              ₹0
+            </strong>
+
+          </div>
+
+
+          <div class="foir-result-card">
+
+            <span>
+              Existing Obligations
+            </span>
+
+            <strong id="foirResultExisting">
+              ₹0
+            </strong>
+
+          </div>
+
+
+          <div class="foir-result-card">
+
+            <span>
+              Maximum Eligible EMI
+            </span>
+
+            <strong id="foirResultProposedEmi">
+              ₹0
+            </strong>
+
+          </div>
+
+
+          <div class="foir-result-card">
+
+            <span>
+              Total Obligations
+            </span>
+
+            <strong id="foirResultTotal">
+              ₹0
+            </strong>
+
+          </div>
+
+
+          <div class="foir-result-card">
+
+            <span>
+              Entered FOIR Limit
+            </span>
+
+            <strong id="foirResultLimit">
+              0.00%
+            </strong>
+
+          </div>
+
+
+          <div class="foir-result-card">
+
+            <span>
+              Maximum Loan Amount Eligible
+            </span>
+
+            <strong id="foirResultEligibleLoan">
+              ₹0
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- ASSESSMENT -->
+
+        <div class="foir-assessment-box">
+
+          <div class="foir-assessment-icon">
+
+            <i
+              id="foirAssessmentIcon"
+              class="fa-solid fa-circle-check"
+            ></i>
+
+          </div>
+
+          <div>
+
+            <span>
+              ASSESSMENT
+            </span>
+
+            <strong id="foirAssessmentTitle">
+              Awaiting Calculation
+            </strong>
+
+            <p id="foirAssessmentMessage">
+              Enter the values on the left and click Calculate FOIR.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <!-- FORMULA -->
+
+        <div class="foir-formula-box">
+
+          <span>
+            FOIR FORMULA
+          </span>
+
+          <p>
+            Maximum Eligible EMI = (Monthly Income × FOIR %)
+            − Existing EMI − Other Obligations
+          </p>
+
+        </div>
+
+
+        <p class="foir-result-note">
+
+          This calculator provides an indicative loan assessment only.
+          Actual lender FOIR limits, eligible income, obligations considered,
+          interest rates and approval criteria may vary by lender and product.
+
+        </p>
+
+      </div>
 
     </div>
 
