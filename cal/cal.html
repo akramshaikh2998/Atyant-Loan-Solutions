@@ -799,8 +799,8 @@
       </h2>
 
       <p>
-        Enter your income, existing obligations and proposed loan details
-        manually to calculate your FOIR for loan assessment.
+        Enter your income, existing obligations, ROI, tenure and FOIR
+        manually to estimate your eligible EMI and loan amount.
       </p>
     </div>
 
@@ -935,6 +935,36 @@
 
             <span>Months</span>
 
+          </div>
+
+        </div>
+
+
+        <!-- ROI % -->
+
+        <div class="foir-input-card">
+
+          <label for="foirROI">
+            Rate of Interest (ROI)
+          </label>
+
+          <div class="foir-manual-field">
+
+            <input
+              type="text"
+              id="foirROI"
+              placeholder="12"
+              inputmode="decimal"
+              autocomplete="off"
+            >
+
+            <span>%</span>
+
+          </div>
+
+          <div class="foir-input-hint">
+            <i class="fa-solid fa-circle-info"></i>
+            Enter the annual ROI used for the proposed loan.
           </div>
 
         </div>
