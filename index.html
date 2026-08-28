@@ -65,6 +65,60 @@
     href="./index.css"
   >
 
+
+  <style>
+    /* Online lender logo slider - compact, non-overlapping */
+    .bank-slider { width:100%; overflow:hidden; padding:8px 0 4px; }
+    .bank-track { display:flex; width:max-content; flex-wrap:nowrap; align-items:center; animation:bankScroll 120s linear infinite; will-change:transform; }
+    .bank-track-group { display:flex; flex:0 0 auto; align-items:center; gap:12px; padding-right:12px; }
+    .bank-logo { width:132px !important; height:78px !important; flex:0 0 132px !important; display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:4px !important; padding:7px 8px !important; margin:0 !important; overflow:hidden !important; box-sizing:border-box !important; background:#fff; border:1px solid #e6edf5; border-radius:10px; }
+    .bank-logo img { display:block !important; width:auto !important; height:auto !important; max-width:100px !important; max-height:32px !important; object-fit:contain !important; }
+    .bank-slider:hover .bank-track { animation-play-state:running; }
+    @keyframes bankScroll { from { transform:translate3d(0,0,0); } to { transform:translate3d(-50%,0,0); } }
+    .bank-logo-image { width:100px !important; height:34px !important; display:flex !important; align-items:center !important; justify-content:center !important; flex:0 0 34px !important; overflow:hidden !important; }
+    .bank-logo-image img { max-width:100px !important; max-height:32px !important; }
+    .bank-logo-fallback { display:none !important; align-items:center; justify-content:center; width:100%; height:100%; font-size:11px; font-weight:800; color:#0b3f91; letter-spacing:.2px; }
+    .bank-logo-name { display:block !important; width:100% !important; min-height:24px !important; max-height:27px !important; overflow:hidden !important; text-align:center !important; font-size:10.5px !important; line-height:12px !important; font-weight:700 !important; color:#334155 !important; white-space:normal !important; word-break:normal !important; overflow-wrap:anywhere !important; }
+    .bank-logo-disclaimer { margin:12px auto 0; max-width:900px; text-align:center; font-size:11px; line-height:1.5; color:#7b8798; }
+    @media (max-width:768px) {
+      .bank-track-group { gap:9px; padding-right:9px; }
+      .bank-logo { width:112px !important; height:68px !important; flex-basis:112px !important; padding:6px !important; gap:3px !important; border-radius:8px; }
+      .bank-logo-image { width:86px !important; height:29px !important; flex-basis:29px !important; }
+      .bank-logo img { max-width:86px !important; max-height:27px !important; }
+      .bank-logo-name { font-size:9.5px !important; line-height:11px !important; min-height:22px !important; max-height:23px !important; }
+      .bank-logo-disclaimer { font-size:10px; padding:0 12px; }
+    }
+  </style>
+
+<style>
+
+    /* FINAL BANK SLIDER OVERRIDE */
+    .bank-slider { width:100%; overflow:hidden; position:relative; padding:12px 0 16px; }
+    .bank-track { display:flex !important; align-items:center !important; width:max-content !important; flex-wrap:nowrap !important; gap:0 !important; animation:bankScroll 120s linear infinite !important; will-change:transform; }
+    .bank-slider:hover .bank-track { animation-play-state:running !important; }
+    .bank-track-group { display:flex !important; align-items:center !important; flex:0 0 auto !important; gap:14px !important; padding-right:14px !important; }
+    .bank-logo { width:132px !important; height:84px !important; min-width:132px !important; flex:0 0 132px !important; display:flex !important; flex-direction:column !important; align-items:center !important; justify-content:center !important; gap:5px !important; padding:7px 8px !important; margin:0 !important; overflow:hidden !important; box-sizing:border-box !important; background:#fff !important; border:1px solid #e3eaf3 !important; border-radius:10px !important; }
+    .bank-logo-image { width:110px !important; height:40px !important; flex:0 0 40px !important; display:flex !important; align-items:center !important; justify-content:center !important; overflow:hidden !important; }
+    .bank-logo-image img { display:block !important; width:auto !important; height:auto !important; max-width:110px !important; max-height:38px !important; object-fit:contain !important; object-position:center !important; }
+    .bank-logo-fallback { display:none !important; align-items:center; justify-content:center; width:100%; height:100%; font-size:12px; line-height:1; font-weight:800; color:#0b3f91; letter-spacing:.3px; text-align:center; }
+    .bank-logo-name { display:block !important; width:100% !important; height:26px !important; min-height:26px !important; max-height:26px !important; overflow:hidden !important; text-align:center !important; font-size:10.5px !important; line-height:13px !important; font-weight:700 !important; color:#26364a !important; white-space:normal !important; overflow-wrap:anywhere !important; }
+    .bank-logo-disclaimer { margin:10px auto 0 !important; max-width:950px; text-align:center; font-size:10px; line-height:1.5; color:#7d8ba0; }
+    @keyframes bankScroll { from { transform:translate3d(0,0,0); } to { transform:translate3d(-50%,0,0); } }
+    @media (max-width:768px) {
+      .bank-track-group { gap:10px !important; padding-right:10px !important; }
+      .bank-logo { width:106px !important; height:72px !important; min-width:106px !important; flex-basis:106px !important; }
+      .bank-logo-image { width:86px !important; height:34px !important; flex-basis:34px !important; }
+      .bank-logo-image img { max-width:86px !important; max-height:32px !important; }
+      .bank-logo-name { font-size:9.5px !important; line-height:11px !important; height:22px !important; min-height:22px !important; max-height:22px !important; }
+    }
+    @media (max-width:480px) {
+      .bank-logo { width:92px !important; height:66px !important; min-width:92px !important; flex-basis:92px !important; padding:5px !important; }
+      .bank-logo-image { width:76px !important; height:30px !important; flex-basis:30px !important; }
+      .bank-logo-image img { max-width:76px !important; max-height:28px !important; }
+      .bank-logo-name { font-size:8.5px !important; line-height:10px !important; height:20px !important; min-height:20px !important; max-height:20px !important; }
+    }
+  </style>
+
 </head>
 
 
@@ -315,6 +369,30 @@
             </a>
 
           </li> -->
+
+ <!-- =================================================
+             CIBIL REPORT
+        ================================================== -->
+
+        <li class="nav-item">
+
+          <a
+            class="nav-link atyant-nav-link"
+            href="/cibil/cibil.html"
+          >
+
+            <span class="nav-icon">
+              <i class="fa-solid fa-chart-column"></i>
+            </span>
+
+            <span>
+              CIBIL Report
+            </span>
+
+          </a>
+
+        </li>
+
 
 
           <!-- Apply Now -->
@@ -724,155 +802,872 @@
     ==================================================== -->
 
     <section class="banks-section">
-
       <div class="container">
-
-
         <div class="section-heading compact-heading text-center">
-
-          <span class="section-kicker">
-            OUR LENDING NETWORK
-          </span>
-
-          <h2>
-            Explore Loan Options From Leading
-            Financial Institutions
-          </h2>
-
-          <p>
-
-            We help customers explore available options
-            across a network of reputed banks and
-            financial institutions.
-
-          </p>
-
+          <span class="section-kicker">OUR LENDING NETWORK</span>
+          <h2>Explore Loan Options From Leading Financial Institutions</h2>
+          <p>We help customers explore available options across a network of reputed banks, NBFCs and financial institutions.</p>
         </div>
-
-
-        <div class="bank-slider">
-
+    
+        <div class="bank-slider" aria-label="Banks, NBFCs and fintech lenders">
           <div class="bank-track">
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/hdfc bank logo.jpg"
-                alt="HDFC Bank"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/Icici Bank Logo.jpg"
-                alt="ICICI Bank"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/aditya-birla-capital.jpg"
-                alt="Aditya Birla Capital"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/Kotak_Mahindra_Bank_logo.png"
-                alt="Kotak Mahindra Bank"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/Bajaj_Finserv_Logo.svg"
-                alt="Bajaj Finserv"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/Axis_Bank_logo.svg.png"
-                alt="Axis Bank"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/indusind bank logo.jpg"
-                alt="IndusInd Bank"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/Tata_Capital_Logo.jpg"
-                alt="Tata Capital"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/IDFC bank logo.png"
-                alt="IDFC First Bank"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/Chola.jpg"
-                alt="Cholamandalam"
-              >
-
-            </div>
-
-
-            <div class="bank-logo">
-
-              <img
-                src="./assets/logo/Yes bank logo.webp"
-                alt="Yes Bank"
-              >
-
-            </div>
-
-
-          </div>
-
-        </div>
-
+            <div class="bank-track-group">
+              <div class="bank-logo" title="Axis Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/axis.svg" alt="Axis Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">AX</span>
       </div>
-
+      <span class="bank-logo-name">Axis Bank</span>
+    </div>
+    <!-- <div class="bank-logo" title="Bandhan Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/bandhan.svg" alt="Bandhan Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BA</span>
+      </div>
+      <span class="bank-logo-name">Bandhan Bank</span>
+    </div>
+    <div class="bank-logo" title="CSB Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/csb.svg" alt="CSB Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CS</span>
+      </div>
+      <span class="bank-logo-name">CSB Bank</span>
+    </div>
+    <div class="bank-logo" title="City Union Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/cub.svg" alt="City Union Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CU</span>
+      </div>
+      <span class="bank-logo-name">City Union Bank</span>
+    </div>
+    <div class="bank-logo" title="DCB Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/dcb.svg" alt="DCB Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">DC</span>
+      </div>
+      <span class="bank-logo-name">DCB Bank</span>
+    </div> -->
+    <!-- <div class="bank-logo" title="Dhanlaxmi Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/dhanlaxmi.svg" alt="Dhanlaxmi Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">DB</span>
+      </div>
+      <span class="bank-logo-name">Dhanlaxmi Bank</span>
+    </div>
+    <div class="bank-logo" title="Federal Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/federal.svg" alt="Federal Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">FB</span>
+      </div>
+      <span class="bank-logo-name">Federal Bank</span>
+    </div> -->
+    <div class="bank-logo" title="HDFC Bank">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/hdfc bank logo.svg.webp" alt="HDFC Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">HDFC</span>
+      </div>
+      <span class="bank-logo-name">HDFC Bank</span>
+    </div>
+    <div class="bank-logo" title="ICICI Bank">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/ICICI_Bank_Logo.svg" alt="ICICI Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">ICICI</span>
+      </div>
+      <span class="bank-logo-name">ICICI Bank</span>
+    </div>
+    <div class="bank-logo" title="IndusInd Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/indus.svg" alt="IndusInd Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IN</span>
+      </div>
+      <span class="bank-logo-name">IndusInd Bank</span>
+    </div>
+    <div class="bank-logo" title="IDFC FIRST Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/idfc.svg" alt="IDFC FIRST Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IDFC</span>
+      </div>
+      <span class="bank-logo-name">IDFC FIRST Bank</span>
+    </div>
+    <!-- <div class="bank-logo" title="Jammu & Kashmir Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/jnk.svg" alt="Jammu & Kashmir Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">J&K</span>
+      </div>
+      <span class="bank-logo-name">Jammu & Kashmir Bank</span>
+    </div>
+    <div class="bank-logo" title="Karnataka Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/karnataka.svg" alt="Karnataka Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">KB</span>
+      </div>
+      <span class="bank-logo-name">Karnataka Bank</span>
+    </div>
+    <div class="bank-logo" title="Karur Vysya Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/kvb.svg" alt="Karur Vysya Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">KVB</span>
+      </div>
+      <span class="bank-logo-name">Karur Vysya Bank</span>
+    </div> -->
+    <div class="bank-logo" title="Kotak Mahindra Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/kotak.svg" alt="Kotak Mahindra Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">KMB</span>
+      </div>
+      <span class="bank-logo-name">Kotak Mahindra Bank</span>
+    </div>
+    <!-- <div class="bank-logo" title="Nainital Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/ntb.svg" alt="Nainital Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">NB</span>
+      </div>
+      <span class="bank-logo-name">Nainital Bank</span>
+    </div>
+    <div class="bank-logo" title="RBL Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/rbl.svg" alt="RBL Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">RBL</span>
+      </div>
+      <span class="bank-logo-name">RBL Bank</span>
+    </div>
+    <div class="bank-logo" title="South Indian Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/sib.svg" alt="South Indian Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">SIB</span>
+      </div>
+      <span class="bank-logo-name">South Indian Bank</span>
+    </div>
+    <div class="bank-logo" title="Tamilnad Mercantile Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/tmb.svg" alt="Tamilnad Mercantile Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">TMB</span>
+      </div>
+      <span class="bank-logo-name">Tamilnad Mercantile Bank</span>
+    </div> -->
+    <!-- <div class="bank-logo" title="YES Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/yes.svg" alt="YES Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">YES</span>
+      </div>
+      <span class="bank-logo-name">YES Bank</span>
+    </div> -->
+    <!-- <div class="bank-logo" title="IDBI Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/idbi.svg" alt="IDBI Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IDBI</span>
+      </div>
+      <span class="bank-logo-name">IDBI Bank</span>
+    </div>
+    <div class="bank-logo" title="Bank of Baroda">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/bob.svg" alt="Bank of Baroda logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BOB</span>
+      </div>
+      <span class="bank-logo-name">Bank of Baroda</span>
+    </div>
+    <div class="bank-logo" title="Bank of India">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/boi.svg" alt="Bank of India logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BOI</span>
+      </div>
+      <span class="bank-logo-name">Bank of India</span>
+    </div>
+    <div class="bank-logo" title="Bank of Maharashtra">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/bom.svg" alt="Bank of Maharashtra logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BOM</span>
+      </div>
+      <span class="bank-logo-name">Bank of Maharashtra</span>
+    </div>
+    <div class="bank-logo" title="Canara Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/canara.svg" alt="Canara Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CB</span>
+      </div>
+      <span class="bank-logo-name">Canara Bank</span>
+    </div>
+    <div class="bank-logo" title="Central Bank of India">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/cbi.svg" alt="Central Bank of India logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CBI</span>
+      </div>
+      <span class="bank-logo-name">Central Bank of India</span>
+    </div> -->
+<!-- <div class="bank-logo" title="Indian Overseas Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/iob.svg" alt="Indian Overseas Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IOB</span>
+      </div>
+      <span class="bank-logo-name">Indian Overseas Bank</span>
+    </div>
+    <div class="bank-logo" title="Punjab & Sind Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/psb.svg" alt="Punjab & Sind Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">PSB</span>
+      </div>
+      <span class="bank-logo-name">Punjab & Sind Bank</span>
+    </div>
+    <div class="bank-logo" title="Punjab National Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/pnb.svg" alt="Punjab National Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">PNB</span>
+      </div>
+      <span class="bank-logo-name">Punjab National Bank</span>
+    </div>
+    <div class="bank-logo" title="State Bank of India">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/sbi.svg" alt="State Bank of India logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">SBI</span>
+      </div>
+      <span class="bank-logo-name">State Bank of India</span>
+    </div>
+    <div class="bank-logo" title="UCO Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/uco.svg" alt="UCO Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">UCO</span>
+      </div>
+      <span class="bank-logo-name">UCO Bank</span>
+    </div>
+    <div class="bank-logo" title="Union Bank of India">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/ubi.svg" alt="Union Bank of India logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">UBI</span>
+      </div>
+      <span class="bank-logo-name">Union Bank of India</span>
+    </div>
+    <div class="bank-logo" title="AU Small Finance Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/ausfb.svg" alt="AU Small Finance Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">AU</span>
+      </div>
+      <span class="bank-logo-name">AU Small Finance Bank</span>
+    </div>
+    <div class="bank-logo" title="ESAF Small Finance Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/esaf.svg" alt="ESAF Small Finance Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">ESAF</span>
+      </div>
+      <span class="bank-logo-name">ESAF Small Finance Bank</span>
+    </div>
+    <div class="bank-logo" title="Ujjivan Small Finance Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/ujjivan.svg" alt="Ujjivan Small Finance Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">UJJ</span>
+      </div>
+      <span class="bank-logo-name">Ujjivan Small Finance Bank</span>
+    </div>
+    <div class="bank-logo" title="Airtel Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/apb.svg" alt="Airtel Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">AIRTEL</span>
+      </div>
+      <span class="bank-logo-name">Airtel Payments Bank</span>
+    </div>
+    <div class="bank-logo" title="India Post Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/indiapost.svg" alt="India Post Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IPPB</span>
+      </div>
+      <span class="bank-logo-name">India Post Payments Bank</span>
+    </div>
+    <div class="bank-logo" title="FINO Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/fino.svg" alt="FINO Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">FINO</span>
+      </div>
+      <span class="bank-logo-name">FINO Payments Bank</span>
+    </div>
+    <div class="bank-logo" title="Paytm Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/paytm.svg" alt="Paytm Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">PAYTM</span>
+      </div>
+      <span class="bank-logo-name">Paytm Payments Bank</span>
+    </div>
+    <div class="bank-logo" title="Jio Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/jio.svg" alt="Jio Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">JIO</span>
+      </div>
+      <span class="bank-logo-name">Jio Payments Bank</span>
+    </div> -->
+    <div class="bank-logo" title="Bajaj Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/bajaj_Logo.webp" alt="Bajaj Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BAJAJ</span>
+      </div>
+      <span class="bank-logo-name">Bajaj Finance</span>
+    </div>
+    <!-- <div class="bank-logo" title="Bajaj Finserv">
+      <div class="bank-logo-image">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file:Bajaj_Finance_Logo.svg" alt="Bajaj Finserv logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BAJAJ</span>
+      </div>
+      <span class="bank-logo-name">Bajaj Finserv</span>
+    </div> -->
+    <div class="bank-logo" title="Tata Capital">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Tata_Capital_Logo.jpg" alt="Tata Capital logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">TATA</span>
+      </div>
+      <span class="bank-logo-name">Tata Capital</span>
+    </div>
+    <div class="bank-logo" title="Shriram Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/shriram_logo.jpg" alt="Shriram Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">SHRIRAM</span>
+      </div>
+      <span class="bank-logo-name">Shriram Finance</span>
+    </div>
+    <div class="bank-logo" title="Aditya Birla Capital">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/aditya-birla-capital.jpg" alt="Aditya Birla Capital logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">ABC</span>
+      </div>
+      <span class="bank-logo-name">Aditya Birla Capital</span>
+    </div>
+    <!-- <div class="bank-logo" title="Mahindra Finance">
+      <div class="bank-logo-image">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mahindra-finance-logo.png" alt="Mahindra Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">MF</span>
+      </div>
+      <span class="bank-logo-name">Mahindra Finance</span>
+    </div> -->
+    <div class="bank-logo" title="L&T Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/l-t-finance-logo.png" alt="L&T Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">L&T</span>
+      </div>
+      <span class="bank-logo-name">L&T Finance</span>
+    </div>
+    <div class="bank-logo" title="Piramal Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/piramal_logo.cms" alt="Piramal Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">PF</span>
+      </div>
+      <span class="bank-logo-name">Piramal Finance</span>
+    </div>
+    <div class="bank-logo" title="Muthoot Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Muthoot_logo.jpg" alt="Muthoot Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">MUTHOOT</span>
+      </div>
+      <span class="bank-logo-name">Muthoot Finance</span>
+    </div>
+    <!-- <div class="bank-logo" title="Manappuram Finance">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/manappuram.com" alt="Manappuram Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">MANAPPURAM</span>
+      </div>
+      <span class="bank-logo-name">Manappuram Finance</span>
+    </div>
+    <div class="bank-logo" title="Lendingkart">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/lendingkart.com" alt="Lendingkart logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">LENDINGKART</span>
+      </div>
+      <span class="bank-logo-name">Lendingkart</span>
+    </div> -->
+    <div class="bank-logo" title="InCred">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Incred_Logo.png" alt="InCred logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">INCRED</span>
+      </div>
+      <span class="bank-logo-name">InCred</span>
+    </div>
+    <!-- <div class="bank-logo" title="Moneyview">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/moneyview.in" alt="Moneyview logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">MONEYVIEW</span>
+      </div>
+      <span class="bank-logo-name">Moneyview</span>
+    </div>
+    <div class="bank-logo" title="KreditBee">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/kreditbee.in" alt="KreditBee logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">KREDITBEE</span>
+      </div>
+      <span class="bank-logo-name">KreditBee</span>
+    </div>
+    <div class="bank-logo" title="Navi">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/navifinserv.com" alt="Navi logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">NAVI</span>
+      </div>
+      <span class="bank-logo-name">Navi</span>
+    </div> -->
+    <div class="bank-logo" title="Fibe">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Fibe_Logo.jpg" alt="Fibe logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">FIBE</span>
+      </div>
+      <span class="bank-logo-name">Fibe</span>
+    </div>
+    <!-- <div class="bank-logo" title="NeoGrowth">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/neogrowth.in" alt="NeoGrowth logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">NEOGROWTH</span>
+      </div>
+      <span class="bank-logo-name">NeoGrowth</span>
+    </div>
+    <div class="bank-logo" title="IIFL Finance">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/iifl.com" alt="IIFL Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IIFL</span>
+      </div>
+      <span class="bank-logo-name">IIFL Finance</span>
+    </div> -->
+    <div class="bank-logo" title="Cholamandalam Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Chola_Logo.jpg" alt="Cholamandalam Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CHOLA</span>
+      </div>
+      <span class="bank-logo-name">Cholamandalam Finance</span>
+    </div>
+    <div class="bank-logo" title="HDB Financial Services">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/HDB_Financial_Services_logo.svg" alt="HDB Financial Services logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">HDB</span>
+      </div>
+      <span class="bank-logo-name">HDB Financial Services</span>
+    </div>
+            </div>
+            <div class="bank-track-group" aria-hidden="true">
+              <div class="bank-logo" title="Axis Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/axis.svg" alt="Axis Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">AX</span>
+      </div>
+      <span class="bank-logo-name">Axis Bank</span>
+    </div>
+    <!-- <div class="bank-logo" title="Bandhan Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/bandhan.svg" alt="Bandhan Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BA</span>
+      </div>
+      <span class="bank-logo-name">Bandhan Bank</span>
+    </div>
+    <div class="bank-logo" title="CSB Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/csb.svg" alt="CSB Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CS</span>
+      </div>
+      <span class="bank-logo-name">CSB Bank</span>
+    </div>
+    <div class="bank-logo" title="City Union Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/cub.svg" alt="City Union Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CU</span>
+      </div>
+      <span class="bank-logo-name">City Union Bank</span>
+    </div>
+    <div class="bank-logo" title="DCB Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/dcb.svg" alt="DCB Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">DC</span>
+      </div>
+      <span class="bank-logo-name">DCB Bank</span>
+    </div>
+    <div class="bank-logo" title="Dhanlaxmi Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/dhanlaxmi.svg" alt="Dhanlaxmi Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">DB</span>
+      </div>
+      <span class="bank-logo-name">Dhanlaxmi Bank</span>
+    </div>
+    <div class="bank-logo" title="Federal Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/federal.svg" alt="Federal Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">FB</span>
+      </div>
+      <span class="bank-logo-name">Federal Bank</span>
+    </div> -->
+    <div class="bank-logo" title="HDFC Bank">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/hdfc bank logo.svg.webp" alt="HDFC Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">HDFC</span>
+      </div>
+      <span class="bank-logo-name">HDFC Bank</span>
+    </div>
+    <div class="bank-logo" title="ICICI Bank">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/ICICI_Bank_Logo.svg" alt="ICICI Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">ICICI</span>
+      </div>
+      <span class="bank-logo-name">ICICI Bank</span>
+    </div>
+    <div class="bank-logo" title="IndusInd Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/indus.svg" alt="IndusInd Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IN</span>
+      </div>
+      <span class="bank-logo-name">IndusInd Bank</span>
+    </div>
+    <div class="bank-logo" title="IDFC FIRST Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/idfc.svg" alt="IDFC FIRST Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IDFC</span>
+      </div>
+      <span class="bank-logo-name">IDFC FIRST Bank</span>
+    </div>
+    <!-- <div class="bank-logo" title="Jammu & Kashmir Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/jnk.svg" alt="Jammu & Kashmir Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">J&K</span>
+      </div>
+      <span class="bank-logo-name">Jammu & Kashmir Bank</span>
+    </div>
+    <div class="bank-logo" title="Karnataka Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/karnataka.svg" alt="Karnataka Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">KB</span>
+      </div>
+      <span class="bank-logo-name">Karnataka Bank</span>
+    </div>
+    <div class="bank-logo" title="Karur Vysya Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/kvb.svg" alt="Karur Vysya Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">KVB</span>
+      </div>
+      <span class="bank-logo-name">Karur Vysya Bank</span>
+    </div> -->
+    <div class="bank-logo" title="Kotak Mahindra Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/kotak.svg" alt="Kotak Mahindra Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">KMB</span>
+      </div>
+      <span class="bank-logo-name">Kotak Mahindra Bank</span>
+    </div>
+    <!-- <div class="bank-logo" title="Nainital Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/ntb.svg" alt="Nainital Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">NB</span>
+      </div>
+      <span class="bank-logo-name">Nainital Bank</span>
+    </div>
+    <div class="bank-logo" title="RBL Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/rbl.svg" alt="RBL Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">RBL</span>
+      </div>
+      <span class="bank-logo-name">RBL Bank</span>
+    </div>
+    <div class="bank-logo" title="South Indian Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/sib.svg" alt="South Indian Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">SIB</span>
+      </div>
+      <span class="bank-logo-name">South Indian Bank</span>
+    </div>
+    <div class="bank-logo" title="Tamilnad Mercantile Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/tmb.svg" alt="Tamilnad Mercantile Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">TMB</span>
+      </div>
+      <span class="bank-logo-name">Tamilnad Mercantile Bank</span>
+    </div>
+    <div class="bank-logo" title="YES Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/yes.svg" alt="YES Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">YES</span>
+      </div>
+      <span class="bank-logo-name">YES Bank</span>
+    </div>
+    <div class="bank-logo" title="IDBI Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/idbi.svg" alt="IDBI Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IDBI</span>
+      </div>
+      <span class="bank-logo-name">IDBI Bank</span>
+    </div>
+    <div class="bank-logo" title="Bank of Baroda">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/bob.svg" alt="Bank of Baroda logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BOB</span>
+      </div>
+      <span class="bank-logo-name">Bank of Baroda</span>
+    </div>
+    <div class="bank-logo" title="Bank of India">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/boi.svg" alt="Bank of India logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BOI</span>
+      </div>
+      <span class="bank-logo-name">Bank of India</span>
+    </div>
+    <div class="bank-logo" title="Bank of Maharashtra">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/bom.svg" alt="Bank of Maharashtra logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BOM</span>
+      </div>
+      <span class="bank-logo-name">Bank of Maharashtra</span>
+    </div>
+    <div class="bank-logo" title="Canara Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/canara.svg" alt="Canara Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CB</span>
+      </div>
+      <span class="bank-logo-name">Canara Bank</span>
+    </div>
+    <div class="bank-logo" title="Central Bank of India">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/cbi.svg" alt="Central Bank of India logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CBI</span>
+      </div>
+      <span class="bank-logo-name">Central Bank of India</span>
+    </div>
+    <div class="bank-logo" title="Indian Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/indian.svg" alt="Indian Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IB</span>
+      </div>
+      <span class="bank-logo-name">Indian Bank</span>
+    </div>
+    <div class="bank-logo" title="Indian Overseas Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/iob.svg" alt="Indian Overseas Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IOB</span>
+      </div>
+      <span class="bank-logo-name">Indian Overseas Bank</span>
+    </div>
+    <div class="bank-logo" title="Punjab & Sind Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/psb.svg" alt="Punjab & Sind Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">PSB</span>
+      </div>
+      <span class="bank-logo-name">Punjab & Sind Bank</span>
+    </div>
+    <div class="bank-logo" title="Punjab National Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/pnb.svg" alt="Punjab National Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">PNB</span>
+      </div>
+      <span class="bank-logo-name">Punjab National Bank</span>
+    </div>
+    <div class="bank-logo" title="State Bank of India">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/sbi.svg" alt="State Bank of India logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">SBI</span>
+      </div>
+      <span class="bank-logo-name">State Bank of India</span>
+    </div>
+    <div class="bank-logo" title="UCO Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/uco.svg" alt="UCO Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">UCO</span>
+      </div>
+      <span class="bank-logo-name">UCO Bank</span>
+    </div>
+    <div class="bank-logo" title="Union Bank of India">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/ubi.svg" alt="Union Bank of India logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">UBI</span>
+      </div>
+      <span class="bank-logo-name">Union Bank of India</span>
+    </div>
+    <div class="bank-logo" title="AU Small Finance Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/ausfb.svg" alt="AU Small Finance Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">AU</span>
+      </div>
+      <span class="bank-logo-name">AU Small Finance Bank</span>
+    </div>
+    <div class="bank-logo" title="ESAF Small Finance Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/esaf.svg" alt="ESAF Small Finance Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">ESAF</span>
+      </div>
+      <span class="bank-logo-name">ESAF Small Finance Bank</span>
+    </div>
+    <div class="bank-logo" title="Ujjivan Small Finance Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/ujjivan.svg" alt="Ujjivan Small Finance Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">UJJ</span>
+      </div>
+      <span class="bank-logo-name">Ujjivan Small Finance Bank</span>
+    </div>
+    <div class="bank-logo" title="Airtel Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/apb.svg" alt="Airtel Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">AIRTEL</span>
+      </div>
+      <span class="bank-logo-name">Airtel Payments Bank</span>
+    </div>
+    <div class="bank-logo" title="India Post Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/indiapost.svg" alt="India Post Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IPPB</span>
+      </div>
+      <span class="bank-logo-name">India Post Payments Bank</span>
+    </div>
+    <div class="bank-logo" title="FINO Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/fino.svg" alt="FINO Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">FINO</span>
+      </div>
+      <span class="bank-logo-name">FINO Payments Bank</span>
+    </div>
+    <div class="bank-logo" title="Paytm Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/paytm.svg" alt="Paytm Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">PAYTM</span>
+      </div>
+      <span class="bank-logo-name">Paytm Payments Bank</span>
+    </div>
+    <div class="bank-logo" title="Jio Payments Bank">
+      <div class="bank-logo-image">
+        <img src="https://auraveni.github.io/global-bank-logos/assets/bank/indian-bank/jio.svg" alt="Jio Payments Bank logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">JIO</span>
+      </div>
+      <span class="bank-logo-name">Jio Payments Bank</span>
+    </div> -->
+    <div class="bank-logo" title="Bajaj Finance">
+      <div class="bank-logo-image">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file:Bajaj_Finance_Logo.svg" alt="Bajaj Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BAJAJ</span>
+      </div>
+      <span class="bank-logo-name">Bajaj Finance</span>
+    </div>
+    <!-- <div class="bank-logo" title="Bajaj Finserv">
+      <div class="bank-logo-image">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file:Bajaj_Finance_Logo.svg" alt="Bajaj Finserv logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">BAJAJ</span>
+      </div>
+      <span class="bank-logo-name">Bajaj Finserv</span>
+    </div> -->
+    <div class="bank-logo" title="Tata Capital">
+      <div class="bank-logo-image">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file:TataLogo.jpg" alt="Tata Capital logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">TATA</span>
+      </div>
+      <span class="bank-logo-name">Tata Capital</span>
+    </div>
+    <div class="bank-logo" title="Shriram Finance">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/shriramfinance.in" alt="Shriram Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">SHRIRAM</span>
+      </div>
+      <span class="bank-logo-name">Shriram Finance</span>
+    </div>
+    <div class="bank-logo" title="Aditya Birla Capital">
+      <div class="bank-logo-image">
+        <img src="https://www.adityabirla.com/_next/image/?q=100&url=https%3A%2F%2Fwww.cms.adityabirla.com%2Fuploads%2Faditya_birla_capital_ec3c57daeb.webp&w=1920" alt="Aditya Birla Capital logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">ABC</span>
+      </div>
+      <span class="bank-logo-name">Aditya Birla Capital</span>
+    </div>
+    <!-- <div class="bank-logo" title="Mahindra Finance">
+      <div class="bank-logo-image">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mahindra-finance-logo.png" alt="Mahindra Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">MF</span>
+      </div>
+      <span class="bank-logo-name">Mahindra Finance</span>
+    </div> -->
+    <div class="bank-logo" title="L&T Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/l-t-finance-logo.png" alt="L&T Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">L&T</span>
+      </div>
+      <span class="bank-logo-name">L&T Finance</span>
+    </div>
+    <div class="bank-logo" title="Piramal Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/piramal_logo.cms" alt="Piramal Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">PF</span>
+      </div>
+      <span class="bank-logo-name">Piramal Finance</span>
+    </div>
+    <div class="bank-logo" title="Muthoot Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Muthoot_logo.jpg" alt="Muthoot Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">MUTHOOT</span>
+      </div>
+      <span class="bank-logo-name">Muthoot Finance</span>
+    </div>
+    <!-- <div class="bank-logo" title="Manappuram Finance">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/manappuram.com" alt="Manappuram Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">MANAPPURAM</span>
+      </div>
+      <span class="bank-logo-name">Manappuram Finance</span>
+    </div>
+    <div class="bank-logo" title="Lendingkart">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/lendingkart.com" alt="Lendingkart logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">LENDINGKART</span>
+      </div>
+      <span class="bank-logo-name">Lendingkart</span>
+    </div> -->
+    <div class="bank-logo" title="InCred">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Incred_Logo.png" alt="InCred logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">INCRED</span>
+      </div>
+      <span class="bank-logo-name">InCred</span>
+    </div>
+    <!-- <div class="bank-logo" title="Moneyview">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/moneyview.in" alt="Moneyview logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">MONEYVIEW</span>
+      </div>
+      <span class="bank-logo-name">Moneyview</span>
+    </div>
+    <div class="bank-logo" title="KreditBee">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/kreditbee.in" alt="KreditBee logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">KREDITBEE</span>
+      </div>
+      <span class="bank-logo-name">KreditBee</span>
+    </div>
+    <div class="bank-logo" title="Navi">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/navifinserv.com" alt="Navi logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">NAVI</span>
+      </div>
+      <span class="bank-logo-name">Navi</span>
+    </div> -->
+    <div class="bank-logo" title="Fibe">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Fibe_Logo.jpg" alt="Fibe logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">FIBE</span>
+      </div>
+      <span class="bank-logo-name">Fibe</span>
+    </div>
+    <!-- <div class="bank-logo" title="NeoGrowth">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/neogrowth.in" alt="NeoGrowth logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">NEOGROWTH</span>
+      </div>
+      <span class="bank-logo-name">NeoGrowth</span>
+    </div>
+    <div class="bank-logo" title="IIFL Finance">
+      <div class="bank-logo-image">
+        <img src="https://img.logokit.com/iifl.com" alt="IIFL Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">IIFL</span>
+      </div>
+      <span class="bank-logo-name">IIFL Finance</span>
+    </div> -->
+    <div class="bank-logo" title="Cholamandalam Finance">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/Chola_Logo.jpg" alt="Cholamandalam Finance logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">CHOLA</span>
+      </div>
+      <span class="bank-logo-name">Cholamandalam Finance</span>
+    </div>
+    <div class="bank-logo" title="HDB Financial Services">
+      <div class="bank-logo-image">
+        <img src="./assets/logo/HDB_Financial_Services_logo.svg" alt="HDB Financial Services logo" loading="eager" decoding="async" referrerpolicy="no-referrer" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="bank-logo-fallback" aria-hidden="true">HDB</span>
+      </div>
+      <span class="bank-logo-name">HDB Financial Services</span>
+    </div>
+            </div>
+          </div>
+        </div>
+    
+        <p class="bank-logo-disclaimer">Logos and names are shown for identification/reference purposes only and do not by themselves indicate a partnership or endorsement.</p>
+      </div>
     </section>
-
 
 
     <!-- ===================================================
@@ -2508,7 +3303,39 @@
 
 
 
+  <!-- Reliable lender-logo fallback -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".bank-logo-image img").forEach(function (img) {
+        var fallback = img.parentElement.querySelector(".bank-logo-fallback");
+
+        function showFallback() {
+          img.style.display = "none";
+          if (fallback) fallback.style.display = "flex";
+        }
+
+        img.addEventListener("error", showFallback);
+
+        if (img.complete && img.naturalWidth === 0) {
+          showFallback();
+        }
+      });
+    });
+  </script>
+
   <!-- Homepage JS -->
+
+  <script>
+    document.addEventListener("error", function (event) {
+      const img = event.target;
+      if (img && img.tagName === "IMG" && img.closest(".bank-logo")) {
+        const holder = img.closest(".bank-logo-image");
+        const fallback = holder && holder.querySelector(".bank-logo-fallback");
+        img.style.display = "none";
+        if (fallback) fallback.style.display = "flex";
+      }
+    }, true);
+  </script>
 
   <script>
 

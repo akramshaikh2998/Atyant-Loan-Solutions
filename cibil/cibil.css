@@ -1,0 +1,1553 @@
+/* =========================================================
+   ATYANT LOAN SOLUTIONS
+   CIBIL PAGE
+========================================================= */
+
+:root {
+
+  --navy: #061a3b;
+  --navy-2: #0a2c5c;
+
+  --blue: #0757d5;
+  --blue-dark: #0345aa;
+  --blue-light: #edf4ff;
+
+  --green: #15966a;
+  --green-light: #e8f8f1;
+
+  --red: #d94c57;
+
+  --text: #18263b;
+  --muted: #68778d;
+
+  --border: #dfe7f1;
+
+  --background: #f6f9fd;
+
+  --white: #ffffff;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+
+  margin: 0;
+
+  background: var(--background);
+
+  color: var(--text);
+
+  font-family:
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   PRELOADER
+========================================================= */
+
+#preloader {
+
+  position: fixed;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #ffffff;
+
+  z-index: 99999;
+
+  transition:
+    opacity 0.35s ease;
+
+}
+
+.preloader-content {
+
+  text-align: center;
+
+}
+
+.preloader-content .spinner-border {
+
+  width: 42px;
+  height: 42px;
+
+}
+
+.preloader-content p {
+
+  margin-top: 12px;
+
+  color: var(--navy);
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.cibil-hero {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding:
+    90px 0 95px;
+
+  color: #ffffff;
+
+  background:
+
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(83,155,255,0.25),
+      transparent 35%
+    ),
+
+    linear-gradient(
+      135deg,
+      #061a3b,
+      #0a3475,
+      #0757d5
+    );
+
+}
+
+.cibil-hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 550px;
+  height: 550px;
+
+  right: -280px;
+  top: -300px;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.08);
+
+}
+
+.cibil-hero::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  left: -180px;
+  bottom: -200px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.04);
+
+}
+
+.hero-badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    8px 15px;
+
+  margin-bottom: 22px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.2);
+
+  border-radius: 50px;
+
+  background:
+    rgba(255,255,255,0.08);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+}
+
+.cibil-hero h1 {
+
+  position: relative;
+
+  z-index: 1;
+
+  margin: 0;
+
+  max-width: 700px;
+
+  font-size:
+    clamp(38px, 5vw, 60px);
+
+  line-height: 1.12;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+
+}
+
+.cibil-hero h1 span {
+
+  display: block;
+
+  color: #8fc2ff;
+
+}
+
+.cibil-hero p {
+
+  max-width: 650px;
+
+  margin:
+    24px 0;
+
+  color:
+    rgba(255,255,255,0.82);
+
+  font-size: 18px;
+
+  line-height: 1.75;
+
+}
+
+.hero-points {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 18px;
+
+}
+
+.hero-points div {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color:
+    rgba(255,255,255,0.85);
+
+  font-size: 13px;
+
+}
+
+.hero-points i {
+
+  color: #70dfad;
+
+}
+
+
+/* =========================================================
+   HERO CARD
+========================================================= */
+
+.hero-score-card {
+
+  position: relative;
+
+  z-index: 2;
+
+  padding: 30px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.2);
+
+  border-radius: 20px;
+
+  background:
+    rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 25px 60px
+    rgba(0,0,0,0.18);
+
+}
+
+.hero-icon {
+
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,0.13);
+
+  font-size: 21px;
+
+}
+
+.hero-score-card h3 {
+
+  margin-bottom: 10px;
+
+  font-size: 23px;
+
+  font-weight: 750;
+
+}
+
+.hero-score-card p {
+
+  margin: 0;
+
+  color:
+    rgba(255,255,255,0.7);
+
+  font-size: 13px;
+
+}
+
+.score-range {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin:
+    25px 0 12px;
+
+}
+
+.score-range > div:not(.score-range-bar) {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+.score-range strong {
+
+  font-size: 20px;
+
+}
+
+.score-range small {
+
+  color:
+    rgba(255,255,255,0.6);
+
+  font-size: 10px;
+
+}
+
+.score-range-bar {
+
+  flex: 1;
+
+  height: 8px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #dc5c5c,
+      #edaa42,
+      #62c98c
+    );
+
+}
+
+.score-note {
+
+  color:
+    rgba(255,255,255,0.55);
+
+  font-size: 11px;
+
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.cibil-main {
+
+  padding:
+    55px 0 80px;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-wrapper {
+
+  max-width: 850px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  margin:
+    0 auto 42px;
+
+}
+
+.progress-step {
+
+  min-width: 70px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: #9ba8ba;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-align: center;
+
+}
+
+.progress-circle {
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border:
+    2px solid
+    #d8e1ec;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  font-weight: 700;
+
+}
+
+.progress-step.active {
+
+  color: var(--blue);
+
+}
+
+.progress-step.active
+.progress-circle {
+
+  border-color: var(--blue);
+
+  background: var(--blue);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 6px 18px
+    rgba(7,87,213,0.2);
+
+}
+
+.progress-step.completed {
+
+  color: var(--green);
+
+}
+
+.progress-step.completed
+.progress-circle {
+
+  border-color: var(--green);
+
+  background: var(--green);
+
+  color: #ffffff;
+
+}
+
+.progress-line {
+
+  flex: 1;
+
+  height: 2px;
+
+  margin-top: 21px;
+
+  background: #dce5ef;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.cibil-card {
+
+  max-width: 900px;
+
+  margin:
+    0 auto 20px;
+
+  padding: 35px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 35px
+    rgba(6,26,59,0.06);
+
+}
+
+.step-panel {
+
+  display: none;
+
+}
+
+.step-panel.active {
+
+  display: block;
+
+}
+
+
+/* =========================================================
+   CARD HEADING
+========================================================= */
+
+.card-heading {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 16px;
+
+  margin-bottom: 30px;
+
+  padding-bottom: 24px;
+
+  border-bottom:
+    1px solid
+    var(--border);
+
+}
+
+.card-icon {
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  background: var(--blue-light);
+
+  color: var(--blue);
+
+  font-size: 20px;
+
+}
+
+.card-heading span {
+
+  color: var(--blue);
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+
+}
+
+.card-heading h2 {
+
+  margin:
+    4px 0 5px;
+
+  color: var(--navy);
+
+  font-size: 26px;
+
+  font-weight: 750;
+
+}
+
+.card-heading p {
+
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-label {
+
+  margin-bottom: 8px;
+
+  color: var(--navy);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+}
+
+.form-control {
+
+  border-color: var(--border);
+
+  border-radius: 9px;
+
+}
+
+.input-group-text {
+
+  border-color: var(--border);
+
+  background: #f7f9fc;
+
+  color: var(--navy);
+
+  font-weight: 700;
+
+}
+
+.form-control:focus {
+
+  border-color: var(--blue);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(7,87,213,0.1);
+
+}
+
+.pan-input {
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  font-weight: 700;
+
+}
+
+.field-error {
+
+  min-height: 20px;
+
+  margin-top: 4px;
+
+  color: var(--red);
+
+  font-size: 12px;
+
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.primary-btn {
+
+  min-width: 190px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  margin-top: 20px;
+
+  padding:
+    13px 22px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: var(--blue);
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    all 0.25s ease;
+
+}
+
+.primary-btn:hover {
+
+  background: var(--blue-dark);
+
+  color: #ffffff;
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 8px 20px
+    rgba(7,87,213,0.2);
+
+}
+
+.primary-btn:disabled {
+
+  opacity: 0.65;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+}
+
+.text-btn {
+
+  display: block;
+
+  margin:
+    15px auto 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--blue);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+}
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+.security-note,
+.privacy-note,
+.otp-info {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 8px;
+
+  margin-top: 25px;
+
+  padding:
+    13px 15px;
+
+  border-radius: 9px;
+
+  background: #f6f9fd;
+
+  color: var(--muted);
+
+  font-size: 12px;
+
+}
+
+.security-note i,
+.privacy-note i,
+.otp-info i {
+
+  margin-top: 3px;
+
+  color: var(--green);
+
+}
+
+
+/* =========================================================
+   OTP
+========================================================= */
+
+.otp-area {
+
+  max-width: 500px;
+
+  margin: auto;
+
+  text-align: center;
+
+}
+
+.otp-input {
+
+  max-width: 360px;
+
+  margin: auto;
+
+  letter-spacing: 8px;
+
+  text-align: center;
+
+  font-size: 23px;
+
+  font-weight: 700;
+
+}
+
+
+/* =========================================================
+   CUSTOMER SUMMARY
+========================================================= */
+
+.customer-summary {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+
+}
+
+.customer-summary > div {
+
+  padding: 15px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 10px;
+
+  background: #fafcff;
+
+}
+
+.customer-summary span {
+
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--muted);
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+}
+
+.customer-summary strong {
+
+  color: var(--navy);
+
+  font-size: 14px;
+
+}
+
+
+/* =========================================================
+   CONSENT
+========================================================= */
+
+.consent-box {
+
+  padding: 18px;
+
+  border:
+    1px solid
+    #d8e5f8;
+
+  border-radius: 11px;
+
+  background: #f5f9ff;
+
+}
+
+.consent-label {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  color: #526177;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+
+  cursor: pointer;
+
+}
+
+.consent-label input {
+
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  margin-top: 3px;
+
+  accent-color: var(--blue);
+
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-panel {
+
+  display: none;
+
+  text-align: center;
+
+}
+
+.loading-spinner {
+
+  width: 65px;
+  height: 65px;
+
+  margin:
+    10px auto 25px;
+
+  border:
+    5px solid
+    #e6eef9;
+
+  border-top-color:
+    var(--blue);
+
+  border-radius: 50%;
+
+  animation:
+    spin 0.9s linear infinite;
+
+}
+
+@keyframes spin {
+
+  to {
+
+    transform:
+      rotate(360deg);
+
+  }
+
+}
+
+.loading-panel h2 {
+
+  color: var(--navy);
+
+  font-size: 25px;
+
+}
+
+.loading-panel > p {
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+}
+
+.loading-status {
+
+  max-width: 420px;
+
+  margin:
+    25px auto;
+
+  text-align: left;
+
+}
+
+.loading-item {
+
+  padding: 10px 0;
+
+  color: #a2afbf;
+
+  font-size: 13px;
+
+}
+
+.loading-item i {
+
+  margin-right: 8px;
+
+  color: #d3ddea;
+
+}
+
+.loading-item.active {
+
+  color: var(--text);
+
+}
+
+.loading-item.active i {
+
+  color: var(--green);
+
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.report-result {
+
+  display: none;
+
+  max-width: 900px;
+
+  margin:
+    0 auto;
+
+}
+
+.report-result-card {
+
+  padding: 45px 35px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  text-align: center;
+
+  box-shadow:
+    0 10px 35px
+    rgba(6,26,59,0.06);
+
+}
+
+.result-icon {
+
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin:
+    0 auto 20px;
+
+  border-radius: 50%;
+
+  background: var(--green-light);
+
+  color: var(--green);
+
+  font-size: 28px;
+
+}
+
+.report-result-card h2 {
+
+  margin-bottom: 10px;
+
+  color: var(--navy);
+
+  font-size: 27px;
+
+  font-weight: 800;
+
+}
+
+.report-result-card > p {
+
+  max-width: 650px;
+
+  margin:
+    0 auto;
+
+  color: var(--muted);
+
+  font-size: 14px;
+
+}
+
+.result-status {
+
+  max-width: 500px;
+
+  margin:
+    25px auto;
+
+  padding:
+    17px;
+
+  border-radius: 10px;
+
+  background: #f8fbfe;
+
+  text-align: left;
+
+}
+
+.result-status div {
+
+  padding: 7px 0;
+
+  color: #4d5d73;
+
+  font-size: 13px;
+
+}
+
+.result-status i {
+
+  margin-right: 8px;
+
+  color: var(--green);
+
+}
+
+.api-required-box {
+
+  max-width: 700px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 13px;
+
+  margin:
+    25px auto;
+
+  padding:
+    18px;
+
+  border:
+    1px solid
+    #f0dba8;
+
+  border-radius: 10px;
+
+  background: #fffaf0;
+
+  color: #765a1c;
+
+  text-align: left;
+
+}
+
+.api-required-box > i {
+
+  margin-top: 3px;
+
+  color: #d89b19;
+
+}
+
+.api-required-box strong {
+
+  display: block;
+
+  margin-bottom: 5px;
+
+  font-size: 14px;
+
+}
+
+.api-required-box p {
+
+  margin: 0;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+
+}
+
+.new-request-btn {
+
+  padding:
+    12px 20px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: var(--navy);
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+}
+
+.new-request-btn:hover {
+
+  border-color: var(--blue);
+
+  color: var(--blue);
+
+}
+
+
+/* =========================================================
+   FLOATING BUTTONS
+========================================================= */
+
+.whatsapp-float,
+.callnow-float {
+
+  position: fixed;
+
+  bottom: 20px;
+
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  z-index: 999;
+
+  font-size: 22px;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 6px 18px
+    rgba(0,0,0,0.2);
+
+  transition:
+    transform 0.25s ease;
+
+}
+
+.whatsapp-float {
+
+  right: 20px;
+
+  background: #25d366;
+
+}
+
+.callnow-float {
+
+  right: 88px;
+
+  background: #e64949;
+
+}
+
+.whatsapp-float:hover,
+.callnow-float:hover {
+
+  color: #ffffff;
+
+  transform:
+    translateY(-4px);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 991px) {
+
+  .cibil-hero {
+
+    padding:
+      70px 0 80px;
+
+  }
+
+  .hero-score-card {
+
+    margin-top: 15px;
+
+  }
+
+}
+
+
+@media (max-width: 767px) {
+
+  .cibil-hero {
+
+    padding:
+      55px 0 65px;
+
+  }
+
+  .cibil-hero h1 {
+
+    font-size: 40px;
+
+  }
+
+  .cibil-hero p {
+
+    font-size: 15px;
+
+  }
+
+  .hero-points {
+
+    display: block;
+
+  }
+
+  .hero-points div {
+
+    margin-bottom: 8px;
+
+  }
+
+  .cibil-main {
+
+    padding:
+      40px 0 70px;
+
+  }
+
+  .cibil-card {
+
+    padding:
+      25px 20px;
+
+  }
+
+  .card-heading h2 {
+
+    font-size: 22px;
+
+  }
+
+  .customer-summary {
+
+    grid-template-columns: 1fr;
+
+  }
+
+  .progress-step {
+
+    min-width: 45px;
+
+  }
+
+  .progress-step span {
+
+    display: none;
+
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .cibil-hero h1 {
+
+    font-size: 34px;
+
+  }
+
+  .hero-score-card {
+
+    padding:
+      24px 20px;
+
+  }
+
+  .progress-circle {
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 12px;
+
+  }
+
+  .progress-line {
+
+    margin-top: 18px;
+
+  }
+
+  .otp-input {
+
+    font-size: 20px;
+
+  }
+
+  .report-result-card {
+
+    padding:
+      35px 20px;
+
+  }
+
+  .report-result-card h2 {
+
+    font-size: 23px;
+
+  }
+
+  .whatsapp-float,
+  .callnow-float {
+
+    width: 50px;
+    height: 50px;
+
+    bottom: 15px;
+
+    font-size: 20px;
+
+  }
+
+  .whatsapp-float {
+
+    right: 15px;
+
+  }
+
+  .callnow-float {
+
+    right: 77px;
+
+  }
+
+}
